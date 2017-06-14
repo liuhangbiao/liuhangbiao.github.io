@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="道心博客">
 <meta property="og:description" content="Webpack是一款前端自动化打包工具，类似gulp,grunt">
 <meta property="og:image" content="http://jsgu.net/2017/06/14/webpack入门级教程/p1.png">
-<meta property="og:updated_time" content="2017-06-14T05:17:08.823Z">
+<meta property="og:updated_time" content="2017-06-14T08:21:24.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入门级教程">
 <meta name="twitter:description" content="Webpack是一款前端自动化打包工具，类似gulp,grunt">
@@ -111,7 +111,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Webpack是一款前端自动化打包工具，类似gulp,grunt<br><a id="more"></a></p>
-<h2 id="Webpack是什么"><a href="#Webpack是什么" class="headerlink" title="Webpack是什么"></a>Webpack是什么</h2><p>首先可以看下<a href="http://webpack.github.io/" target="_blank" rel="external">官方文档</a>, <a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">这里</a>国外的一个朋友有介绍。Webpack是由Tobias Koppers开发的一个开源前端模块构建工具。它的基本功能是将以模块格式书写的多个JavaScript文件打包成一个文件，同时支持CommonJS和AMD格式。但让它与众不同的是，它提供了强大的loader API来定义对不同文件格式的预处理逻辑，从而让我们可以将CSS、模板，甚至是自定义的文件格式当做JavaScript模块来使用。Webpack 基于loader还可以实现大量高级功能，比如自动分块打包并按需加载、对图片资源引用的自动定位、根据图片大小决定是否用base64内联、开发时的模块热替换等等，可以说是目前前端构建领域最有竞争力的解决方案之一。<br><img src="/2017/06/14/webpack入门级教程/p1.png" alt="作用"></p>
+<h2 id="Webpack是什么"><a href="#Webpack是什么" class="headerlink" title="Webpack是什么"></a>Webpack是什么</h2><p>首先可以看下<a href="http://webpack.github.io/" target="_blank" rel="external">官方文档</a>, <a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">这里</a>。Webpack是由Tobias Koppers开发的一个开源前端模块构建工具。它的基本功能是将以模块格式书写的多个JavaScript文件打包成一个文件，同时支持CommonJS和AMD格式。但让它与众不同的是，它提供了强大的loader API来定义对不同文件格式的预处理逻辑，从而让我们可以将CSS、模板，甚至是自定义的文件格式当做JavaScript模块来使用。Webpack 基于loader还可以实现大量高级功能，比如自动分块打包并按需加载、对图片资源引用的自动定位、根据图片大小决定是否用base64内联、开发时的模块热替换等等，可以说是目前前端构建领域最有竞争力的解决方案之一。<br><img src="/2017/06/14/webpack入门级教程/p1.png" alt="作用"></p>
 <h2 id="为什么使用Webpack"><a href="#为什么使用Webpack" class="headerlink" title="为什么使用Webpack"></a>为什么使用Webpack</h2><ul>
 <li>他类似browserify 但是可以把你的应用分离成许多文件，如果你有许多页面在你的单页应用里面，用户只需要下载当前页面所需要的代码。如果你跳转到另一个页面，他们不需要重新加载通用的代码。</li>
 <li>他能替代grunt或者gulp大部分的功能 因为他可以构建和打包CSS，预处理CSS，编译JS和打包处理图片，甚至更多事情。</li>
@@ -171,7 +171,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
          <!--  
           
             <p>Webpack是一款前端自动化打包工具，类似gulp,grunt<br><a id="more"></a></p>
-<h2 id="Webpack是什么"><a href="#Webpack是什么" class="headerlink" title="Webpack是什么"></a>Webpack是什么</h2><p>首先可以看下<a href="http://webpack.github.io/" target="_blank" rel="external">官方文档</a>, <a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">这里</a>国外的一个朋友有介绍。Webpack是由Tobias Koppers开发的一个开源前端模块构建工具。它的基本功能是将以模块格式书写的多个JavaScript文件打包成一个文件，同时支持CommonJS和AMD格式。但让它与众不同的是，它提供了强大的loader API来定义对不同文件格式的预处理逻辑，从而让我们可以将CSS、模板，甚至是自定义的文件格式当做JavaScript模块来使用。Webpack 基于loader还可以实现大量高级功能，比如自动分块打包并按需加载、对图片资源引用的自动定位、根据图片大小决定是否用base64内联、开发时的模块热替换等等，可以说是目前前端构建领域最有竞争力的解决方案之一。<br><img src="/2017/06/14/webpack入门级教程/p1.png" alt="作用"></p>
+<h2 id="Webpack是什么"><a href="#Webpack是什么" class="headerlink" title="Webpack是什么"></a>Webpack是什么</h2><p>首先可以看下<a href="http://webpack.github.io/" target="_blank" rel="external">官方文档</a>, <a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">这里</a>。Webpack是由Tobias Koppers开发的一个开源前端模块构建工具。它的基本功能是将以模块格式书写的多个JavaScript文件打包成一个文件，同时支持CommonJS和AMD格式。但让它与众不同的是，它提供了强大的loader API来定义对不同文件格式的预处理逻辑，从而让我们可以将CSS、模板，甚至是自定义的文件格式当做JavaScript模块来使用。Webpack 基于loader还可以实现大量高级功能，比如自动分块打包并按需加载、对图片资源引用的自动定位、根据图片大小决定是否用base64内联、开发时的模块热替换等等，可以说是目前前端构建领域最有竞争力的解决方案之一。<br><img src="/2017/06/14/webpack入门级教程/p1.png" alt="作用"></p>
 <h2 id="为什么使用Webpack"><a href="#为什么使用Webpack" class="headerlink" title="为什么使用Webpack"></a>为什么使用Webpack</h2><ul>
 <li>他类似browserify 但是可以把你的应用分离成许多文件，如果你有许多页面在你的单页应用里面，用户只需要下载当前页面所需要的代码。如果你跳转到另一个页面，他们不需要重新加载通用的代码。</li>
 <li>他能替代grunt或者gulp大部分的功能 因为他可以构建和打包CSS，预处理CSS，编译JS和打包处理图片，甚至更多事情。</li>
@@ -222,7 +222,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jsgu.net/2017/06/14/webpack入门级教程/" data-id="cj3wpd4mi0001cgvuyw4qxta2" class="article-share-link">Share</a>
+      <a data-url="http://jsgu.net/2017/06/14/webpack入门级教程/" data-id="cj3wtbydl0006r4vuinap6kbx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/img/">img</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -275,7 +275,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/语法规范/" style="font-size: 10px;">语法规范</a>
+      <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/语法规范/" style="font-size: 15px;">语法规范</a>
     </div>
   </div>
 
@@ -297,19 +297,23 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
       <ul>
         
           <li>
+            <a href="/2017/06/14/基于node构建的web前端自动化项目/">基于node构建的web前端自动化项目</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/14/REST-API规范整理/">REST_API规范整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/14/axios入门/">axios入门级教程</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/14/JSLint检测Javascript语法规范/">JSLint检测Javascript语法规范</a>
           </li>
         
           <li>
             <a href="/2017/06/14/node-js之fs模块/">node.js之fs模块</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/14/代码注释图片/">新意的代码注释</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/14/webpack入门级教程/">webpack入门级教程</a>
           </li>
         
       </ul>
