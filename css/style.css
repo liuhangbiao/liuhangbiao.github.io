@@ -1372,3 +1372,6 @@ pre .javascript .function {
   margin-right: 5px;
   display: inline-block;
 }
+#sub-nav {
+  display: none;
+}
