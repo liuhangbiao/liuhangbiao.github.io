@@ -1372,6 +1372,10 @@ pre .javascript .function {
   margin-right: 5px;
   display: inline-block;
 }
+#bdcsMain {
+  height: 26px;
+  width: 100%;
+}
 #sub-nav {
   display: none;
 }
