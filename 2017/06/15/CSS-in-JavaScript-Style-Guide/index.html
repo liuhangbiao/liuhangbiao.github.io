@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS-in-JavaScript-Style-Guide | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用更合理的方式写  CSS-in-JavaScript">
+<meta name="keywords" content="css,js,语法规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-in-JavaScript-Style-Guide">
+<meta property="og:url" content="http://jsgu.net/2017/06/15/CSS-in-JavaScript-Style-Guide/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="用更合理的方式写  CSS-in-JavaScript">
+<meta property="og:updated_time" content="2017-06-15T07:49:15.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS-in-JavaScript-Style-Guide">
+<meta name="twitter:description" content="用更合理的方式写  CSS-in-JavaScript">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS-in-JavaScript-Style-Guide" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/15/CSS-in-JavaScript-Style-Guide/" class="article-date">
+  <time datetime="2017-06-15T03:12:51.000Z" itemprop="datePublished">2017-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS-in-JavaScript-Style-Guide
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用更合理的方式写  CSS-in-JavaScript</p>
+<a id="more"></a>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="table-of-contents">目录</a></h2><ol>
+<li><a href="#Naming">命名</a></li>
+<li><a href="#Ordering">排序</a></li>
+<li><a href="#Nesting">嵌套</a></li>
+<li><a href="#Inline">内联</a></li>
+<li><a href="#Themes">主题</a></li>
+</ol>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a><a name="Naming">命名</a></h2><ul>
+<li>Use camelCase for object keys (i.e. “selectors”).</li>
+</ul>
+<blockquote>
+<p>Why? We access these keys as properties on the <code>styles</code> object in the component, so it is most convenient to use camelCase.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="string">'bermuda-triangle'</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bermudaTriangle</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use an underscore for modifiers to other styles.</li>
+</ul>
+<blockquote>
+<p>Why? Similar to BEM, this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bruceBanner</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'pink'</span>,</div><div class="line">    <span class="attr">transition</span>: <span class="string">'color 10s'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">bruceBannerTheHulk</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bruceBanner</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'pink'</span>,</div><div class="line">    <span class="attr">transition</span>: <span class="string">'color 10s'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">bruceBanner_theHulk</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use <code>selectorName_fallback</code> for sets of fallback styles.</li>
+</ul>
+<blockquote>
+<p>Why? Similar to modifiers, keeping the naming consistent helps reveal the relationship of these styles to the styles that override them in more adequate browsers.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">muscles_sadBears</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">muscles_fallback</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use a separate selector for sets of fallback styles.</li>
+</ul>
+<blockquote>
+<p>Why? Keeping fallback styles contained in a separate object clarifies their purpose, which improves readability.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">left</span>: &#123;</div><div class="line">    <span class="attr">flexGrow</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">right</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">left</span>: &#123;</div><div class="line">    <span class="attr">flexGrow</span>: <span class="number">1</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">left_fallback</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">right_fallback</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use device-agnostic names (e.g. “small”, “medium”, and “large”) to name media query breakpoints.</li>
+</ul>
+<blockquote>
+<p>Why? Commonly used names like “phone”, “tablet”, and “desktop” do not match the characteristics of the devices in the real world. Using these names sets the wrong expectations.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">const</span> breakpoints = &#123;</div><div class="line">  <span class="attr">mobile</span>: <span class="string">'@media (max-width: 639px)'</span>,</div><div class="line">  <span class="attr">tablet</span>: <span class="string">'@media (max-width: 1047px)'</span>,</div><div class="line">  <span class="attr">desktop</span>: <span class="string">'@media (min-width: 1048px)'</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">const</span> breakpoints = &#123;</div><div class="line">  <span class="attr">small</span>: <span class="string">'@media (max-width: 639px)'</span>,</div><div class="line">  <span class="attr">medium</span>: <span class="string">'@media (max-width: 1047px)'</span>,</div><div class="line">  <span class="attr">large</span>: <span class="string">'@media (min-width: 1048px)'</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a><a name="Ordering">排序</a></h2><ul>
+<li>Define styles after the component.</li>
+</ul>
+<blockquote>
+<p>Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">const</span> styles = &#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">&#123; styles &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> &#123;<span class="attr">...css</span>(<span class="attr">styles.container</span>)&#125;&gt;</span></span></div><div class="line">      Never doubt that a small group of thoughtful, committed citizens can</div><div class="line">      change the world. Indeed, it’s the only thing that ever has.</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> styles)(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">&#123; styles &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> &#123;<span class="attr">...css</span>(<span class="attr">styles.container</span>)&#125;&gt;</span></span></div><div class="line">      Never doubt that a small group of thoughtful, committed citizens can</div><div class="line">      change the world. Indeed, it’s the only thing that ever has.</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a><a name="Nesting">嵌套</a></h2><ul>
+<li>Leave a blank line between adjacent blocks at the same indentation level.</li>
+</ul>
+<blockquote>
+<p>Why? The whitespace improves readability and reduces the likelihood of merge conflicts.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bigBang</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">    <span class="string">'::before'</span>: &#123;</div><div class="line">      <span class="attr">content</span>: <span class="string">"''"</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">universe</span>: &#123;</div><div class="line">    <span class="attr">border</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bigBang</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line"></div><div class="line">    <span class="string">'::before'</span>: &#123;</div><div class="line">      <span class="attr">content</span>: <span class="string">"''"</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">universe</span>: &#123;</div><div class="line">    <span class="attr">border</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="内联"><a href="#内联" class="headerlink" title="内联"></a><a name="Inline">内联</a></h2><ul>
+<li>Use inline styles for styles that have a high cardinality (e.g. uses the value of a prop) and not for styles that have a low cardinality.</li>
+</ul>
+<blockquote>
+<p>Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">&#123; spacing &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;div style=&#123;&#123; display: 'table', margin: spacing &#125;&#125; /&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 良好</div><div class="line">function MyComponent(&#123; styles, spacing &#125;) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div &#123;...css(styles.periodic, &#123; margin: spacing &#125;)&#125; /&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line">export default withStyles(() =&gt; (&#123;</div><div class="line">  periodic: &#123;</div><div class="line">    display: 'table',</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a><a name="Themes">主题</a></h2><ul>
+<li>Use an abstraction layer such as <a href="https://github.com/airbnb/react-with-styles" target="_blank" rel="external">react-with-styles</a> that enables theming. <em>react-with-styles gives us things like <code>withStyles()</code>, <code>ThemedStyleSheet</code>, and <code>css()</code> which are used in some of the examples in this document.</em></li>
+</ul>
+<blockquote>
+<p>Why? It is useful to have a set of shared variables for styling your components. Using an abstraction layer makes this more convenient. Additionally, this can help prevent your components from being tightly coupled to any particular underlying implementation, which gives you more freedom.</p>
+</blockquote>
+<ul>
+<li>Define colors only in themes.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">chuckNorris</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'#bada55'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; color &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">chuckNorris</span>: &#123;</div><div class="line">    <span class="attr">color</span>: color.badass,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define fonts only in themes.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    <span class="attr">fontStyle</span>: <span class="string">'italic'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; font &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    <span class="attr">fontStyle</span>: font.italic,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define fonts as sets of related styles.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    <span class="attr">fontFamily</span>: <span class="string">'Italiana, "Times New Roman", serif'</span>,</div><div class="line">    <span class="attr">fontSize</span>: <span class="string">'2em'</span>,</div><div class="line">    <span class="attr">fontStyle</span>: <span class="string">'italic'</span>,</div><div class="line">    <span class="attr">lineHeight</span>: <span class="number">1.5</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; font &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    ...font.italian,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define base grid units in theme (either as a value or a function that takes a multiplier).</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">rip</span>: &#123;</div><div class="line">    <span class="attr">bottom</span>: <span class="string">'-6912px'</span>, <span class="comment">// 6 feet</span></div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; units &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">rip</span>: &#123;</div><div class="line">    <span class="attr">bottom</span>: units(<span class="number">864</span>), <span class="comment">// 6 feet, assuming our unit is 8px</span></div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; unit &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">rip</span>: &#123;</div><div class="line">    <span class="attr">bottom</span>: <span class="number">864</span> * unit, <span class="comment">// 6 feet, assuming our unit is 8px</span></div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define media queries only in themes.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line"></div><div class="line">    <span class="string">'@media (max-width: 1047px)'</span>: &#123;</div><div class="line">      <span class="attr">width</span>: <span class="string">'50%'</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; breakpoint &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line"></div><div class="line">    [breakpoint.medium]: &#123;</div><div class="line">      <span class="attr">width</span>: <span class="string">'50%'</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define tricky fallback properties in themes.</li>
+</ul>
+<blockquote>
+<p>Why? Many CSS-in-JavaScript implementations merge style objects together which makes specifying fallbacks for the same property (e.g. <code>display</code>) a little tricky. To keep the approach unified, put these fallbacks in the theme.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  .muscles &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  .muscles_fallback &#123;</div><div class="line">    <span class="string">'display '</span>: <span class="string">'table'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; fallbacks &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  .muscles &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  .muscles_fallback &#123;</div><div class="line">    [fallbacks.display]: <span class="string">'table'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; fallback &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  .muscles &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  .muscles_fallback &#123;</div><div class="line">    [fallback(<span class="string">'display'</span>)]: <span class="string">'table'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Create as few custom themes as possible. Many applications may only have one theme.</p>
+</li>
+<li><p>Namespace custom theme settings under a nested object with a unique and descriptive key.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">ThemedStyleSheet.registerTheme(<span class="string">'mySection'</span>, &#123;</div><div class="line">  <span class="attr">mySectionPrimaryColor</span>: <span class="string">'green'</span>,</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">ThemedStyleSheet.registerTheme(<span class="string">'mySection'</span>, &#123;</div><div class="line">  <span class="attr">mySection</span>: &#123;</div><div class="line">    <span class="attr">primaryColor</span>: <span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>CSS puns adapted from <a href="http://saijogeorge.com/css-puns/" target="_blank" rel="external">Saijo George</a>.</p>
+       
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>用更合理的方式写  CSS-in-JavaScript</p>
+<a id="more"></a>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="table-of-contents">目录</a></h2><ol>
+<li><a href="#Naming">命名</a></li>
+<li><a href="#Ordering">排序</a></li>
+<li><a href="#Nesting">嵌套</a></li>
+<li><a href="#Inline">内联</a></li>
+<li><a href="#Themes">主题</a></li>
+</ol>
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a><a name="Naming">命名</a></h2><ul>
+<li>Use camelCase for object keys (i.e. “selectors”).</li>
+</ul>
+<blockquote>
+<p>Why? We access these keys as properties on the <code>styles</code> object in the component, so it is most convenient to use camelCase.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="string">'bermuda-triangle'</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bermudaTriangle</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use an underscore for modifiers to other styles.</li>
+</ul>
+<blockquote>
+<p>Why? Similar to BEM, this naming convention makes it clear that the styles are intended to modify the element preceded by the underscore. Underscores do not need to be quoted, so they are preferred over other characters, such as dashes.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bruceBanner</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'pink'</span>,</div><div class="line">    <span class="attr">transition</span>: <span class="string">'color 10s'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">bruceBannerTheHulk</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bruceBanner</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'pink'</span>,</div><div class="line">    <span class="attr">transition</span>: <span class="string">'color 10s'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">bruceBanner_theHulk</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use <code>selectorName_fallback</code> for sets of fallback styles.</li>
+</ul>
+<blockquote>
+<p>Why? Similar to modifiers, keeping the naming consistent helps reveal the relationship of these styles to the styles that override them in more adequate browsers.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">muscles_sadBears</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">muscles_fallback</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use a separate selector for sets of fallback styles.</li>
+</ul>
+<blockquote>
+<p>Why? Keeping fallback styles contained in a separate object clarifies their purpose, which improves readability.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">left</span>: &#123;</div><div class="line">    <span class="attr">flexGrow</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">right</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">muscles</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">left</span>: &#123;</div><div class="line">    <span class="attr">flexGrow</span>: <span class="number">1</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">left_fallback</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">right_fallback</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Use device-agnostic names (e.g. “small”, “medium”, and “large”) to name media query breakpoints.</li>
+</ul>
+<blockquote>
+<p>Why? Commonly used names like “phone”, “tablet”, and “desktop” do not match the characteristics of the devices in the real world. Using these names sets the wrong expectations.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">const</span> breakpoints = &#123;</div><div class="line">  <span class="attr">mobile</span>: <span class="string">'@media (max-width: 639px)'</span>,</div><div class="line">  <span class="attr">tablet</span>: <span class="string">'@media (max-width: 1047px)'</span>,</div><div class="line">  <span class="attr">desktop</span>: <span class="string">'@media (min-width: 1048px)'</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">const</span> breakpoints = &#123;</div><div class="line">  <span class="attr">small</span>: <span class="string">'@media (max-width: 639px)'</span>,</div><div class="line">  <span class="attr">medium</span>: <span class="string">'@media (max-width: 1047px)'</span>,</div><div class="line">  <span class="attr">large</span>: <span class="string">'@media (min-width: 1048px)'</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a><a name="Ordering">排序</a></h2><ul>
+<li>Define styles after the component.</li>
+</ul>
+<blockquote>
+<p>Why? We use a higher-order component to theme our styles, which is naturally used after the component definition. Passing the styles object directly to this function reduces indirection.</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">const</span> styles = &#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">&#123; styles &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> &#123;<span class="attr">...css</span>(<span class="attr">styles.container</span>)&#125;&gt;</span></span></div><div class="line">      Never doubt that a small group of thoughtful, committed citizens can</div><div class="line">      change the world. Indeed, it’s the only thing that ever has.</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> styles)(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">&#123; styles &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> &#123;<span class="attr">...css</span>(<span class="attr">styles.container</span>)&#125;&gt;</span></span></div><div class="line">      Never doubt that a small group of thoughtful, committed citizens can</div><div class="line">      change the world. Indeed, it’s the only thing that ever has.</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a><a name="Nesting">嵌套</a></h2><ul>
+<li>Leave a blank line between adjacent blocks at the same indentation level.</li>
+</ul>
+<blockquote>
+<p>Why? The whitespace improves readability and reduces the likelihood of merge conflicts.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bigBang</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line">    <span class="string">'::before'</span>: &#123;</div><div class="line">      <span class="attr">content</span>: <span class="string">"''"</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">universe</span>: &#123;</div><div class="line">    <span class="attr">border</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">bigBang</span>: &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'inline-block'</span>,</div><div class="line"></div><div class="line">    <span class="string">'::before'</span>: &#123;</div><div class="line">      <span class="attr">content</span>: <span class="string">"''"</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">universe</span>: &#123;</div><div class="line">    <span class="attr">border</span>: <span class="string">'none'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="内联"><a href="#内联" class="headerlink" title="内联"></a><a name="Inline">内联</a></h2><ul>
+<li>Use inline styles for styles that have a high cardinality (e.g. uses the value of a prop) and not for styles that have a low cardinality.</li>
+</ul>
+<blockquote>
+<p>Why? Generating themed stylesheets can be expensive, so they are best for discrete sets of styles.</p>
+</blockquote>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">MyComponent</span>(<span class="params">&#123; spacing &#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;div style=&#123;&#123; display: 'table', margin: spacing &#125;&#125; /&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 良好</div><div class="line">function MyComponent(&#123; styles, spacing &#125;) &#123;</div><div class="line">  return (</div><div class="line">    &lt;div &#123;...css(styles.periodic, &#123; margin: spacing &#125;)&#125; /&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line">export default withStyles(() =&gt; (&#123;</div><div class="line">  periodic: &#123;</div><div class="line">    display: 'table',</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a><a name="Themes">主题</a></h2><ul>
+<li>Use an abstraction layer such as <a href="https://github.com/airbnb/react-with-styles" target="_blank" rel="external">react-with-styles</a> that enables theming. <em>react-with-styles gives us things like <code>withStyles()</code>, <code>ThemedStyleSheet</code>, and <code>css()</code> which are used in some of the examples in this document.</em></li>
+</ul>
+<blockquote>
+<p>Why? It is useful to have a set of shared variables for styling your components. Using an abstraction layer makes this more convenient. Additionally, this can help prevent your components from being tightly coupled to any particular underlying implementation, which gives you more freedom.</p>
+</blockquote>
+<ul>
+<li>Define colors only in themes.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">chuckNorris</span>: &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'#bada55'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; color &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">chuckNorris</span>: &#123;</div><div class="line">    <span class="attr">color</span>: color.badass,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define fonts only in themes.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    <span class="attr">fontStyle</span>: <span class="string">'italic'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; font &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    <span class="attr">fontStyle</span>: font.italic,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define fonts as sets of related styles.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    <span class="attr">fontFamily</span>: <span class="string">'Italiana, "Times New Roman", serif'</span>,</div><div class="line">    <span class="attr">fontSize</span>: <span class="string">'2em'</span>,</div><div class="line">    <span class="attr">fontStyle</span>: <span class="string">'italic'</span>,</div><div class="line">    <span class="attr">lineHeight</span>: <span class="number">1.5</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; font &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">towerOfPisa</span>: &#123;</div><div class="line">    ...font.italian,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define base grid units in theme (either as a value or a function that takes a multiplier).</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">rip</span>: &#123;</div><div class="line">    <span class="attr">bottom</span>: <span class="string">'-6912px'</span>, <span class="comment">// 6 feet</span></div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; units &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">rip</span>: &#123;</div><div class="line">    <span class="attr">bottom</span>: units(<span class="number">864</span>), <span class="comment">// 6 feet, assuming our unit is 8px</span></div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; unit &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">rip</span>: &#123;</div><div class="line">    <span class="attr">bottom</span>: <span class="number">864</span> * unit, <span class="comment">// 6 feet, assuming our unit is 8px</span></div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define media queries only in themes.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line"></div><div class="line">    <span class="string">'@media (max-width: 1047px)'</span>: &#123;</div><div class="line">      <span class="attr">width</span>: <span class="string">'50%'</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; breakpoint &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'100%'</span>,</div><div class="line"></div><div class="line">    [breakpoint.medium]: &#123;</div><div class="line">      <span class="attr">width</span>: <span class="string">'50%'</span>,</div><div class="line">    &#125;,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li>Define tricky fallback properties in themes.</li>
+</ul>
+<blockquote>
+<p>Why? Many CSS-in-JavaScript implementations merge style objects together which makes specifying fallbacks for the same property (e.g. <code>display</code>) a little tricky. To keep the approach unified, put these fallbacks in the theme.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</div><div class="line">  .muscles &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  .muscles_fallback &#123;</div><div class="line">    <span class="string">'display '</span>: <span class="string">'table'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; fallbacks &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  .muscles &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  .muscles_fallback &#123;</div><div class="line">    [fallbacks.display]: <span class="string">'table'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> withStyles(<span class="function">(<span class="params">&#123; fallback &#125;</span>) =&gt;</span> (&#123;</div><div class="line">  .muscles &#123;</div><div class="line">    <span class="attr">display</span>: <span class="string">'flex'</span>,</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  .muscles_fallback &#123;</div><div class="line">    [fallback(<span class="string">'display'</span>)]: <span class="string">'table'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;))(MyComponent);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>Create as few custom themes as possible. Many applications may only have one theme.</p>
+</li>
+<li><p>Namespace custom theme settings under a nested object with a unique and descriptive key.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 糟糕</span></div><div class="line">ThemedStyleSheet.registerTheme(<span class="string">'mySection'</span>, &#123;</div><div class="line">  <span class="attr">mySectionPrimaryColor</span>: <span class="string">'green'</span>,</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 良好</span></div><div class="line">ThemedStyleSheet.registerTheme(<span class="string">'mySection'</span>, &#123;</div><div class="line">  <span class="attr">mySection</span>: &#123;</div><div class="line">    <span class="attr">primaryColor</span>: <span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>CSS puns adapted from <a href="http://saijogeorge.com/css-puns/" target="_blank" rel="external">Saijo George</a>.</p>
+
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/06/15/CSS-in-JavaScript-Style-Guide/" data-id="cj3y4pgdq0001ckvucc9y6rvl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语法规范/">语法规范</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/15/CSS-Sass-Style-Guide/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS-Sass-Style-Guide
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/15/JavaScript-Style-Guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript-Style-Guide</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/语法规范/" style="font-size: 17.5px;">语法规范</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/15/CSS-Sass-Style-Guide/">CSS-Sass-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-in-JavaScript-Style-Guide/">CSS-in-JavaScript-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/JavaScript-Style-Guide/">JavaScript-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/Markdown语法手册/">Markdown语法手册</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/14/基于node构建的web前端自动化项目/">基于node构建的web前端自动化项目</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
