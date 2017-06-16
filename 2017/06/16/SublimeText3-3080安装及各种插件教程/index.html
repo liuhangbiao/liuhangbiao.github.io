@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sublime Text3 3080安装及各种插件教程 | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="作为一个前端开发人员，搭建自己喜欢的开发环境是必要的！Sublime Text3 作为一个前端开发利器是必备的， 会用是不够的，必须学会如何安装配置；作为一个windows用户很多命令行操作是很不习惯的，但有些地方命令行命令行也是必需的。">
+<meta name="keywords" content="Sublime Text,编辑器,插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text3 3080安装及各种插件教程">
+<meta property="og:url" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="作为一个前端开发人员，搭建自己喜欢的开发环境是必要的！Sublime Text3 作为一个前端开发利器是必备的， 会用是不够的，必须学会如何安装配置；作为一个windows用户很多命令行操作是很不习惯的，但有些地方命令行命令行也是必需的。">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p1.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p2.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p3.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p4.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p5.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p6.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p7.jpg">
+<meta property="og:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p8.jpg">
+<meta property="og:updated_time" content="2017-06-16T02:30:07.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime Text3 3080安装及各种插件教程">
+<meta name="twitter:description" content="作为一个前端开发人员，搭建自己喜欢的开发环境是必要的！Sublime Text3 作为一个前端开发利器是必备的， 会用是不够的，必须学会如何安装配置；作为一个windows用户很多命令行操作是很不习惯的，但有些地方命令行命令行也是必需的。">
+<meta name="twitter:image" content="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/p1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SublimeText3-3080安装及各种插件教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/16/SublimeText3-3080安装及各种插件教程/" class="article-date">
+  <time datetime="2017-06-16T01:59:23.000Z" itemprop="datePublished">2017-06-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/教程指导/">教程指导</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sublime Text3 3080安装及各种插件教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为一个前端开发人员，搭建自己喜欢的开发环境是必要的！Sublime Text3 作为一个前端开发利器是必备的， 会用是不够的，必须学会如何安装配置；作为一个windows用户很多命令行操作是很不习惯的，但有些地方命令行命令行也是必需的。</p>
+<a id="more"></a>
+<h2 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h2><p>. Sublime Text<br>. Nodejs</p>
+<h2 id="方法-步骤"><a href="#方法-步骤" class="headerlink" title="方法/步骤"></a>方法/步骤</h2><p>1 . 打开Sublime Text3 官网   <a href="http://www.sublimetext.com/3" target="_blank" rel="external">http://www.sublimetext.com/3</a><br>并下载与自己系统相关版本的Sublime Text 3</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p1.jpg" alt="Sublime Text3 官网"></p>
+<p>2 . 双击 打开安装文件或者右键管理员运行</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p2.jpg" alt="安装文件"></p>
+<p>3 .  Sublime Text3  不是免费的所以我们需要…，你懂得（不建议啊）<br>打开Sublime Text 3，点击菜单 Help 选择 Enter License 输入下面注册码，然后点击Use License就注册成功!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">----- BEGIN LICENSE ----- </div><div class="line">Andrew Weber </div><div class="line">Single User License </div><div class="line">EA7E-855605 </div><div class="line">813A03DD 5E4AD9E6 6C0EEB94 BC99798F </div><div class="line">942194A6 02396E98 E62C9979 4BB979FE </div><div class="line">91424C9D A45400BF F6747D88 2FB88078 </div><div class="line">90F5CC94 1CDC92DC 8457107A F151657B </div><div class="line">1D22E383 A997F016 42397640 33F41CFC </div><div class="line">E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D </div><div class="line">5CDB7036 E56DE1C0 EFCC0840 650CD3A6 </div><div class="line">B98FC99C 8FAC73EE D2B95564 DF450523 </div><div class="line">------ END LICENSE ------</div></pre></td></tr></table></figure>
+<p>打开菜单 Help —》About Sublime Text 如图表示注册码添加成功</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p3.jpg" alt="查看注册码是否添加成功"></p>
+<p>4 . 开始安装Package Control：</p>
+<p>一、简单的安装方法<br>使用Ctrl+`快捷键或者通过View-&gt;Show Console菜单打开命令行，粘贴如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
+<p>安装成功后，就可以在Preferences菜单下看到Package Settings和Package Control两个菜单。<br>顺便贴下Sublime Text2 的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib2,os; pf=&apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), &apos;wb&apos; ).write( urllib2.urlopen( &apos;http://sublime.wbond.net/&apos; +pf.replace( &apos; &apos;,&apos;%20&apos; )).read()); print( &apos;Please restart Sublime Text to finish installation&apos;)</div></pre></td></tr></table></figure></p>
+<p>二、手动安装<br>可能由于各种原因，无法使用代码安装，那可以通过以下步骤手动安装Package Control：</p>
+<p>1.点击Preferences &gt; Browse Packages菜单<br>2.进入打开的目录的上层目录，然后再进入Installed Packages/目录<br>3.下载Package Control.sublime-package并复制到Installed Packages/目录<br>4.重启Sublime Text。<br>可以参考：<a href="https://packagecontrol.io/installation#st3" target="_blank" rel="external">https://packagecontrol.io/installation#st3</a></p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p4.jpg" alt="手动安装 Package Control"></p>
+<p>5 .  下面的大部分插件都需要Package Control</p>
+<p>—————-sublime必装插件—————————–<br>1.emmet【Emmet html/CSS快速编辑（原名Zen Coding）】<br>2.sublimeCodeIntel SublimeCodeIntel自动提示功能<br>3，3.html/css/js prettify 格式化<br>【下载安装到Node.js 官网下载 32位版本（据说win x64版有问题）安装。确认Node.js安装路径鼠标右键HTML/CSS/JS Prettify &gt; Set Plugin Options保证插件路径与Node.js安装路径一致，Ctrl+s保存。】<br>4,SublimeLinter 检查语法错误[jshint;js语法 sublimeLinterCsshint,sublimeLinterJshint  依靠nodejs]<br>5,BracketHighlighter 高亮显示匹配的括号、引号和标签<br>6，TrailingSpacer 高亮显示多余的空格和Tab<br>7，SideBarEnhancements 侧边栏增强<br>8，CSScomb CSS属性排序 【C trl +S hift + C】<br>9,JsFormat javascript格式化【Ctrl+Alt+F】<br>10，SublimeTmpl 快速生成文件模板<br>11,AutoFileName 自动提示路径插件<br>12，LESS     less语法高亮<br>13，LESS2CSS [<a href="http://fdream.net/blog/article/783.aspx" target="_blank" rel="external">http://fdream.net/blog/article/783.aspx</a>]<br>14，DocBlockr  文档注释<br>15，html5<br>15，SublimeTmpl  文件模版<br>步骤：<br>ctrl+shift+p—&gt;输入Install Package–&gt;输入插件名称:如emmet<br>点击就自动安装了<br>（其它插件原理相同，这里就不做介绍了）<br>或者直接拷贝插件文件到：<br>\Sublime Text 3\Installed Packages 或 \Sublime Text 3\Packages<br>这个可以在Preferrences –&gt;Browse Packages…中找到插件安装目录</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p5.jpg" alt="找到Installed Packages"><br><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p6.jpg" alt="选择Package Control插件"></p>
+<p>6 . 注意 prettify，less等部分插件需要依赖nodejs:</p>
+<p>所以下面是nodejs安装教程：<br>首先，打开nodejs官网：   <a href="https://nodejs.org/download/" target="_blank" rel="external">https://nodejs.org/download/</a><br>下载相应的nodejs版本，一般默认会有npm(新版就不需要安装npm);<br>其次，双击安装文件安装到某一个目录 或者直接下一步<br>打开dos: <code>w+r--&gt;cmd</code><br>输入：<code>node -v</code><br>如果显示 v.0.12.2或者其他表示安装成功<br>less:<br>继续 <code>npm install less -gd</code><br>通过快捷键 Windows徽标键+R键 调出运行窗口，输入cmd，在命令行中输入lessc，如果有如下提示则表示设置成功:<br>no input files<br>整个步骤完成：<br>推荐：<br>emmet教程： <a href="http://emmet.evget.com/" target="_blank" rel="external">http://emmet.evget.com/</a><br>sublime  text插件地址：<a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a><br>web前端让生活更前端！</p>
+<p>编辑：道心 <a href="http://jingyan.baidu.com/article/73c3ce280a31f5e50343d9a9.html" target="_blank" rel="external">百度经验</a><br>个人主页：<a href="//www.jsgu.net">www.jsgu.net</a></p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p7.jpg" alt="找到与电脑匹配的版本"></p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p8.jpg" alt="查看是否安装成功"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>. 有些时候安装插件是很慢的，这个你懂的<br>. 有很多快捷键是无法使用的，需要自己从新设定快捷键</p>
+       
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>作为一个前端开发人员，搭建自己喜欢的开发环境是必要的！Sublime Text3 作为一个前端开发利器是必备的， 会用是不够的，必须学会如何安装配置；作为一个windows用户很多命令行操作是很不习惯的，但有些地方命令行命令行也是必需的。</p>
+<a id="more"></a>
+<h2 id="工具-原料"><a href="#工具-原料" class="headerlink" title="工具/原料"></a>工具/原料</h2><p>. Sublime Text<br>. Nodejs</p>
+<h2 id="方法-步骤"><a href="#方法-步骤" class="headerlink" title="方法/步骤"></a>方法/步骤</h2><p>1 . 打开Sublime Text3 官网   <a href="http://www.sublimetext.com/3" target="_blank" rel="external">http://www.sublimetext.com/3</a><br>并下载与自己系统相关版本的Sublime Text 3</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p1.jpg" alt="Sublime Text3 官网"></p>
+<p>2 . 双击 打开安装文件或者右键管理员运行</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p2.jpg" alt="安装文件"></p>
+<p>3 .  Sublime Text3  不是免费的所以我们需要…，你懂得（不建议啊）<br>打开Sublime Text 3，点击菜单 Help 选择 Enter License 输入下面注册码，然后点击Use License就注册成功!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">----- BEGIN LICENSE ----- </div><div class="line">Andrew Weber </div><div class="line">Single User License </div><div class="line">EA7E-855605 </div><div class="line">813A03DD 5E4AD9E6 6C0EEB94 BC99798F </div><div class="line">942194A6 02396E98 E62C9979 4BB979FE </div><div class="line">91424C9D A45400BF F6747D88 2FB88078 </div><div class="line">90F5CC94 1CDC92DC 8457107A F151657B </div><div class="line">1D22E383 A997F016 42397640 33F41CFC </div><div class="line">E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D </div><div class="line">5CDB7036 E56DE1C0 EFCC0840 650CD3A6 </div><div class="line">B98FC99C 8FAC73EE D2B95564 DF450523 </div><div class="line">------ END LICENSE ------</div></pre></td></tr></table></figure>
+<p>打开菜单 Help —》About Sublime Text 如图表示注册码添加成功</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p3.jpg" alt="查看注册码是否添加成功"></p>
+<p>4 . 开始安装Package Control：</p>
+<p>一、简单的安装方法<br>使用Ctrl+`快捷键或者通过View-&gt;Show Console菜单打开命令行，粘贴如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
+<p>安装成功后，就可以在Preferences菜单下看到Package Settings和Package Control两个菜单。<br>顺便贴下Sublime Text2 的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib2,os; pf=&apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), &apos;wb&apos; ).write( urllib2.urlopen( &apos;http://sublime.wbond.net/&apos; +pf.replace( &apos; &apos;,&apos;%20&apos; )).read()); print( &apos;Please restart Sublime Text to finish installation&apos;)</div></pre></td></tr></table></figure></p>
+<p>二、手动安装<br>可能由于各种原因，无法使用代码安装，那可以通过以下步骤手动安装Package Control：</p>
+<p>1.点击Preferences &gt; Browse Packages菜单<br>2.进入打开的目录的上层目录，然后再进入Installed Packages/目录<br>3.下载Package Control.sublime-package并复制到Installed Packages/目录<br>4.重启Sublime Text。<br>可以参考：<a href="https://packagecontrol.io/installation#st3" target="_blank" rel="external">https://packagecontrol.io/installation#st3</a></p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p4.jpg" alt="手动安装 Package Control"></p>
+<p>5 .  下面的大部分插件都需要Package Control</p>
+<p>—————-sublime必装插件—————————–<br>1.emmet【Emmet html/CSS快速编辑（原名Zen Coding）】<br>2.sublimeCodeIntel SublimeCodeIntel自动提示功能<br>3，3.html/css/js prettify 格式化<br>【下载安装到Node.js 官网下载 32位版本（据说win x64版有问题）安装。确认Node.js安装路径鼠标右键HTML/CSS/JS Prettify &gt; Set Plugin Options保证插件路径与Node.js安装路径一致，Ctrl+s保存。】<br>4,SublimeLinter 检查语法错误[jshint;js语法 sublimeLinterCsshint,sublimeLinterJshint  依靠nodejs]<br>5,BracketHighlighter 高亮显示匹配的括号、引号和标签<br>6，TrailingSpacer 高亮显示多余的空格和Tab<br>7，SideBarEnhancements 侧边栏增强<br>8，CSScomb CSS属性排序 【C trl +S hift + C】<br>9,JsFormat javascript格式化【Ctrl+Alt+F】<br>10，SublimeTmpl 快速生成文件模板<br>11,AutoFileName 自动提示路径插件<br>12，LESS     less语法高亮<br>13，LESS2CSS [<a href="http://fdream.net/blog/article/783.aspx" target="_blank" rel="external">http://fdream.net/blog/article/783.aspx</a>]<br>14，DocBlockr  文档注释<br>15，html5<br>15，SublimeTmpl  文件模版<br>步骤：<br>ctrl+shift+p—&gt;输入Install Package–&gt;输入插件名称:如emmet<br>点击就自动安装了<br>（其它插件原理相同，这里就不做介绍了）<br>或者直接拷贝插件文件到：<br>\Sublime Text 3\Installed Packages 或 \Sublime Text 3\Packages<br>这个可以在Preferrences –&gt;Browse Packages…中找到插件安装目录</p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p5.jpg" alt="找到Installed Packages"><br><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p6.jpg" alt="选择Package Control插件"></p>
+<p>6 . 注意 prettify，less等部分插件需要依赖nodejs:</p>
+<p>所以下面是nodejs安装教程：<br>首先，打开nodejs官网：   <a href="https://nodejs.org/download/" target="_blank" rel="external">https://nodejs.org/download/</a><br>下载相应的nodejs版本，一般默认会有npm(新版就不需要安装npm);<br>其次，双击安装文件安装到某一个目录 或者直接下一步<br>打开dos: <code>w+r--&gt;cmd</code><br>输入：<code>node -v</code><br>如果显示 v.0.12.2或者其他表示安装成功<br>less:<br>继续 <code>npm install less -gd</code><br>通过快捷键 Windows徽标键+R键 调出运行窗口，输入cmd，在命令行中输入lessc，如果有如下提示则表示设置成功:<br>no input files<br>整个步骤完成：<br>推荐：<br>emmet教程： <a href="http://emmet.evget.com/" target="_blank" rel="external">http://emmet.evget.com/</a><br>sublime  text插件地址：<a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a><br>web前端让生活更前端！</p>
+<p>编辑：道心 <a href="http://jingyan.baidu.com/article/73c3ce280a31f5e50343d9a9.html" target="_blank" rel="external">百度经验</a><br>个人主页：<a href="//www.jsgu.net">www.jsgu.net</a></p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p7.jpg" alt="找到与电脑匹配的版本"></p>
+<p><img src="/2017/06/16/SublimeText3-3080安装及各种插件教程/p8.jpg" alt="查看是否安装成功"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>. 有些时候安装插件是很慢的，这个你懂的<br>. 有很多快捷键是无法使用的，需要自己从新设定快捷键</p>
+
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/06/16/SublimeText3-3080安装及各种插件教程/" data-id="cj3zb9en3000es4vuzax8ejlj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime-Text/">Sublime Text</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编辑器/">编辑器</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/15/CSS-Sass-Style-Guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS-Sass-Style-Guide</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/16/SublimeText3-3080安装及各种插件教程/">Sublime Text3 3080安装及各种插件教程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-Sass-Style-Guide/">CSS-Sass-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-in-JavaScript-Style-Guide/">CSS-in-JavaScript-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/JavaScript-Style-Guide/">JavaScript-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/Markdown语法手册/">Markdown语法手册</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/语法规范/" style="font-size: 17.5px;">语法规范</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
