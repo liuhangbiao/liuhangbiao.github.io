@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>兼容umd的写法(amd、jquery、Commonjs、Node、global等) | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="umd的各种兼容写法，其中包含：amd、jquery、Commonjs、Node、global等，">
+<meta name="keywords" content="js,jquery,umd,amd,node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="兼容umd的写法(amd、jquery、Commonjs、Node、global等)">
+<meta property="og:url" content="http://jsgu.net/2017/06/16/umd兼容写法/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="umd的各种兼容写法，其中包含：amd、jquery、Commonjs、Node、global等，">
+<meta property="og:updated_time" content="2017-06-16T06:32:43.897Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="兼容umd的写法(amd、jquery、Commonjs、Node、global等)">
+<meta name="twitter:description" content="umd的各种兼容写法，其中包含：amd、jquery、Commonjs、Node、global等，">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-umd兼容写法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/16/umd兼容写法/" class="article-date">
+  <time datetime="2017-06-16T06:24:32.000Z" itemprop="datePublished">2017-06-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      兼容umd的写法(amd、jquery、Commonjs、Node、global等)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>umd的各种兼容写法，其中包含：amd、jquery、Commonjs、Node、global等，</p>
+<a id="more"></a>
+<h3 id="方案一：umd-Jquery-plugin"><a href="#方案一：umd-Jquery-plugin" class="headerlink" title="方案一：umd Jquery plugin"></a>方案一：umd Jquery plugin</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(function(factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;jquery&apos;], factory);</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory(jQuery);</div><div class="line">    &#125;</div><div class="line">&#125;(function($) &#123;</div><div class="line">    $.fn.jqueryPlugin = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案二：umd-Node-adapter"><a href="#方案二：umd-Node-adapter" class="headerlink" title="方案二：umd Node adapter"></a>方案二：umd Node adapter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// Help Node out by setting up define.</div><div class="line">if (typeof module === &apos;object&apos; &amp;&amp; typeof define !== &apos;function&apos;) &#123;</div><div class="line">    var define = function(factory) &#123;</div><div class="line">        module.exports = factory(require, exports, module);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line">    var b = require(&apos;b&apos;);</div><div class="line">    return function() &#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="方案三：umd-Commonjs-adapter"><a href="#方案三：umd-Commonjs-adapter" class="headerlink" title="方案三：umd Commonjs adapter"></a>方案三：umd Commonjs adapter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// Help Node out by setting up define.</div><div class="line">if (typeof exports === &apos;object&apos; &amp;&amp; typeof define !== &apos;function&apos;) &#123;</div><div class="line">    var define = function(factory) &#123;</div><div class="line">        factory(require, exports, module);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line">    var b = require(&apos;b&apos;);</div><div class="line">    // Only attach properties to the exports object to define</div><div class="line">    // the module&apos;s properties.</div><div class="line">    exports.action = function() &#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="方案四：umd-Commonjs-strict"><a href="#方案四：umd-Commonjs-strict" class="headerlink" title="方案四：umd Commonjs strict"></a>方案四：umd Commonjs strict</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;exports&apos;, &apos;b&apos;], factory);</div><div class="line">    &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        // CommonJS</div><div class="line">        factory(exports, require(&apos;b&apos;));</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory((root.commonJsStrict = &#123;&#125;), root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(exports, b) &#123;</div><div class="line">    // attach properties to the exports object to define</div><div class="line">    // the exported module properties.</div><div class="line">    exports.action = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案五：umd-AMD-or-browser-global"><a href="#方案五：umd-AMD-or-browser-global" class="headerlink" title="方案五：umd AMD or browser global"></a>方案五：umd AMD or browser global</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;b&apos;], factory);</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        root.amdWeb = factory(root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(b) &#123;</div><div class="line">    function amdWeb() &#123;&#125;</div><div class="line">    return amdWeb;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案六：umd-AMD-with-global-export"><a href="#方案六：umd-AMD-with-global-export" class="headerlink" title="方案六：umd AMD with global export"></a>方案六：umd AMD with global export</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;b&apos;], function(b) &#123;</div><div class="line">            // Also create a global in case some scripts</div><div class="line">            // that are loaded still are looking for</div><div class="line">            // a global even when an AMD loader is in use.</div><div class="line">            return (root.amdWebGlobal = factory(b));</div><div class="line">        &#125;);</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        root.amdWebGlobal = factory(root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(b) &#123;</div><div class="line">    function amdWebGlobal() &#123;&#125;</div><div class="line">    return amdWebGlobal;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案七：umd-Commonjs-strict-with-global"><a href="#方案七：umd-Commonjs-strict-with-global" class="headerlink" title="方案七：umd Commonjs strict with global"></a>方案七：umd Commonjs strict with global</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;exports&apos;, &apos;b&apos;], function(exports, b) &#123;</div><div class="line">            factory((root.commonJsStrictGlobal = exports), b);</div><div class="line">        &#125;);</div><div class="line">    &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        // CommonJS</div><div class="line">        factory(exports, require(&apos;b&apos;));</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory((root.commonJsStrictGlobal = &#123;&#125;), root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(exports, b) &#123;</div><div class="line">    // attach properties to the exports object to define</div><div class="line">    // the exported module properties.</div><div class="line">    exports.action = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案八：umd-jquery-plugin-with-Commonjs"><a href="#方案八：umd-jquery-plugin-with-Commonjs" class="headerlink" title="方案八：umd jquery plugin with Commonjs"></a>方案八：umd jquery plugin with Commonjs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">(function(factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;jquery&apos;], factory);</div><div class="line">    &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        // Node/CommonJS</div><div class="line">        factory(require(&apos;jquery&apos;));</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory(jQuery);</div><div class="line">    &#125;</div><div class="line">&#125;(function($) &#123;</div><div class="line">    $.fn.jqueryPlugin = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>       
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>umd的各种兼容写法，其中包含：amd、jquery、Commonjs、Node、global等，</p>
+<a id="more"></a>
+<h3 id="方案一：umd-Jquery-plugin"><a href="#方案一：umd-Jquery-plugin" class="headerlink" title="方案一：umd Jquery plugin"></a>方案一：umd Jquery plugin</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(function(factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;jquery&apos;], factory);</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory(jQuery);</div><div class="line">    &#125;</div><div class="line">&#125;(function($) &#123;</div><div class="line">    $.fn.jqueryPlugin = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案二：umd-Node-adapter"><a href="#方案二：umd-Node-adapter" class="headerlink" title="方案二：umd Node adapter"></a>方案二：umd Node adapter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// Help Node out by setting up define.</div><div class="line">if (typeof module === &apos;object&apos; &amp;&amp; typeof define !== &apos;function&apos;) &#123;</div><div class="line">    var define = function(factory) &#123;</div><div class="line">        module.exports = factory(require, exports, module);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line">    var b = require(&apos;b&apos;);</div><div class="line">    return function() &#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="方案三：umd-Commonjs-adapter"><a href="#方案三：umd-Commonjs-adapter" class="headerlink" title="方案三：umd Commonjs adapter"></a>方案三：umd Commonjs adapter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// Help Node out by setting up define.</div><div class="line">if (typeof exports === &apos;object&apos; &amp;&amp; typeof define !== &apos;function&apos;) &#123;</div><div class="line">    var define = function(factory) &#123;</div><div class="line">        factory(require, exports, module);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">define(function(require, exports, module) &#123;</div><div class="line">    var b = require(&apos;b&apos;);</div><div class="line">    // Only attach properties to the exports object to define</div><div class="line">    // the module&apos;s properties.</div><div class="line">    exports.action = function() &#123;&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="方案四：umd-Commonjs-strict"><a href="#方案四：umd-Commonjs-strict" class="headerlink" title="方案四：umd Commonjs strict"></a>方案四：umd Commonjs strict</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;exports&apos;, &apos;b&apos;], factory);</div><div class="line">    &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        // CommonJS</div><div class="line">        factory(exports, require(&apos;b&apos;));</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory((root.commonJsStrict = &#123;&#125;), root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(exports, b) &#123;</div><div class="line">    // attach properties to the exports object to define</div><div class="line">    // the exported module properties.</div><div class="line">    exports.action = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案五：umd-AMD-or-browser-global"><a href="#方案五：umd-AMD-or-browser-global" class="headerlink" title="方案五：umd AMD or browser global"></a>方案五：umd AMD or browser global</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;b&apos;], factory);</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        root.amdWeb = factory(root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(b) &#123;</div><div class="line">    function amdWeb() &#123;&#125;</div><div class="line">    return amdWeb;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案六：umd-AMD-with-global-export"><a href="#方案六：umd-AMD-with-global-export" class="headerlink" title="方案六：umd AMD with global export"></a>方案六：umd AMD with global export</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;b&apos;], function(b) &#123;</div><div class="line">            // Also create a global in case some scripts</div><div class="line">            // that are loaded still are looking for</div><div class="line">            // a global even when an AMD loader is in use.</div><div class="line">            return (root.amdWebGlobal = factory(b));</div><div class="line">        &#125;);</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        root.amdWebGlobal = factory(root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(b) &#123;</div><div class="line">    function amdWebGlobal() &#123;&#125;</div><div class="line">    return amdWebGlobal;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案七：umd-Commonjs-strict-with-global"><a href="#方案七：umd-Commonjs-strict-with-global" class="headerlink" title="方案七：umd Commonjs strict with global"></a>方案七：umd Commonjs strict with global</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(function(root, factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;exports&apos;, &apos;b&apos;], function(exports, b) &#123;</div><div class="line">            factory((root.commonJsStrictGlobal = exports), b);</div><div class="line">        &#125;);</div><div class="line">    &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        // CommonJS</div><div class="line">        factory(exports, require(&apos;b&apos;));</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory((root.commonJsStrictGlobal = &#123;&#125;), root.b);</div><div class="line">    &#125;</div><div class="line">&#125;(this, function(exports, b) &#123;</div><div class="line">    // attach properties to the exports object to define</div><div class="line">    // the exported module properties.</div><div class="line">    exports.action = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+<h3 id="方案八：umd-jquery-plugin-with-Commonjs"><a href="#方案八：umd-jquery-plugin-with-Commonjs" class="headerlink" title="方案八：umd jquery plugin with Commonjs"></a>方案八：umd jquery plugin with Commonjs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">(function(factory) &#123;</div><div class="line">    if (typeof define === &apos;function&apos; &amp;&amp; define.amd) &#123;</div><div class="line">        // AMD. Register as an anonymous module.</div><div class="line">        define([&apos;jquery&apos;], factory);</div><div class="line">    &#125; else if (typeof exports === &apos;object&apos;) &#123;</div><div class="line">        // Node/CommonJS</div><div class="line">        factory(require(&apos;jquery&apos;));</div><div class="line">    &#125; else &#123;</div><div class="line">        // Browser globals</div><div class="line">        factory(jQuery);</div><div class="line">    &#125;</div><div class="line">&#125;(function($) &#123;</div><div class="line">    $.fn.jqueryPlugin = function() &#123;&#125;;</div><div class="line">&#125;));</div></pre></td></tr></table></figure>
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/06/16/umd兼容写法/" data-id="cj4bdmaon000mhwvunt4wbu0r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/amd/">amd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/umd/">umd</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/16/SublimeText3-3080安装及各种插件教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sublime Text3 3080安装及各种插件教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/16/umd兼容写法/">兼容umd的写法(amd、jquery、Commonjs、Node、global等)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/16/SublimeText3-3080安装及各种插件教程/">Sublime Text3 3080安装及各种插件教程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-Sass-Style-Guide/">CSS-Sass-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-in-JavaScript-Style-Guide/">CSS-in-JavaScript-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/JavaScript-Style-Guide/">JavaScript-Style-Guide</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/amd/" style="font-size: 10px;">amd</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/umd/" style="font-size: 10px;">umd</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/语法规范/" style="font-size: 17.5px;">语法规范</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
