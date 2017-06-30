@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vuex所有核心概念完整解析State_Getters_Mutations_Actions | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vuex是解决vue组件和组件间相互通信而存在的，vuex理解起来稍微复杂，但一旦看懂则即为好用">
+<meta name="keywords" content="js,vuejs,vuex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex所有核心概念完整解析State_Getters_Mutations_Actions">
+<meta property="og:url" content="http://jsgu.net/2017/06/30/vuex所有核心概念完整解析State-Getters-Mutations-Actions/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="vuex是解决vue组件和组件间相互通信而存在的，vuex理解起来稍微复杂，但一旦看懂则即为好用">
+<meta property="og:updated_time" content="2017-06-30T01:26:47.104Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuex所有核心概念完整解析State_Getters_Mutations_Actions">
+<meta name="twitter:description" content="vuex是解决vue组件和组件间相互通信而存在的，vuex理解起来稍微复杂，但一旦看懂则即为好用">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vuex所有核心概念完整解析State-Getters-Mutations-Actions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/30/vuex所有核心概念完整解析State-Getters-Mutations-Actions/" class="article-date">
+  <time datetime="2017-06-30T01:13:33.000Z" itemprop="datePublished">2017-06-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vuex所有核心概念完整解析State_Getters_Mutations_Actions
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vuex是解决vue组件和组件间相互通信而存在的，vuex理解起来稍微复杂，但一旦看懂则即为好用;</p>
+<a id="more"></a>
+<p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save vuex</div></pre></td></tr></table></figure></p>
+<p>引入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import Vuex from &apos;vuex&apos;</div><div class="line">import Vue from &apos;vue&apos;</div><div class="line">Vue.use(Vuex)</div></pre></td></tr></table></figure></p>
+<p>vuex的几个参数的介绍</p>
+<p>State         储存初始化数据</p>
+<p>Getters      对State 里面的数据二次处理（对数据进行过滤类似filter的作用）比如State返回的为一个对象，我们想取对象中一个键的值用这个方法</p>
+<p>Mutations   对数据进行计算的方法全部写在里面（类似computed） 在页面中触发时使用this.$store.commit(‘mutationName’) 触发Mutations方法改变state的值</p>
+<p>Actions      处理Mutations中已经写好的方法 其直接触发方式是 this.$store.dispatch(actionName)</p>
+<p>我们先不急着了解更多先打印下Vuex<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">console.log(Vuex) //Vuex为一个对象里面包含</div><div class="line">Vuex =&#123;</div><div class="line">    Store:function Store()&#123;&#125;,    </div><div class="line">    mapActions:function()&#123;&#125;,    // 对应Actions的结果集</div><div class="line">    mapGetters:function()&#123;&#125;,    //对应Getters的结果集</div><div class="line">    mapMutations:function()&#123;&#125;,  //对应Mutations的结果集</div><div class="line">    mapState:function()&#123;&#125;,      //对应State的结果集</div><div class="line">    install:function install()&#123;&#125;, //暂时不做讲解 </div><div class="line">    installed:true //暂时不做讲解</div><div class="line">&#125;</div><div class="line">//如果我们只需要里面的State时我们可以这样写</div><div class="line">import &#123; mapState &#125; from &apos;vuex&apos;;</div><div class="line">import &#123; mapGetters, mapMutations &#125; from &apos;vuex&apos;; //如果需要引用多个时用这种方式处理</div></pre></td></tr></table></figure></p>
+<p>反复看上面的内容是不是就豁然开朗了接下来我们进行依次举例和用官方的语言描述</p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>State负责存储整个应用的状态数据，一般需要在使用的时候在跟节点注入store对象，后期就可以使用this.$store.state直接获取状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//store为实例化生成的</div><div class="line">import store from &apos;./store&apos; </div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  store,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>这个store可以理解为一个容器，包含着应用中的state等。实例化生成store的过程是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//./store文件</div><div class="line">const store = new Vuex.Store(&#123;</div><div class="line">  state: &#123;   //放置state的值</div><div class="line">    count: 0,</div><div class="line">    strLength:&quot;abcd234&quot;</div><div class="line">  &#125;,</div><div class="line">  getters: &#123;   //放置getters方法</div><div class="line">      strLength: state =&gt; state.aString.length</div><div class="line">  &#125;,</div><div class="line">  mutations: &#123;   //放置mutations方法</div><div class="line">       mutationName(state) &#123;</div><div class="line">          //在这里改变state中的数据</div><div class="line">          state.count = 100;</div><div class="line">       &#125;</div><div class="line">  &#125;,</div><div class="line">  // 异步的数据操作</div><div class="line">  actions: &#123;      //放置actions方法</div><div class="line">       actionName(&#123; commit &#125;) &#123;</div><div class="line">          //dosomething</div><div class="line">         commit(&apos;mutationName&apos;)</div><div class="line">      &#125;,</div><div class="line">      getSong (&#123;commit&#125;, id) &#123;</div><div class="line">          api.getMusicUrlResource(id).then(res =&gt; &#123;</div><div class="line">            let url = res.data.data[0].url;</div><div class="line">        </div><div class="line">          &#125;)</div><div class="line">          .catch((error) =&gt; &#123;  // 错误处理</div><div class="line">              console.log(error);</div><div class="line">          &#125;);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">export default store;</div></pre></td></tr></table></figure>
+<p>后续在组件中使用的过程中，如果想要获取对应的状态你就可以直接使用this.$store.state获取，当然，也可以利用vuex提供的mapState辅助函数将state映射到计算属性中去，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;mapState&#125; from &apos;vuex&apos;</div><div class="line"></div><div class="line">export default &#123;  //组件中</div><div class="line">  computed: mapState(&#123;</div><div class="line">    count: state =&gt; state.count</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>有些状态需要做二次处理，就可以使用getters。通过this.$store.getters.valueName对派生出来的状态进行访问。或者直接使用辅助函数mapGetters将其映射到本地计算属性中去。</p>
+<p>在组件中使用方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;mapGetters&#125; from &apos;vuex&apos;</div><div class="line"></div><div class="line">export default &#123;  </div><div class="line">    computed: mapGetters([</div><div class="line">    &apos;strLength&apos;</div><div class="line">    ])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h3><p>Mutations的中文意思是“变化”，利用它可以更改状态，本质就是用来处理数据的函数，其接收唯一参数值state。store.commit(mutationName)是用来触发一个mutation的方法。需要记住的是，定义的mutation必须是同步函数，否则devtool中的数据将可能出现问题，使状态改变变得难以跟踪。</p>
+<p>在组件中触发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">export default &#123;</div><div class="line">  methods: &#123;</div><div class="line">    handleClick() &#123;</div><div class="line">      this.$store.commit(&apos;mutationName&apos;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者使用辅助函数mapMutations直接将触发函数映射到methods上，这样就能在元素事件绑定上直接使用了。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import &#123;mapMutations&#125; from &apos;vuex&apos;</div><div class="line">export default &#123;</div><div class="line">  methods: mapMutations([</div><div class="line">    &apos;mutationName&apos;</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>Actions也可以用于改变状态，不过是通过触发mutation实现的，重要的是可以包含异步操作。其辅助函数是mapActions与mapMutations类似，也是绑定在组件的methods上的。如果选择直接触发的话，使用this.$store.dispatch(actionName)方法。</p>
+<p>在组件中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;mapActions&#125; from &apos;vuex&apos;</div><div class="line">//我是一个组件</div><div class="line">export default &#123;</div><div class="line">  methods: mapActions([</div><div class="line">    &apos;actionName&apos;,</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>插件就是一个钩子函数，在初始化store的时候引入即可。比较常用的是内置的logger插件，用于作为调试使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//写在./store文件中</div><div class="line">import createLogger from &apos;vuex/dist/logger&apos;</div><div class="line">const store = Vuex.Store(&#123;</div><div class="line">  ...</div><div class="line">  plugins: [createLogger()]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="综合实例"><a href="#综合实例" class="headerlink" title="综合实例"></a>综合实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">import * as api from &apos;@/assets/js/api&apos;</div><div class="line"></div><div class="line">export const XSQL_DSPLUGINS = &apos;XSQL_DSPLUGINS&apos;;</div><div class="line">export default &#123;</div><div class="line">    state: &#123;</div><div class="line">        xsqldsplugins:&apos;&apos;,//获取数据源</div><div class="line">    &#125;,</div><div class="line">    actions: &#123;</div><div class="line">        getxsqldsplugins(&#123;commit&#125; ,info)&#123;</div><div class="line">            api.getxsqldsplugins(info).then(function(d)&#123;</div><div class="line">                 commit(XSQL_DSPLUGINS,d);</div><div class="line">            &#125;).catch(function (error) &#123;</div><div class="line">                 api.tl.e();</div><div class="line">                 api.tl.nte.error(&quot;获取数据源错误&quot;,error||&quot;未知错误&quot;);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    mutations: &#123;</div><div class="line">        [XSQL_DSPLUGINS](state,info)&#123;</div><div class="line">            var rdata=info.data;</div><div class="line">            api.tl.httpCode(rdata,function(d)&#123;</div><div class="line">                var rdata=&#123;enabledTrue:d.body[0].true,enabledFalse:d.body[0].false&#125;;</div><div class="line">                    state.xsqldsplugins=rdata;</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    getters:&#123;</div><div class="line">        getxsqldsplugins:state =&gt;state.xsqldsplugins</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">注意：</div><div class="line"> api.tl开头的为工具类与状态无关</div><div class="line"> api.getxsqldsplugins 为封装axios</div><div class="line"></div><div class="line"> /* 读取可用或禁用数据源列表[参数：boolean,返回：列表] */</div><div class="line"> export const getxsqldsplugins=(b)=&gt;axios(&apos;/kit/xsql/dsPlugins&apos;);</div></pre></td></tr></table></figure>       
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>vuex是解决vue组件和组件间相互通信而存在的，vuex理解起来稍微复杂，但一旦看懂则即为好用;</p>
+<a id="more"></a>
+<p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save vuex</div></pre></td></tr></table></figure></p>
+<p>引入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import Vuex from &apos;vuex&apos;</div><div class="line">import Vue from &apos;vue&apos;</div><div class="line">Vue.use(Vuex)</div></pre></td></tr></table></figure></p>
+<p>vuex的几个参数的介绍</p>
+<p>State         储存初始化数据</p>
+<p>Getters      对State 里面的数据二次处理（对数据进行过滤类似filter的作用）比如State返回的为一个对象，我们想取对象中一个键的值用这个方法</p>
+<p>Mutations   对数据进行计算的方法全部写在里面（类似computed） 在页面中触发时使用this.$store.commit(‘mutationName’) 触发Mutations方法改变state的值</p>
+<p>Actions      处理Mutations中已经写好的方法 其直接触发方式是 this.$store.dispatch(actionName)</p>
+<p>我们先不急着了解更多先打印下Vuex<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">console.log(Vuex) //Vuex为一个对象里面包含</div><div class="line">Vuex =&#123;</div><div class="line">    Store:function Store()&#123;&#125;,    </div><div class="line">    mapActions:function()&#123;&#125;,    // 对应Actions的结果集</div><div class="line">    mapGetters:function()&#123;&#125;,    //对应Getters的结果集</div><div class="line">    mapMutations:function()&#123;&#125;,  //对应Mutations的结果集</div><div class="line">    mapState:function()&#123;&#125;,      //对应State的结果集</div><div class="line">    install:function install()&#123;&#125;, //暂时不做讲解 </div><div class="line">    installed:true //暂时不做讲解</div><div class="line">&#125;</div><div class="line">//如果我们只需要里面的State时我们可以这样写</div><div class="line">import &#123; mapState &#125; from &apos;vuex&apos;;</div><div class="line">import &#123; mapGetters, mapMutations &#125; from &apos;vuex&apos;; //如果需要引用多个时用这种方式处理</div></pre></td></tr></table></figure></p>
+<p>反复看上面的内容是不是就豁然开朗了接下来我们进行依次举例和用官方的语言描述</p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>State负责存储整个应用的状态数据，一般需要在使用的时候在跟节点注入store对象，后期就可以使用this.$store.state直接获取状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//store为实例化生成的</div><div class="line">import store from &apos;./store&apos; </div><div class="line"></div><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  store,</div><div class="line">  render: h =&gt; h(App)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>这个store可以理解为一个容器，包含着应用中的state等。实例化生成store的过程是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//./store文件</div><div class="line">const store = new Vuex.Store(&#123;</div><div class="line">  state: &#123;   //放置state的值</div><div class="line">    count: 0,</div><div class="line">    strLength:&quot;abcd234&quot;</div><div class="line">  &#125;,</div><div class="line">  getters: &#123;   //放置getters方法</div><div class="line">      strLength: state =&gt; state.aString.length</div><div class="line">  &#125;,</div><div class="line">  mutations: &#123;   //放置mutations方法</div><div class="line">       mutationName(state) &#123;</div><div class="line">          //在这里改变state中的数据</div><div class="line">          state.count = 100;</div><div class="line">       &#125;</div><div class="line">  &#125;,</div><div class="line">  // 异步的数据操作</div><div class="line">  actions: &#123;      //放置actions方法</div><div class="line">       actionName(&#123; commit &#125;) &#123;</div><div class="line">          //dosomething</div><div class="line">         commit(&apos;mutationName&apos;)</div><div class="line">      &#125;,</div><div class="line">      getSong (&#123;commit&#125;, id) &#123;</div><div class="line">          api.getMusicUrlResource(id).then(res =&gt; &#123;</div><div class="line">            let url = res.data.data[0].url;</div><div class="line">        </div><div class="line">          &#125;)</div><div class="line">          .catch((error) =&gt; &#123;  // 错误处理</div><div class="line">              console.log(error);</div><div class="line">          &#125;);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line">export default store;</div></pre></td></tr></table></figure>
+<p>后续在组件中使用的过程中，如果想要获取对应的状态你就可以直接使用this.$store.state获取，当然，也可以利用vuex提供的mapState辅助函数将state映射到计算属性中去，如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;mapState&#125; from &apos;vuex&apos;</div><div class="line"></div><div class="line">export default &#123;  //组件中</div><div class="line">  computed: mapState(&#123;</div><div class="line">    count: state =&gt; state.count</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>有些状态需要做二次处理，就可以使用getters。通过this.$store.getters.valueName对派生出来的状态进行访问。或者直接使用辅助函数mapGetters将其映射到本地计算属性中去。</p>
+<p>在组件中使用方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;mapGetters&#125; from &apos;vuex&apos;</div><div class="line"></div><div class="line">export default &#123;  </div><div class="line">    computed: mapGetters([</div><div class="line">    &apos;strLength&apos;</div><div class="line">    ])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h3><p>Mutations的中文意思是“变化”，利用它可以更改状态，本质就是用来处理数据的函数，其接收唯一参数值state。store.commit(mutationName)是用来触发一个mutation的方法。需要记住的是，定义的mutation必须是同步函数，否则devtool中的数据将可能出现问题，使状态改变变得难以跟踪。</p>
+<p>在组件中触发：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">export default &#123;</div><div class="line">  methods: &#123;</div><div class="line">    handleClick() &#123;</div><div class="line">      this.$store.commit(&apos;mutationName&apos;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者使用辅助函数mapMutations直接将触发函数映射到methods上，这样就能在元素事件绑定上直接使用了。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import &#123;mapMutations&#125; from &apos;vuex&apos;</div><div class="line">export default &#123;</div><div class="line">  methods: mapMutations([</div><div class="line">    &apos;mutationName&apos;</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>Actions也可以用于改变状态，不过是通过触发mutation实现的，重要的是可以包含异步操作。其辅助函数是mapActions与mapMutations类似，也是绑定在组件的methods上的。如果选择直接触发的话，使用this.$store.dispatch(actionName)方法。</p>
+<p>在组件中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123;mapActions&#125; from &apos;vuex&apos;</div><div class="line">//我是一个组件</div><div class="line">export default &#123;</div><div class="line">  methods: mapActions([</div><div class="line">    &apos;actionName&apos;,</div><div class="line">  ])</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h3><p>插件就是一个钩子函数，在初始化store的时候引入即可。比较常用的是内置的logger插件，用于作为调试使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//写在./store文件中</div><div class="line">import createLogger from &apos;vuex/dist/logger&apos;</div><div class="line">const store = Vuex.Store(&#123;</div><div class="line">  ...</div><div class="line">  plugins: [createLogger()]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="综合实例"><a href="#综合实例" class="headerlink" title="综合实例"></a>综合实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">import * as api from &apos;@/assets/js/api&apos;</div><div class="line"></div><div class="line">export const XSQL_DSPLUGINS = &apos;XSQL_DSPLUGINS&apos;;</div><div class="line">export default &#123;</div><div class="line">    state: &#123;</div><div class="line">        xsqldsplugins:&apos;&apos;,//获取数据源</div><div class="line">    &#125;,</div><div class="line">    actions: &#123;</div><div class="line">        getxsqldsplugins(&#123;commit&#125; ,info)&#123;</div><div class="line">            api.getxsqldsplugins(info).then(function(d)&#123;</div><div class="line">                 commit(XSQL_DSPLUGINS,d);</div><div class="line">            &#125;).catch(function (error) &#123;</div><div class="line">                 api.tl.e();</div><div class="line">                 api.tl.nte.error(&quot;获取数据源错误&quot;,error||&quot;未知错误&quot;);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    mutations: &#123;</div><div class="line">        [XSQL_DSPLUGINS](state,info)&#123;</div><div class="line">            var rdata=info.data;</div><div class="line">            api.tl.httpCode(rdata,function(d)&#123;</div><div class="line">                var rdata=&#123;enabledTrue:d.body[0].true,enabledFalse:d.body[0].false&#125;;</div><div class="line">                    state.xsqldsplugins=rdata;</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    getters:&#123;</div><div class="line">        getxsqldsplugins:state =&gt;state.xsqldsplugins</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">注意：</div><div class="line"> api.tl开头的为工具类与状态无关</div><div class="line"> api.getxsqldsplugins 为封装axios</div><div class="line"></div><div class="line"> /* 读取可用或禁用数据源列表[参数：boolean,返回：列表] */</div><div class="line"> export const getxsqldsplugins=(b)=&gt;axios(&apos;/kit/xsql/dsPlugins&apos;);</div></pre></td></tr></table></figure>
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/06/30/vuex所有核心概念完整解析State-Getters-Mutations-Actions/" data-id="cj4j6mxxc000hogvu1x3w0mnd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuejs/">vuejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/16/umd兼容写法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">兼容umd的写法(amd、jquery、Commonjs、Node、global等)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/30/vuex所有核心概念完整解析State-Getters-Mutations-Actions/">vuex所有核心概念完整解析State_Getters_Mutations_Actions</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/16/umd兼容写法/">兼容umd的写法(amd、jquery、Commonjs、Node、global等)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/16/SublimeText3-3080安装及各种插件教程/">Sublime Text3 3080安装及各种插件教程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-Sass-Style-Guide/">CSS-Sass-Style-Guide</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/15/CSS-in-JavaScript-Style-Guide/">CSS-in-JavaScript-Style-Guide</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/amd/" style="font-size: 10px;">amd</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 12.5px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/umd/" style="font-size: 10px;">umd</a> <a href="/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/语法规范/" style="font-size: 17.5px;">语法规范</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
