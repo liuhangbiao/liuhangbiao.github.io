@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mockjs入门级教程(模拟数据或随机数据生成) | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mock.js生成随机数据，拦截 Ajax 请求(随机数据即制造假数据提供给使用)">
+<meta name="keywords" content="js,npm,ajax,模拟数据&#39;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mockjs入门级教程(模拟数据或随机数据生成)">
+<meta property="og:url" content="http://jsgu.net/2017/07/21/mockjs入门级教程-模拟数据或随机数据生成/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="Mock.js生成随机数据，拦截 Ajax 请求(随机数据即制造假数据提供给使用)">
+<meta property="og:updated_time" content="2017-07-21T03:56:54.766Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mockjs入门级教程(模拟数据或随机数据生成)">
+<meta name="twitter:description" content="Mock.js生成随机数据，拦截 Ajax 请求(随机数据即制造假数据提供给使用)">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mockjs入门级教程-模拟数据或随机数据生成" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/21/mockjs入门级教程-模拟数据或随机数据生成/" class="article-date">
+  <time datetime="2017-07-21T02:32:07.000Z" itemprop="datePublished">2017-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mockjs入门级教程(模拟数据或随机数据生成)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Mock.js生成随机数据，拦截 Ajax 请求(随机数据即制造假数据提供给使用)</p>
+<a id="more"></a>
+<p>[TOC]</p>
+<h4 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h4><p>让前端攻城师独立于后端进行开发。</p>
+<h4 id="增加单元测试的真实性"><a href="#增加单元测试的真实性" class="headerlink" title="增加单元测试的真实性"></a>增加单元测试的真实性</h4><p>通过随机数据，模拟各种场景。</p>
+<h4 id="开发无侵入"><a href="#开发无侵入" class="headerlink" title="开发无侵入"></a>开发无侵入</h4><p>不需要修改既有代码，就可以拦截 Ajax 请求，返回模拟的响应数据。</p>
+<h4 id="用法简单"><a href="#用法简单" class="headerlink" title="用法简单"></a>用法简单</h4><p>符合直觉的接口。</p>
+<h4 id="数据类型丰富"><a href="#数据类型丰富" class="headerlink" title="数据类型丰富"></a>数据类型丰富</h4><p>支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。</p>
+<h4 id="方便扩展"><a href="#方便扩展" class="headerlink" title="方便扩展"></a>方便扩展</h4><p>支持支持扩展更多数据类型，支持自定义函数和正则。</p>
+<h2 id="开始-amp-安装"><a href="#开始-amp-安装" class="headerlink" title="开始 &amp; 安装"></a>开始 &amp; 安装</h2><h4 id="Node-CommonJS"><a href="#Node-CommonJS" class="headerlink" title="Node (CommonJS)"></a>Node (CommonJS)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#安装</div><div class="line">npm install mockjs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 使用 Mock</div><div class="line">var Mock = require(&apos;mockjs&apos;)</div><div class="line">var data = Mock.mock(&#123;</div><div class="line">    // 属性 list 的值是一个数组，其中含有 1 到 10 个元素</div><div class="line">    &apos;list|1-10&apos;: [&#123;</div><div class="line">        // 属性 id 是一个自增数，起始值为 1，每次增 1</div><div class="line">        &apos;id|+1&apos;: 1</div><div class="line">    &#125;]</div><div class="line">&#125;)</div><div class="line">// 输出结果</div><div class="line">console.log(JSON.stringify(data, null, 4))</div></pre></td></tr></table></figure>
+<h4 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 安装</div><div class="line">npm install -g bower</div><div class="line">bower install --save mockjs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;./bower_components/mockjs/dist/mock.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="RequireJS-AMD"><a href="#RequireJS-AMD" class="headerlink" title="RequireJS (AMD)"></a>RequireJS (AMD)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 配置 Mock 路径</div><div class="line">require.config(&#123;</div><div class="line">    paths: &#123;</div><div class="line">        mock: &apos;http://mockjs.com/dist/mock&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">// 加载 Mock</div><div class="line">require([&apos;mock&apos;], function(Mock)&#123;</div><div class="line">    // 使用 Mock</div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">        &apos;list|1-10&apos;: [&#123;</div><div class="line">            &apos;id|+1&apos;: 1</div><div class="line">        &#125;]</div><div class="line">    &#125;)</div><div class="line">    // 输出结果</div><div class="line">    document.body.innerHTML +=</div><div class="line">        &apos;&lt;pre&gt;&apos; +</div><div class="line">        JSON.stringify(data, null, 4) +</div><div class="line">        &apos;&lt;/pre&gt;&apos;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// ==&gt;&#123;&quot;list&quot;: [&#123;&quot;id&quot;: 1&#125;,&#123;&quot;id&quot;: 2&#125;,&#123;&quot;id&quot;: 3&#125;]&#125;</div></pre></td></tr></table></figure>
+<h4 id="Sea-js-CMD"><a href="#Sea-js-CMD" class="headerlink" title="Sea.js (CMD)"></a>Sea.js (CMD)</h4><p>因为 Sea.js 社区尚未提供 webpack 插件，所以 Mock.js 暂不完整支持通过 Sea.js 加载。</p>
+<p>一种变通的方式是，依然通过 Sea.js 配置和加载 Mock.js，然后访问全局变量 Mock。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 配置 Mock 路径</div><div class="line">seajs.config(&#123;</div><div class="line">    alias: &#123;</div><div class="line">        mock: &apos;http://mockjs.com/dist/mock.js&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 加载 Mock</div><div class="line">seajs.use(&apos;mock&apos;, function(__PLACEHOLDER) &#123;</div><div class="line">    // 使用 Mock（全局变量）</div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">        &apos;list|1-10&apos;: [&#123;</div><div class="line">            &apos;id|+1&apos;: 1</div><div class="line">        &#125;]</div><div class="line">    &#125;);</div><div class="line">    document.body.innerHTML +=</div><div class="line">        &apos;&lt;pre&gt;&apos; +</div><div class="line">        JSON.stringify(data, null, 4) +</div><div class="line">        &apos;&lt;/pre&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="Random-CLI"><a href="#Random-CLI" class="headerlink" title="Random CLI"></a>Random CLI</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 全局安装</div><div class="line">$ npm install mockjs -g</div><div class="line"></div><div class="line"># 执行</div><div class="line">$ random url</div><div class="line"># =&gt; http://rmcpx.org/funzwc</div><div class="line"></div><div class="line"># 帮助</div><div class="line">random -h</div></pre></td></tr></table></figure>
+<h2 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h2><p>Mock.js 的语法规范包括两部分：</p>
+<p>. 数据模板定义规范（Data Template Definition，DTD）</p>
+<p>. 数据占位符定义规范（Data Placeholder Definition，DPD）</p>
+<h3 id="数据模板定义规范-DTD"><a href="#数据模板定义规范-DTD" class="headerlink" title="数据模板定义规范 DTD"></a>数据模板定义规范 DTD</h3><h4 id="数据模板中的每个属性由-3-部分构成：属性名、生成规则、属性值："><a href="#数据模板中的每个属性由-3-部分构成：属性名、生成规则、属性值：" class="headerlink" title="数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值："></a>数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 属性名   name</div><div class="line">// 生成规则 rule</div><div class="line">// 属性值   value</div><div class="line">&apos;name|rule&apos;: value</div></pre></td></tr></table></figure>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>. 属性名 和 生成规则 之间用竖线 | 分隔。<br>. 生成规则 是可选的。<br>. 生成规则 有 7 种格式：<br>    . ‘name|min-max’: value<br>    . ‘name|count’: value<br>    . ‘name|min-max.dmin-dmax’: value<br>    . ‘name|min-max.dcount’: value<br>    . ‘name|count.dmin-dmax’: value<br>    . ‘name|count.dcount’: value<br>    . ‘name|+step’: value<br>. 生成规则 的 含义 需要依赖 属性值的类型 才能确定。<br>. 属性值 中可以含有 @占位符。<br>. 属性值 还指定了最终值的初始值和类型。</p>
+<h4 id="生成规则和示例："><a href="#生成规则和示例：" class="headerlink" title="生成规则和示例："></a>生成规则和示例：</h4><h5 id="1-属性值是字符串-String"><a href="#1-属性值是字符串-String" class="headerlink" title="1. 属性值是字符串 String"></a>1. 属性值是字符串 String</h5><pre><code>&apos;name|min-max&apos;: string
+
+通过重复 string 生成一个字符串，重复次数大于等于 min，小于等于 max。
+
+&apos;name|count&apos;: string
+
+通过重复 string 生成一个字符串，重复次数等于 count。
+</code></pre><h5 id="2-属性值是数字-Number"><a href="#2-属性值是数字-Number" class="headerlink" title="2. 属性值是数字 Number"></a>2. 属性值是数字 Number</h5><pre><code>&apos;name|+1&apos;: number
+
+属性值自动加 1，初始值为 number。
+
+&apos;name|min-max&apos;: number
+
+生成一个大于等于 min、小于等于 max 的整数，属性值 number 只是用来确定类型。
+
+&apos;name|min-max.dmin-dmax&apos;: number
+
+生成一个浮点数，整数部分大于等于 min、小于等于 max，小数部分保留 dmin 到 dmax 位。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Mock.mock(&#123;</div><div class="line">    &apos;number1|1-100.1-10&apos;: 1,</div><div class="line">    &apos;number2|123.1-10&apos;: 1,</div><div class="line">    &apos;number3|123.3&apos;: 1,</div><div class="line">    &apos;number4|123.10&apos;: 1.123</div><div class="line">&#125;)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;number1&quot;: 12.92,</div><div class="line">    &quot;number2&quot;: 123.51,</div><div class="line">    &quot;number3&quot;: 123.777,</div><div class="line">    &quot;number4&quot;: 123.1231091814</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-属性值是布尔型-Boolean"><a href="#3-属性值是布尔型-Boolean" class="headerlink" title="3. 属性值是布尔型 Boolean"></a>3. 属性值是布尔型 Boolean</h5><p>‘name|1’: boolean</p>
+<p>随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。</p>
+<p>‘name|min-max’: value</p>
+<p>随机生成一个布尔值，值为 value 的概率是 min / (min + max)，值为 !value 的概率是 max / (min + max)。</p>
+<h5 id="4-属性值是对象-Object"><a href="#4-属性值是对象-Object" class="headerlink" title="4. 属性值是对象 Object"></a>4. 属性值是对象 Object</h5><p>‘name|count’: object</p>
+<p>从属性值 object 中随机选取 count 个属性。</p>
+<p>‘name|min-max’: object</p>
+<p>从属性值 object 中随机选取 min 到 max 个属性。</p>
+<h5 id="5-属性值是数组-Array"><a href="#5-属性值是数组-Array" class="headerlink" title="5. 属性值是数组 Array"></a>5. 属性值是数组 Array</h5><p>‘name|1’: array</p>
+<p>从属性值 array 中随机选取 1 个元素，作为最终值。</p>
+<p>‘name|+1’: array</p>
+<p>从属性值 array 中顺序选取 1 个元素，作为最终值。</p>
+<p>‘name|min-max’: array</p>
+<p>通过重复属性值 array 生成一个新数组，重复次数大于等于 min，小于等于 max。</p>
+<p>‘name|count’: array</p>
+<p>通过重复属性值 array 生成一个新数组，重复次数为 count。</p>
+<h5 id="6-属性值是函数-Function"><a href="#6-属性值是函数-Function" class="headerlink" title="6. 属性值是函数 Function"></a>6. 属性值是函数 Function</h5><p>‘name’: function</p>
+<p>执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 ‘name’ 所在的对象。</p>
+<h5 id="7-属性值是正则表达式-RegExp"><a href="#7-属性值是正则表达式-RegExp" class="headerlink" title="7. 属性值是正则表达式 RegExp"></a>7. 属性值是正则表达式 RegExp</h5><p>‘name’: regexp</p>
+<p>根据正则表达式 regexp 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Mock.mock(&#123;</div><div class="line">    &apos;regexp1&apos;: /[a-z][A-Z][0-9]/,</div><div class="line">    &apos;regexp2&apos;: /\w\W\s\S\d\D/,</div><div class="line">    &apos;regexp3&apos;: /\d&#123;5,10&#125;/</div><div class="line">&#125;)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;regexp1&quot;: &quot;pJ7&quot;,</div><div class="line">    &quot;regexp2&quot;: &quot;F)\fp1G&quot;,</div><div class="line">    &quot;regexp3&quot;: &quot;561659409&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="数据占位符定义规范-DPD"><a href="#数据占位符定义规范-DPD" class="headerlink" title="数据占位符定义规范 DPD"></a>数据占位符定义规范 DPD</h3><p>占位符 只是在属性值字符串中占个位置，并不出现在最终的属性值中。</p>
+<p>占位符 的格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@占位符</div><div class="line">@占位符(参数 [, 参数])</div></pre></td></tr></table></figure></p>
+<h4 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h4><ol>
+<li>用 @ 来标识其后的字符串是 占位符。</li>
+<li>占位符 引用的是 Mock.Random 中的方法。</li>
+<li>通过 Mock.Random.extend() 来扩展自定义占位符。</li>
+<li>占位符 也可以引用 数据模板 中的属性。</li>
+<li>占位符 会优先引用 数据模板 中的属性。</li>
+<li>占位符 支持 相对路径 和 绝对路径。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Mock.mock(&#123;</div><div class="line">    name: &#123;</div><div class="line">        first: &apos;@FIRST&apos;,</div><div class="line">        middle: &apos;@FIRST&apos;,</div><div class="line">        last: &apos;@LAST&apos;,</div><div class="line">        full: &apos;@first @middle @last&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &#123;</div><div class="line">        &quot;first&quot;: &quot;Charles&quot;,</div><div class="line">        &quot;middle&quot;: &quot;Brenda&quot;,</div><div class="line">        &quot;last&quot;: &quot;Lopez&quot;,</div><div class="line">        &quot;full&quot;: &quot;Charles Brenda Lopez&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Mock-mock"><a href="#Mock-mock" class="headerlink" title="Mock.mock()"></a>Mock.mock()</h2><h3 id="Mock-mock-rurl-rtype-template-function-options"><a href="#Mock-mock-rurl-rtype-template-function-options" class="headerlink" title="Mock.mock( rurl?, rtype?, template|function( options ) )"></a>Mock.mock( rurl?, rtype?, template|function( options ) )</h3><p>根据数据模板生成模拟数据。</p>
+<h4 id="Mock-mock-template"><a href="#Mock-mock-template" class="headerlink" title="Mock.mock( template )"></a>Mock.mock( template )</h4><p>根据数据模板生成模拟数据。</p>
+<h4 id="Mock-mock-rurl-template"><a href="#Mock-mock-rurl-template" class="headerlink" title="Mock.mock( rurl, template )"></a>Mock.mock( rurl, template )</h4><p>记录数据模板。当拦截到匹配 rurl 的 Ajax 请求时，将根据数据模板 template 生成模拟数据，并作为响应数据返回。</p>
+<h4 id="Mock-mock-rurl-function-options"><a href="#Mock-mock-rurl-function-options" class="headerlink" title="Mock.mock( rurl, function( options ) )"></a>Mock.mock( rurl, function( options ) )</h4><p>记录用于生成响应数据的函数。当拦截到匹配 rurl 的 Ajax 请求时，函数<code>function(options)</code> 将被执行，并把执行结果作为响应数据返回。</p>
+<h4 id="Mock-mock-rurl-rtype-template"><a href="#Mock-mock-rurl-rtype-template" class="headerlink" title="Mock.mock( rurl, rtype, template )"></a>Mock.mock( rurl, rtype, template )</h4><p>记录数据模板。当拦截到匹配 rurl 和 rtype 的 Ajax 请求时，将根据数据模板 template 生成模拟数据，并作为响应数据返回。</p>
+<h4 id="Mock-mock-rurl-rtype-function-options"><a href="#Mock-mock-rurl-rtype-function-options" class="headerlink" title="Mock.mock( rurl, rtype, function( options ) )"></a>Mock.mock( rurl, rtype, function( options ) )</h4><p>记录用于生成响应数据的函数。当拦截到匹配 rurl 和 rtype 的 Ajax 请求时，函数 function(options) 将被执行，并把执行结果作为响应数据返回。</p>
+<h4 id="rurl"><a href="#rurl" class="headerlink" title="rurl"></a>rurl</h4><p>可选。</p>
+<p>表示需要拦截的 URL，可以是 URL 字符串或 URL 正则。例如 <code>/\/domain\/list\.json/</code>、<code>&#39;/domian/list.json&#39;</code>。</p>
+<h4 id="rtype"><a href="#rtype" class="headerlink" title="rtype"></a>rtype</h4><p>可选。</p>
+<p>表示需要拦截的 Ajax 请求类型。例如 GET、POST、PUT、DELETE 等。</p>
+<h4 id="template"><a href="#template" class="headerlink" title="template"></a>template</h4><p>可选。</p>
+<p>表示数据模板，可以是对象或字符串。例如<code>{ &#39;data|1-10&#39;:[{}] }</code>、<code>&#39;@EMAIL&#39;</code>。</p>
+<h4 id="function-options"><a href="#function-options" class="headerlink" title="function(options)"></a>function(options)</h4><p>可选。</p>
+<p>表示用于生成响应数据的函数。</p>
+<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4><p>指向本次请求的 Ajax 选项集，含有 url、type 和 body 三个属性，参见 XMLHttpRequest 规范。</p>
+<blockquote>
+<p>从 1.0 开始，Mock.js 通过覆盖和模拟原生 XMLHttpRequest 的行为来拦截 Ajax 请求，不再依赖于第三方 Ajax 工具库（例如 jQuery、Zepto 等）。</p>
+</blockquote>
+<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><h3 id="Random-date-format"><a href="#Random-date-format" class="headerlink" title="Random.date( format? )"></a>Random.date( format? )</h3><p>. Random.date()<br>. Random.date(format)<br>返回一个随机的日期字符串。</p>
+<h4 id="format-可选"><a href="#format-可选" class="headerlink" title="format(可选)"></a>format(可选)</h4><p>指示生成的日期字符串的格式。默认值为 yyyy-MM-dd。</p>
+<p>可选的占位符参考自 <a href="http://docs.sencha.com/extjs/4.1.3/#!/api/Ext.Date" target="_blank" rel="external">Ext.Date</a>，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yyyy</td>
+<td>A full numeric representation of a year, 4 digits</td>
+<td>1999 or 2003</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>A two digit representation of a year</td>
+<td>99 or 03</td>
+</tr>
+<tr>
+<td>y</td>
+<td>A two digit representation of a year</td>
+<td>99 or 03</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>Numeric representation of a month, with leading zeros</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Numeric representation of a month, without leading zeros</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>Day of the month, 2 digits with leading zeros</td>
+<td>01 to 31</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Day of the month without leading zeros</td>
+<td>1 to 31</td>
+</tr>
+<tr>
+<td>HH</td>
+<td>24-hour format of an hour with leading zeros</td>
+<td>00 to 23</td>
+</tr>
+<tr>
+<td>H</td>
+<td>24-hour format of an hour without leading zeros</td>
+<td>0 to 23</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>12-hour format of an hour without leading zeros</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>h</td>
+<td>12-hour format of an hour with leading zeros</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>Minutes, with leading zeros</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Minutes, without leading zeros</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>Seconds, with leading zeros</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Seconds, without leading zeros</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>Milliseconds, with leading zeros</td>
+<td>000 to 999</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Milliseconds, without leading zeros</td>
+<td>0 to 999</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Uppercase Ante meridiem and Post meridiem</td>
+<td>AM or PM</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Lowercase Ante meridiem and Post meridiem</td>
+<td>am or pm</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Milliseconds, since 1970-1-1 00:00:00 UTC</td>
+<td>759883437303</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Random.date()</div><div class="line">// =&gt; &quot;2002-10-23&quot;</div><div class="line">Random.date(&apos;yyyy-MM-dd&apos;)</div><div class="line">// =&gt; &quot;1983-01-29&quot;</div><div class="line">Random.date(&apos;yy-MM-dd&apos;)</div><div class="line">// =&gt; &quot;79-02-14&quot;</div><div class="line">Random.date(&apos;y-MM-dd&apos;)</div><div class="line">// =&gt; &quot;81-05-17&quot;</div><div class="line">Random.date(&apos;y-M-d&apos;)</div><div class="line">// =&gt; &quot;84-6-5&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-time-format"><a href="#Random-time-format" class="headerlink" title="Random.time( format? )"></a>Random.time( format? )</h3><p>. Random.time()<br>. Random.time( format )</p>
+<p>返回一个随机的时间字符串。</p>
+<h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><p>指示生成的时间字符串的格式。默认值为 HH:mm:ss。</p>
+<p>可选的占位符参考自 <a href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date" target="_blank" rel="external">Ext.Date</a>，请参见 Random.date( format? )。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Random.time()</div><div class="line">// =&gt; &quot;00:14:47&quot;</div><div class="line">Random.time(&apos;A HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;PM 20:47:37&quot;</div><div class="line">Random.time(&apos;a HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;pm 17:40:00&quot;</div><div class="line">Random.time(&apos;HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;03:57:53&quot;</div><div class="line">Random.time(&apos;H:m:s&apos;)</div><div class="line">// =&gt; &quot;3:5:13&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-datetime-format"><a href="#Random-datetime-format" class="headerlink" title="Random.datetime( format? )"></a>Random.datetime( format? )</h3><p>. Random.datetime()<br>. Random.datetime( format )</p>
+<p>返回一个随机的日期和时间字符串。</p>
+<h4 id="format-1"><a href="#format-1" class="headerlink" title="format"></a>format</h4><p>指示生成的日期和时间字符串的格式。默认值为 <code>yyyy-MM-dd HH:mm:ss</code>。</p>
+<p>可选的占位符参考自 <a href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date" target="_blank" rel="external">Ext.Date</a>，请参见 Random.date( format? )。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Random.datetime()</div><div class="line">// =&gt; &quot;1977-11-17 03:50:15&quot;</div><div class="line">Random.datetime(&apos;yyyy-MM-dd A HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;1976-04-24 AM 03:48:25&quot;</div><div class="line">Random.datetime(&apos;yy-MM-dd a HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;73-01-18 pm 22:12:32&quot;</div><div class="line">Random.datetime(&apos;y-MM-dd HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;79-06-24 04:45:16&quot;</div><div class="line">Random.datetime(&apos;y-M-d H:m:s&apos;)</div><div class="line">// =&gt; &quot;02-4-23 2:49:40&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-now-unit-format"><a href="#Random-now-unit-format" class="headerlink" title="Random.now( unit?, format? )"></a>Random.now( unit?, format? )</h3><p>. Ranndom.now( unit, format )<br>. Ranndom.now()<br>. Ranndom.now( format )<br>. Ranndom.now( unit )</p>
+<p>返回当前的日期和时间字符串。</p>
+<h4 id="unit"><a href="#unit" class="headerlink" title="unit"></a>unit</h4><p>表示时间单位，用于对当前日期和时间进行格式化。可选值有：<code>year、</code>month<code>、</code>week<code>、</code>day<code>、</code>hour<code>、</code>minute<code>、</code>second<code>、</code>week`，默认不会格式化。</p>
+<h4 id="format-2"><a href="#format-2" class="headerlink" title="format"></a>format</h4><p>指示生成的日期和时间字符串的格式。默认值为 <code>yyyy-MM-dd HH:mm:ss</code>。</p>
+<p>Random.now() 的实现参考了 <a href="http://momentjs.cn/docs/#/manipulating/start-of/" target="_blank" rel="external">Moment.js</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Random.now()</div><div class="line">// =&gt; &quot;2014-04-29 20:08:38 &quot;</div><div class="line">Random.now(&apos;day&apos;, &apos;yyyy-MM-dd HH:mm:ss SS&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 00:00:00 000&quot;</div><div class="line">Random.now(&apos;day&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 00:00:00 &quot;</div><div class="line">Random.now(&apos;yyyy-MM-dd HH:mm:ss SS&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:08:38 157&quot;</div><div class="line"></div><div class="line">Random.now(&apos;year&apos;)</div><div class="line">// =&gt; &quot;2014-01-01 00:00:00&quot;</div><div class="line">Random.now(&apos;month&apos;)</div><div class="line">// =&gt; &quot;2014-04-01 00:00:00&quot;</div><div class="line">Random.now(&apos;week&apos;)</div><div class="line">// =&gt; &quot;2014-04-27 00:00:00&quot;</div><div class="line">Random.now(&apos;day&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 00:00:00&quot;</div><div class="line">Random.now(&apos;hour&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:00:00&quot;</div><div class="line">Random.now(&apos;minute&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:08:00&quot;</div><div class="line">Random.now(&apos;second&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:08:38&quot;</div></pre></td></tr></table></figure>
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><h3 id="Random-image-size-background-foreground-format-text"><a href="#Random-image-size-background-foreground-format-text" class="headerlink" title="Random.image( size?, background?, foreground?, format?, text? )"></a>Random.image( size?, background?, foreground?, format?, text? )</h3><p>. Random.image()<br>. Random.image( size )<br>. Random.image( size, background )<br>. Random.image( size, background, text )<br>. Random.image( size, background, foreground, text )<br>. Random.image( size, background, foreground, format, text )</p>
+<p>生成一个随机的图片地址。</p>
+<p><code>Random.image()</code>用于生成高度自定义的图片地址，一般情况下，应该使用更简单的 <code>Random.dataImage()</code>。</p>
+<h4 id="size"><a href="#size" class="headerlink" title="size"></a>size</h4><p>指示图片的宽高，格式为 ‘宽x高’。默认从下面的数组中随机读取一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &apos;300x250&apos;, &apos;250x250&apos;, &apos;240x400&apos;, &apos;336x280&apos;, </div><div class="line">    &apos;180x150&apos;, &apos;720x300&apos;, &apos;468x60&apos;, &apos;234x60&apos;, </div><div class="line">    &apos;88x31&apos;, &apos;120x90&apos;, &apos;120x60&apos;, &apos;120x240&apos;, </div><div class="line">    &apos;125x125&apos;, &apos;728x90&apos;, &apos;160x600&apos;, &apos;120x600&apos;, </div><div class="line">    &apos;300x600&apos;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h4 id="background"><a href="#background" class="headerlink" title="background"></a>background</h4><p>指示图片的背景色。默认值为 ‘#000000’。</p>
+<h4 id="foreground"><a href="#foreground" class="headerlink" title="foreground"></a>foreground</h4><p>指示图片的前景色（文字）。默认值为 ‘#FFFFFF’。</p>
+<h4 id="format-3"><a href="#format-3" class="headerlink" title="format"></a>format</h4><p>指示图片的格式。默认值为 ‘png’，可选值包括：’png’、’gif’、’jpg’。</p>
+<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><p>指示图片上的文字。默认值为参数 size。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Random.image()</div><div class="line">// =&gt; &quot;http://dummyimage.com/125x125&quot;</div><div class="line">Random.image(&apos;200x100&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#fb0a2a&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/fb0a2a&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#02adea&apos;, &apos;Hello&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/02adea&amp;text=Hello&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#00405d&apos;, &apos;#FFF&apos;, &apos;Mock.js&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/00405d/FFF&amp;text=Mock.js&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#ffcc33&apos;, &apos;#FFF&apos;, &apos;png&apos;, &apos;!&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/ffcc33/FFF.png&amp;text=!&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-dataImage-size-text"><a href="#Random-dataImage-size-text" class="headerlink" title="Random.dataImage( size?, text? )"></a>Random.dataImage( size?, text? )</h3><p>. Random.dataImage()<br>. Random.dataImage( size )<br>. Random.dataImage( size, text )</p>
+<p>生成一段随机的 Base64 图片编码。<br>如果需要生成高度自定义的图片，请使用<code>Random.image()</code>。</p>
+<h4 id="size-1"><a href="#size-1" class="headerlink" title="size"></a>size</h4><p>指示图片的宽高，格式为 ‘宽x高’。默认从下面的数组中随机读取一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &apos;300x250&apos;, &apos;250x250&apos;, &apos;240x400&apos;, &apos;336x280&apos;, </div><div class="line">    &apos;180x150&apos;, &apos;720x300&apos;, &apos;468x60&apos;, &apos;234x60&apos;, </div><div class="line">    &apos;88x31&apos;, &apos;120x90&apos;, &apos;120x60&apos;, &apos;120x240&apos;, </div><div class="line">    &apos;125x125&apos;, &apos;728x90&apos;, &apos;160x600&apos;, &apos;120x600&apos;, </div><div class="line">    &apos;300x600&apos;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h4 id="text-1"><a href="#text-1" class="headerlink" title="text"></a>text</h4><p>指示图片上的文字。默认值为参数 size。</p>
+<p>图片的背景色是随机的，取值范围参考自 <a href="http://brandcolors.net/。" target="_blank" rel="external">http://brandcolors.net/。</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Random.dataImage()</div><div class="line"></div><div class="line">// =&gt; &quot;data:image/png;base64,iVBORw0···&quot;</div><div class="line"></div><div class="line">Random.dataImage(&apos;200x100&apos;)</div><div class="line"></div><div class="line">// =&gt;  &quot;data:image/png;base64,iVBORw0···&quot;</div><div class="line"></div><div class="line">Random.dataImage(&apos;200x100&apos;, &apos;Hello Mock.js!&apos;)</div><div class="line"></div><div class="line">// =&gt;  &quot;data:image/png;base64,iVBORw0···&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Color"><a href="#Color" class="headerlink" title="Color"></a>Color</h2><h3 id="Random-color"><a href="#Random-color" class="headerlink" title="Random.color()"></a>Random.color()</h3><p>. Random.color()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;#RRGGBB&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.color()</div><div class="line">// =&gt; &quot;#3538B2&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-hex"><a href="#Random-hex" class="headerlink" title="Random.hex()"></a>Random.hex()</h3><p>Random.hex()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;#RRGGBB&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.hex()</div><div class="line">// =&gt; &quot;#3538B2&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-rgb"><a href="#Random-rgb" class="headerlink" title="Random.rgb()"></a>Random.rgb()</h3><p>. Random.rgb()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;rgb(r, g, b)&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.rgb()</div><div class="line">// =&gt; &quot;rgb(242, 198, 121)&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-rgba"><a href="#Random-rgba" class="headerlink" title="Random.rgba()"></a>Random.rgba()</h3><p>. Random.rgba()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;rgba(r, g, b, a)&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.rgba()</div><div class="line">// =&gt; &quot;rgba(242, 198, 121, 0.13)&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-hsl"><a href="#Random-hsl" class="headerlink" title="Random.hsl()"></a>Random.hsl()</h3><p>. Random.hsl()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;hsl(h, s, l)&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.hsl()</div><div class="line">// =&gt; &quot;hsl(345, 82, 71)&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h2><h3 id="Random-paragraph-min-max"><a href="#Random-paragraph-min-max" class="headerlink" title="Random.paragraph( min?, max? )"></a>Random.paragraph( min?, max? )</h3><p>. Random.paragraph()<br>. Random.paragraph( len )<br>. Random.paragraph( min, max )<br>随机生成一段文本。</p>
+<h4 id="len"><a href="#len" class="headerlink" title="len"></a>len</h4><p>指示文本中句子的个数。默认值为 3 到 7 之间的随机数。</p>
+<h4 id="min"><a href="#min" class="headerlink" title="min"></a>min</h4><p>指示文本中句子的最小个数。默认值为 3。</p>
+<h4 id="max"><a href="#max" class="headerlink" title="max"></a>max</h4><p>指示文本中句子的最大个数。默认值为 7。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Random.paragraph()</div><div class="line">// =&gt; &quot;Yohbjjz psxwibxd jijiccj kvemj eidnus disnrst rcconm bcjrof tpzhdo ncxc yjws jnmdmty. Dkmiwza ibudbufrnh ndmcpz tomdyh oqoonsn jhoy rueieihtt vsrjpudcm sotfqsfyv mjeat shnqmslfo oirnzu cru qmpt ggvgxwv jbu kjde. Kzegfq kigj dtzdd ngtytgm comwwoox fgtee ywdrnbam utu nyvlyiv tubouw lezpkmyq fkoa jlygdgf pgv gyerges wbykcxhwe bcpmt beqtkq. Mfxcqyh vhvpovktvl hrmsgfxnt jmnhyndk qohnlmgc sicmlnsq nwku dxtbmwrta omikpmajv qda qrn cwoyfaykxa xqnbv bwbnyov hbrskzt. Pdfqwzpb hypvtknt bovxx noramu xhzam kfb ympmebhqxw gbtaszonqo zmsdgcku mjkjc widrymjzj nytudruhfr uudsitbst cgmwewxpi bye. Eyseox wyef ikdnws weoyof dqecfwokkv svyjdyulk glusauosnu achmrakky kdcfp kujrqcq xojqbxrp mpfv vmw tahxtnw fhe lcitj.&quot;</div><div class="line">    </div><div class="line">Random.paragraph(2)</div><div class="line">// =&gt; &quot;Dlpec hnwvovvnq slfehkf zimy qpxqgy vwrbi mok wozddpol umkek nffjcmk gnqhhvm ztqkvjm kvukg dqubvqn xqbmoda. Vdkceijr fhhyemx hgkruvxuvr kuez wmkfv lusfksuj oewvvf cyw tfpo jswpseupm ypybap kwbofwg uuwn rvoxti ydpeeerf.&quot;</div><div class="line">    </div><div class="line">Random.paragraph(1, 3)</div><div class="line">// =&gt; &quot;Qdgfqm puhxle twi lbeqjqfi bcxeeecu pqeqr srsx tjlnew oqtqx zhxhkvq pnjns eblxhzzta hifj csvndh ylechtyu.&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cparagraph-min-max"><a href="#Random-cparagraph-min-max" class="headerlink" title="Random.cparagraph( min?, max? )"></a>Random.cparagraph( min?, max? )</h3><p>. Random.cparagraph()<br>. Random.cparagraph( len )<br>. Random.cparagraph( min, max )<br>随机生成一段中文文本。</p>
+<p>参数的含义和默认值同 <a href="#Random.paragraph( min?, max?">Random.paragraph( min?, max? )</a>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Random.cparagraph()</div><div class="line">// =&gt; &quot;给日数时化周作少情者美制论。到先争劳今已美变江以好较正新深。族国般建难出就金感基酸转。任部四那响成族利标铁导术一或已于。省元切世权往着路积会其区素白思断。加把他位间存定国工取除许热规先法方。&quot;</div><div class="line">    </div><div class="line">Random.cparagraph(2)</div><div class="line">// =&gt; &quot;去话起时为无子议气根复即传月广。题林里油步不约认山形两标命导社干。&quot;</div><div class="line">    </div><div class="line">Random.cparagraph(1, 3)</div><div class="line">// =&gt; &quot;候无部社心性有构员其深例矿取民为。须被亲需报每完认支这明复几下在铁需连。省备可离展五斗器就石正队除解动。&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-sentence-min-max"><a href="#Random-sentence-min-max" class="headerlink" title="Random.sentence( min?, max? )"></a>Random.sentence( min?, max? )</h3><p>. Random.sentence()<br>. Random.sentence( len )<br>. Random.sentence( min, max )<br>随机生成一个句子，第一个单词的首字母大写。</p>
+<h4 id="len-1"><a href="#len-1" class="headerlink" title="len"></a>len</h4><p>指示句子中单词的个数。默认值为 12 到 18 之间的随机数。</p>
+<h4 id="min-1"><a href="#min-1" class="headerlink" title="min"></a>min</h4><p>指示句子中单词的最小个数。默认值为 12。</p>
+<h4 id="max-1"><a href="#max-1" class="headerlink" title="max"></a>max</h4><p>指示句子中单词的最大个数。默认值为 18。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.sentence()</div><div class="line">// =&gt; &quot;Jovasojt qopupwh plciewh dryir zsqsvlkga yeam.&quot;</div><div class="line">Random.sentence(5)</div><div class="line">// =&gt; &quot;Fwlymyyw htccsrgdk rgemfpyt cffydvvpc ycgvno.&quot;</div><div class="line">Random.sentence(3, 5)</div><div class="line">// =&gt; &quot;Mgl qhrprwkhb etvwfbixm jbqmg.&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-csentence-min-max"><a href="#Random-csentence-min-max" class="headerlink" title="Random.csentence( min?, max? )"></a>Random.csentence( min?, max? )</h3><p>. Random.csentence()<br>. Random.csentence( len )<br>. Random.csentence( min, max )<br>随机生成一段中文文本。</p>
+<p>参数的含义和默认值同 <a href="#Random.sentence( min?, max?">Random.sentence( min?, max? )</a>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Random.csentence()</div><div class="line">// =&gt; &quot;第任人九同段形位第律认得。&quot;</div><div class="line">    </div><div class="line">Random.csentence(2)</div><div class="line">// =&gt; &quot;维总。&quot;</div><div class="line">    </div><div class="line">Random.csentence(1, 3)</div><div class="line">// =&gt; &quot;厂存。&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-word-min-max"><a href="#Random-word-min-max" class="headerlink" title="Random.word( min?, max? )"></a>Random.word( min?, max? )</h3><p>. Random.word()<br>. Random.word( len )<br>. Random.word( min, max )<br>随机生成一个单词。</p>
+<h4 id="len-2"><a href="#len-2" class="headerlink" title="len"></a>len</h4><p>指示单词中字符的个数。默认值为 3 到 10 之间的随机数。</p>
+<h4 id="min-2"><a href="#min-2" class="headerlink" title="min"></a>min</h4><p>指示单词中字符的最小个数。默认值为 3。</p>
+<h4 id="max-2"><a href="#max-2" class="headerlink" title="max"></a>max</h4><p>指示单词中字符的最大个数。默认值为 10。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Random.word()</div><div class="line">// =&gt; &quot;fxpocl&quot;</div><div class="line">Random.word(5)</div><div class="line">// =&gt; &quot;xfqjb&quot;</div><div class="line">Random.word(3, 5)</div><div class="line">// =&gt; &quot;kemh&quot;</div><div class="line">目前单词中的字符是随机的小写字母，未来会根据词法生成『可读』的单词。</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cword-pool-min-max"><a href="#Random-cword-pool-min-max" class="headerlink" title="Random.cword( pool?, min?, max? )"></a>Random.cword( pool?, min?, max? )</h3><p>. Random.cword()<br>. Random.cword( pool )<br>. Random.cword( length )<br>. Random.cword( pool, length )<br>. Random.cword( min, max )<br>. Random.cword( pool, min, max )<br>随机生成一个汉字。</p>
+<h4 id="pool"><a href="#pool" class="headerlink" title="pool"></a>pool</h4><p>汉字字符串。表示汉字字符池，将从中选择一个汉字字符返回。</p>
+<h4 id="min-3"><a href="#min-3" class="headerlink" title="min"></a>min</h4><p>随机汉字字符串的最小长度。默认值为 1。</p>
+<h4 id="max-3"><a href="#max-3" class="headerlink" title="max"></a>max</h4><p>随机汉字字符串的最大长度。默认值为 1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Random.cword()</div><div class="line">// =&gt; &quot;干&quot;</div><div class="line">Random.cword(&apos;零一二三四五六七八九十&apos;)</div><div class="line">// =&gt; &quot;六&quot;</div><div class="line">Random.cword(3)</div><div class="line">// =&gt; &quot;别金提&quot;</div><div class="line">Random.cword(&apos;零一二三四五六七八九十&apos;, 3)</div><div class="line">// =&gt; &quot;&quot;七七七&quot;&quot;</div><div class="line">Random.cword(5, 7)</div><div class="line">// =&gt; &quot;设过证全争听&quot;</div><div class="line">Random.cword(&apos;零一二三四五六七八九十&apos;, 5, 7)</div><div class="line">// =&gt; &quot;九七七零四&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-title-min-max"><a href="#Random-title-min-max" class="headerlink" title="Random.title( min?, max? )"></a>Random.title( min?, max? )</h3><p>. Random.title()<br>. Random.title( len )<br>. Random.title( min, max )<br>随机生成一句标题，其中每个单词的首字母大写。</p>
+<h4 id="len-3"><a href="#len-3" class="headerlink" title="len"></a>len</h4><p>指示单词中字符的个数。默认值为 3 到 7 之间的随机数。</p>
+<h4 id="min-4"><a href="#min-4" class="headerlink" title="min"></a>min</h4><p>指示单词中字符的最小个数。默认值为 3。</p>
+<h4 id="max-4"><a href="#max-4" class="headerlink" title="max"></a>max</h4><p>指示单词中字符的最大个数。默认值为 7。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.title()</div><div class="line">// =&gt; &quot;Rduqzr Muwlmmlg Siekwvo Ktn Nkl Orn&quot;</div><div class="line">Random.title(5)</div><div class="line">// =&gt; &quot;Ahknzf Btpehy Xmpc Gonehbnsm Mecfec&quot;</div><div class="line">Random.title(3, 5)</div><div class="line">// =&gt; &quot;Hvjexiondr Pyickubll Owlorjvzys Xfnfwbfk&quot;</div></pre></td></tr></table></figure></p>
+<h4 id="Random-ctitle-min-max"><a href="#Random-ctitle-min-max" class="headerlink" title="Random.ctitle( min?, max? )"></a>Random.ctitle( min?, max? )</h4><p>. Random.ctitle()<br>. Random.ctitle( len )<br>. Random.ctitle( min, max )<br>随机生成一句中文标题。</p>
+<p>参数的含义和默认值同 <a href="#Random.title( min?, max?">Random.title( min?, max? )</a>)</p>
+<h4 id="len-4"><a href="#len-4" class="headerlink" title="len"></a>len</h4><p>指示单词中字符的个数。默认值为 3 到 7 之间的随机数。</p>
+<h4 id="min-5"><a href="#min-5" class="headerlink" title="min"></a>min</h4><p>指示单词中字符的最小个数。默认值为 3。</p>
+<h4 id="max-5"><a href="#max-5" class="headerlink" title="max"></a>max</h4><p>指示单词中字符的最大个数。默认值为 7。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.ctitle()</div><div class="line">// =&gt; &quot;证构动必作&quot;</div><div class="line">Random.ctitle(5)</div><div class="line">// =&gt; &quot;应青次影育&quot;</div><div class="line">Random.ctitle(3, 5)</div><div class="line">// =&gt; &quot;出料阶相&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h2><h3 id="Random-first"><a href="#Random-first" class="headerlink" title="Random.first()"></a>Random.first()</h3><p>. Random.first()<br>随机生成一个常见的英文名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.first()</div><div class="line">// =&gt; &quot;Nancy&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-last"><a href="#Random-last" class="headerlink" title="Random.last()"></a>Random.last()</h3><p>. Random.last()<br>随机生成一个常见的英文姓。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.last()</div><div class="line">// =&gt; &quot;Martinez&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-name-middle"><a href="#Random-name-middle" class="headerlink" title="Random.name( middle? )"></a>Random.name( middle? )</h3><p>. Random.name()<br>. Random.name( middle )<br>随机生成一个常见的英文姓名。</p>
+<h4 id="middle"><a href="#middle" class="headerlink" title="middle"></a>middle</h4><p>布尔值。指示是否生成中间名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.name()</div><div class="line">// =&gt; &quot;Larry Wilson&quot;</div><div class="line">Random.name(true)</div><div class="line">// =&gt; &quot;Helen Carol Martinez&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cfirst"><a href="#Random-cfirst" class="headerlink" title="Random.cfirst()"></a>Random.cfirst()</h3><p>. Random.cfirst()<br>随机生成一个常见的中文名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.cfirst()</div><div class="line">// =&gt; &quot;曹&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-clast"><a href="#Random-clast" class="headerlink" title="Random.clast()"></a>Random.clast()</h3><p>. Random.clast()<br>随机生成一个常见的中文姓。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.clast()</div><div class="line">// =&gt; &quot;艳&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cname"><a href="#Random-cname" class="headerlink" title="Random.cname()"></a>Random.cname()</h3><p>. Random.cname()<br>随机生成一个常见的中文姓名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.cname()</div><div class="line">// =&gt; &quot;袁军&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Random-url-protocol-host"><a href="#Random-url-protocol-host" class="headerlink" title="Random.url( protocol?, host? )"></a>Random.url( protocol?, host? )</h3><p>. Random.url()<br>. Random.url( protocol, host )<br>随机生成一个 URL。</p>
+<h4 id="protocol"><a href="#protocol" class="headerlink" title="protocol"></a>protocol</h4><p>指定 URL 协议。例如 http。</p>
+<h4 id="host"><a href="#host" class="headerlink" title="host"></a>host</h4><p>指定 URL 域名和端口号。例如 nuysoft.com。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.url()</div><div class="line">// =&gt; &quot;mid://axmg.bg/bhyq&quot;</div><div class="line">Random.url(&apos;http&apos;)</div><div class="line">// =&gt; &quot;http://splap.yu/qxzkyoubp&quot;</div><div class="line">Random.url(&apos;http&apos;, &apos;nuysoft.com&apos;)</div><div class="line">// =&gt; &quot;http://nuysoft.com/ewacecjhe&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-protocol"><a href="#Random-protocol" class="headerlink" title="Random.protocol()"></a>Random.protocol()</h3><p>. Random.protocol()<br>随机生成一个 URL 协议。返回以下值之一：’http’、’ftp’、’gopher’、’mailto’、’mid’、’cid’、’news’、’nntp’、’prospero’、’telnet’、’rlogin’、’tn3270’、’wais’。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.protocol()</div><div class="line">// =&gt; &quot;ftp&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-domain"><a href="#Random-domain" class="headerlink" title="Random.domain()"></a>Random.domain()</h3><p>. Random.domain()<br>随机生成一个域名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.domain()</div><div class="line">// =&gt; &quot;kozfnb.org&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-tld"><a href="#Random-tld" class="headerlink" title="Random.tld()"></a>Random.tld()</h3><p>. Random.tld()<br>随机生成一个顶级域名（Top Level Domain）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.tld()</div><div class="line">// =&gt; &quot;net&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-email-domain"><a href="#Random-email-domain" class="headerlink" title="Random.email( domain? )"></a>Random.email( domain? )</h3><p>. Random.email()<br>. Random.email( domain )<br>随机生成一个邮件地址。</p>
+<h4 id="domain"><a href="#domain" class="headerlink" title="domain"></a>domain</h4><p>指定邮件地址的域名。例如 nuysoft.com。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.email()</div><div class="line">// =&gt; &quot;x.davis@jackson.edu&quot;</div><div class="line">Random.email(&apos;nuysoft.com&apos;)</div><div class="line">// =&gt; &quot;h.pqpneix@nuysoft.com&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-ip"><a href="#Random-ip" class="headerlink" title="Random.ip()"></a>Random.ip()</h3><p>. Random.ip()<br>随机生成一个 IP 地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.ip()</div><div class="line">// =&gt; &quot;34.206.109.169&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Address"><a href="#Address" class="headerlink" title="Address"></a>Address</h2><h3 id="Random-region"><a href="#Random-region" class="headerlink" title="Random.region()"></a>Random.region()</h3><p>. Random.region()<br>随机生成一个（中国）大区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.region()</div><div class="line">// =&gt; &quot;华北&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-province"><a href="#Random-province" class="headerlink" title="Random.province()"></a>Random.province()</h3><p>. Random.province()<br>随机生成一个（中国）省（或直辖市、自治区、特别行政区）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.province()</div><div class="line">// =&gt; &quot;黑龙江省&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-city-prefix"><a href="#Random-city-prefix" class="headerlink" title="Random.city( prefix? )"></a>Random.city( prefix? )</h3><p>. Random.city()<br>. Random.city( prefix )<br>随机生成一个（中国）市。</p>
+<h4 id="prefix"><a href="#prefix" class="headerlink" title="prefix"></a>prefix</h4><p>布尔值。指示是否生成所属的省。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.city()</div><div class="line">// =&gt; &quot;唐山市&quot;</div><div class="line">Random.city(true)</div><div class="line">// =&gt; &quot;福建省 漳州市&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-county-prefix"><a href="#Random-county-prefix" class="headerlink" title="Random.county( prefix? )"></a>Random.county( prefix? )</h3><p>. Random.county()<br>. Random.county( prefix )<br>随机生成一个（中国）县。</p>
+<h4 id="prefix-1"><a href="#prefix-1" class="headerlink" title="prefix"></a>prefix</h4><p>布尔值。指示是否生成所属的省、市。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.county()</div><div class="line">// =&gt; &quot;上杭县&quot;</div><div class="line">Random.county(true)</div><div class="line">// =&gt; &quot;甘肃省 白银市 会宁县&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-zip"><a href="#Random-zip" class="headerlink" title="Random.zip()"></a>Random.zip()</h3><p>. Random.zip()<br>随机生成一个邮政编码（六位数字）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.zip()</div><div class="line">// =&gt; &quot;908812&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Helper"><a href="#Helper" class="headerlink" title="Helper"></a>Helper</h2><h3 id="Random-capitalize-word"><a href="#Random-capitalize-word" class="headerlink" title="Random.capitalize( word )"></a>Random.capitalize( word )</h3><p>. Random.capitalize(word)<br>把字符串的第一个字母转换为大写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.capitalize(&apos;hello&apos;)</div><div class="line">// =&gt; &quot;Hello&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-upper-str"><a href="#Random-upper-str" class="headerlink" title="Random.upper( str )"></a>Random.upper( str )</h3><p>. Random.upper( str )<br>把字符串转换为大写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.upper(&apos;hello&apos;)</div><div class="line">// =&gt; &quot;HELLO&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-lower-str"><a href="#Random-lower-str" class="headerlink" title="Random.lower( str )"></a>Random.lower( str )</h3><p>. Random.lower( str )<br>把字符串转换为小写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.lower(&apos;HELLO&apos;)</div><div class="line">// =&gt; &quot;hello&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-pick-arr"><a href="#Random-pick-arr" class="headerlink" title="Random.pick( arr )"></a>Random.pick( arr )</h3><p>. Random.pick( arr )<br>从数组中随机选取一个元素，并返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.pick([&apos;a&apos;, &apos;e&apos;, &apos;i&apos;, &apos;o&apos;, &apos;u&apos;])</div><div class="line">// =&gt; &quot;o&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-shuffle-arr"><a href="#Random-shuffle-arr" class="headerlink" title="Random.shuffle( arr )"></a>Random.shuffle( arr )</h3><p>. Random.shuffle( arr )<br>打乱数组中元素的顺序，并返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.shuffle([&apos;a&apos;, &apos;e&apos;, &apos;i&apos;, &apos;o&apos;, &apos;u&apos;])</div><div class="line">// =&gt; [&quot;o&quot;, &quot;u&quot;, &quot;e&quot;, &quot;i&quot;, &quot;a&quot;]</div></pre></td></tr></table></figure></p>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="Random-guid"><a href="#Random-guid" class="headerlink" title="Random.guid()"></a>Random.guid()</h3><p>. Random.guid()<br>随机生成一个 GUID。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Random.guid()</div><div class="line">// =&gt; &quot;662C63B4-FD43-66F4-3328-C54E3FF0D56E&quot;</div><div class="line">Random.guid() 的实现参考了 UUID 规范。</div></pre></td></tr></table></figure></p>
+<h3 id="Random-id"><a href="#Random-id" class="headerlink" title="Random.id()"></a>Random.id()</h3><p>. Random.id()<br>随机生成一个 18 位身份证。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.id()</div><div class="line">// =&gt; &quot;420000200710091854&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-increment-step"><a href="#Random-increment-step" class="headerlink" title="Random.increment( step? )"></a>Random.increment( step? )</h3><p>. Random.increment()<br>. Random.increment( step )<br>生成一个全局的自增整数。</p>
+<h4 id="step"><a href="#step" class="headerlink" title="step"></a>step</h4><p>整数自增的步长。默认值为 1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.increment()</div><div class="line">// =&gt; 1</div><div class="line">Random.increment(100)</div><div class="line">// =&gt; 101</div><div class="line">Random.increment(1000)</div><div class="line">// =&gt; 1101</div></pre></td></tr></table></figure></p>
+<h2 id="Mock-valid"><a href="#Mock-valid" class="headerlink" title="Mock.valid()"></a>Mock.valid()</h2><h3 id="Mock-valid-template-data"><a href="#Mock-valid-template-data" class="headerlink" title="Mock.valid( template, data )"></a>Mock.valid( template, data )</h3><p>. Mock.valid( template, data )<br>校验真实数据 data 是否与数据模板 template 匹配。</p>
+<h4 id="template-1"><a href="#template-1" class="headerlink" title="template"></a>template</h4><p>表示数据模板，可以是对象或字符串。例如 { ‘list|1-10’:[{}] }、’@EMAIL’。</p>
+<h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><p>表示真实数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var template = &#123;</div><div class="line">    name: &apos;value1&apos;</div><div class="line">&#125;</div><div class="line">var data = &#123;</div><div class="line">    name: &apos;value2&apos;</div><div class="line">&#125;</div><div class="line">Mock.valid(template, data)</div><div class="line">// =&gt;</div><div class="line">[</div><div class="line">    &#123;</div><div class="line">        &quot;path&quot;: [</div><div class="line">            &quot;data&quot;,</div><div class="line">            &quot;name&quot;</div><div class="line">        ],</div><div class="line">        &quot;type&quot;: &quot;value&quot;,</div><div class="line">        &quot;actual&quot;: &quot;value2&quot;,</div><div class="line">        &quot;expected&quot;: &quot;value1&quot;,</div><div class="line">        &quot;action&quot;: &quot;equal to&quot;,</div><div class="line">        &quot;message&quot;: &quot;[VALUE] Expect ROOT.name&apos;value is equal to value1, but is value2&quot;</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h2 id="Mock-toJSONSchema"><a href="#Mock-toJSONSchema" class="headerlink" title="Mock.toJSONSchema()"></a>Mock.toJSONSchema()</h2><h3 id="Mock-toJSONSchema-template"><a href="#Mock-toJSONSchema-template" class="headerlink" title="Mock.toJSONSchema( template )"></a>Mock.toJSONSchema( template )</h3><p>. Mock.toJSONSchema( template )<br>把 Mock.js 风格的数据模板 template 转换成 JSON Schema。</p>
+<h4 id="template-2"><a href="#template-2" class="headerlink" title="template"></a>template</h4><p>表示数据模板，可以是对象或字符串。例如<code>` { &#39;list|1-10&#39;:[{}] }</code>、<code>&#39;@EMAIL&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var template = &#123;</div><div class="line">    &apos;key|1-10&apos;: &apos;★&apos;</div><div class="line">&#125;</div><div class="line">Mock.toJSONSchema(template)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: undefined,</div><div class="line">    &quot;path&quot;: [</div><div class="line">        &quot;ROOT&quot;</div><div class="line">    ],</div><div class="line">    &quot;type&quot;: &quot;object&quot;,</div><div class="line">    &quot;template&quot;: &#123;</div><div class="line">        &quot;key|1-10&quot;: &quot;★&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;rule&quot;: &#123;&#125;,</div><div class="line">    &quot;properties&quot;: [&#123;</div><div class="line">        &quot;name&quot;: &quot;key&quot;,</div><div class="line">        &quot;path&quot;: [</div><div class="line">            &quot;ROOT&quot;,</div><div class="line">            &quot;key&quot;</div><div class="line">        ],</div><div class="line">        &quot;type&quot;: &quot;string&quot;,</div><div class="line">        &quot;template&quot;: &quot;★&quot;,</div><div class="line">        &quot;rule&quot;: &#123;</div><div class="line">            &quot;parameters&quot;: [&quot;key|1-10&quot;, &quot;key&quot;, null, &quot;1-10&quot;, null],</div><div class="line">            &quot;range&quot;: [&quot;1-10&quot;, &quot;1&quot;, &quot;10&quot;],</div><div class="line">            &quot;min&quot;: 1,</div><div class="line">            &quot;max&quot;: 10,</div><div class="line">            &quot;count&quot;: 3,</div><div class="line">            &quot;decimal&quot;: undefined,</div><div class="line">            &quot;dmin&quot;: undefined,</div><div class="line">            &quot;dmax&quot;: undefined,</div><div class="line">            &quot;dcount&quot;: undefined</div><div class="line">        &#125;</div><div class="line">    &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">var template = &#123;</div><div class="line">    &apos;list|1-10&apos;: [&#123;&#125;]</div><div class="line">&#125;</div><div class="line">Mock.toJSONSchema(template)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: undefined,</div><div class="line">    &quot;path&quot;: [&quot;ROOT&quot;],</div><div class="line">    &quot;type&quot;: &quot;object&quot;,</div><div class="line">    &quot;template&quot;: &#123;</div><div class="line">        &quot;list|1-10&quot;: [&#123;&#125;]</div><div class="line">    &#125;,</div><div class="line">    &quot;rule&quot;: &#123;&#125;,</div><div class="line">    &quot;properties&quot;: [&#123;</div><div class="line">        &quot;name&quot;: &quot;list&quot;,</div><div class="line">        &quot;path&quot;: [&quot;ROOT&quot;, &quot;list&quot;],</div><div class="line">        &quot;type&quot;: &quot;array&quot;,</div><div class="line">        &quot;template&quot;: [&#123;&#125;],</div><div class="line">        &quot;rule&quot;: &#123;</div><div class="line">            &quot;parameters&quot;: [&quot;list|1-10&quot;, &quot;list&quot;, null, &quot;1-10&quot;, null],</div><div class="line">            &quot;range&quot;: [&quot;1-10&quot;, &quot;1&quot;, &quot;10&quot;],</div><div class="line">            &quot;min&quot;: 1,</div><div class="line">            &quot;max&quot;: 10,</div><div class="line">            &quot;count&quot;: 6,</div><div class="line">            &quot;decimal&quot;: undefined,</div><div class="line">            &quot;dmin&quot;: undefined,</div><div class="line">            &quot;dmax&quot;: undefined,</div><div class="line">            &quot;dcount&quot;: undefined</div><div class="line">        &#125;,</div><div class="line">        &quot;items&quot;: [&#123;</div><div class="line">            &quot;name&quot;: 0,</div><div class="line">            &quot;path&quot;: [&quot;data&quot;, &quot;list&quot;, 0],</div><div class="line">            &quot;type&quot;: &quot;object&quot;,</div><div class="line">            &quot;template&quot;: &#123;&#125;,</div><div class="line">            &quot;rule&quot;: &#123;&#125;,</div><div class="line">            &quot;properties&quot;: []</div><div class="line">        &#125;]</div><div class="line">    &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>       
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>Mock.js生成随机数据，拦截 Ajax 请求(随机数据即制造假数据提供给使用)</p>
+<a id="more"></a>
+<p>[TOC]</p>
+<h4 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h4><p>让前端攻城师独立于后端进行开发。</p>
+<h4 id="增加单元测试的真实性"><a href="#增加单元测试的真实性" class="headerlink" title="增加单元测试的真实性"></a>增加单元测试的真实性</h4><p>通过随机数据，模拟各种场景。</p>
+<h4 id="开发无侵入"><a href="#开发无侵入" class="headerlink" title="开发无侵入"></a>开发无侵入</h4><p>不需要修改既有代码，就可以拦截 Ajax 请求，返回模拟的响应数据。</p>
+<h4 id="用法简单"><a href="#用法简单" class="headerlink" title="用法简单"></a>用法简单</h4><p>符合直觉的接口。</p>
+<h4 id="数据类型丰富"><a href="#数据类型丰富" class="headerlink" title="数据类型丰富"></a>数据类型丰富</h4><p>支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。</p>
+<h4 id="方便扩展"><a href="#方便扩展" class="headerlink" title="方便扩展"></a>方便扩展</h4><p>支持支持扩展更多数据类型，支持自定义函数和正则。</p>
+<h2 id="开始-amp-安装"><a href="#开始-amp-安装" class="headerlink" title="开始 &amp; 安装"></a>开始 &amp; 安装</h2><h4 id="Node-CommonJS"><a href="#Node-CommonJS" class="headerlink" title="Node (CommonJS)"></a>Node (CommonJS)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#安装</div><div class="line">npm install mockjs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 使用 Mock</div><div class="line">var Mock = require(&apos;mockjs&apos;)</div><div class="line">var data = Mock.mock(&#123;</div><div class="line">    // 属性 list 的值是一个数组，其中含有 1 到 10 个元素</div><div class="line">    &apos;list|1-10&apos;: [&#123;</div><div class="line">        // 属性 id 是一个自增数，起始值为 1，每次增 1</div><div class="line">        &apos;id|+1&apos;: 1</div><div class="line">    &#125;]</div><div class="line">&#125;)</div><div class="line">// 输出结果</div><div class="line">console.log(JSON.stringify(data, null, 4))</div></pre></td></tr></table></figure>
+<h4 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 安装</div><div class="line">npm install -g bower</div><div class="line">bower install --save mockjs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;./bower_components/mockjs/dist/mock.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="RequireJS-AMD"><a href="#RequireJS-AMD" class="headerlink" title="RequireJS (AMD)"></a>RequireJS (AMD)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 配置 Mock 路径</div><div class="line">require.config(&#123;</div><div class="line">    paths: &#123;</div><div class="line">        mock: &apos;http://mockjs.com/dist/mock&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">// 加载 Mock</div><div class="line">require([&apos;mock&apos;], function(Mock)&#123;</div><div class="line">    // 使用 Mock</div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">        &apos;list|1-10&apos;: [&#123;</div><div class="line">            &apos;id|+1&apos;: 1</div><div class="line">        &#125;]</div><div class="line">    &#125;)</div><div class="line">    // 输出结果</div><div class="line">    document.body.innerHTML +=</div><div class="line">        &apos;&lt;pre&gt;&apos; +</div><div class="line">        JSON.stringify(data, null, 4) +</div><div class="line">        &apos;&lt;/pre&gt;&apos;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// ==&gt;&#123;&quot;list&quot;: [&#123;&quot;id&quot;: 1&#125;,&#123;&quot;id&quot;: 2&#125;,&#123;&quot;id&quot;: 3&#125;]&#125;</div></pre></td></tr></table></figure>
+<h4 id="Sea-js-CMD"><a href="#Sea-js-CMD" class="headerlink" title="Sea.js (CMD)"></a>Sea.js (CMD)</h4><p>因为 Sea.js 社区尚未提供 webpack 插件，所以 Mock.js 暂不完整支持通过 Sea.js 加载。</p>
+<p>一种变通的方式是，依然通过 Sea.js 配置和加载 Mock.js，然后访问全局变量 Mock。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 配置 Mock 路径</div><div class="line">seajs.config(&#123;</div><div class="line">    alias: &#123;</div><div class="line">        mock: &apos;http://mockjs.com/dist/mock.js&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">// 加载 Mock</div><div class="line">seajs.use(&apos;mock&apos;, function(__PLACEHOLDER) &#123;</div><div class="line">    // 使用 Mock（全局变量）</div><div class="line">    var data = Mock.mock(&#123;</div><div class="line">        &apos;list|1-10&apos;: [&#123;</div><div class="line">            &apos;id|+1&apos;: 1</div><div class="line">        &#125;]</div><div class="line">    &#125;);</div><div class="line">    document.body.innerHTML +=</div><div class="line">        &apos;&lt;pre&gt;&apos; +</div><div class="line">        JSON.stringify(data, null, 4) +</div><div class="line">        &apos;&lt;/pre&gt;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h4 id="Random-CLI"><a href="#Random-CLI" class="headerlink" title="Random CLI"></a>Random CLI</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 全局安装</div><div class="line">$ npm install mockjs -g</div><div class="line"></div><div class="line"># 执行</div><div class="line">$ random url</div><div class="line"># =&gt; http://rmcpx.org/funzwc</div><div class="line"></div><div class="line"># 帮助</div><div class="line">random -h</div></pre></td></tr></table></figure>
+<h2 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h2><p>Mock.js 的语法规范包括两部分：</p>
+<p>. 数据模板定义规范（Data Template Definition，DTD）</p>
+<p>. 数据占位符定义规范（Data Placeholder Definition，DPD）</p>
+<h3 id="数据模板定义规范-DTD"><a href="#数据模板定义规范-DTD" class="headerlink" title="数据模板定义规范 DTD"></a>数据模板定义规范 DTD</h3><h4 id="数据模板中的每个属性由-3-部分构成：属性名、生成规则、属性值："><a href="#数据模板中的每个属性由-3-部分构成：属性名、生成规则、属性值：" class="headerlink" title="数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值："></a>数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 属性名   name</div><div class="line">// 生成规则 rule</div><div class="line">// 属性值   value</div><div class="line">&apos;name|rule&apos;: value</div></pre></td></tr></table></figure>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>. 属性名 和 生成规则 之间用竖线 | 分隔。<br>. 生成规则 是可选的。<br>. 生成规则 有 7 种格式：<br>    . ‘name|min-max’: value<br>    . ‘name|count’: value<br>    . ‘name|min-max.dmin-dmax’: value<br>    . ‘name|min-max.dcount’: value<br>    . ‘name|count.dmin-dmax’: value<br>    . ‘name|count.dcount’: value<br>    . ‘name|+step’: value<br>. 生成规则 的 含义 需要依赖 属性值的类型 才能确定。<br>. 属性值 中可以含有 @占位符。<br>. 属性值 还指定了最终值的初始值和类型。</p>
+<h4 id="生成规则和示例："><a href="#生成规则和示例：" class="headerlink" title="生成规则和示例："></a>生成规则和示例：</h4><h5 id="1-属性值是字符串-String"><a href="#1-属性值是字符串-String" class="headerlink" title="1. 属性值是字符串 String"></a>1. 属性值是字符串 String</h5><pre><code>&apos;name|min-max&apos;: string
+
+通过重复 string 生成一个字符串，重复次数大于等于 min，小于等于 max。
+
+&apos;name|count&apos;: string
+
+通过重复 string 生成一个字符串，重复次数等于 count。
+</code></pre><h5 id="2-属性值是数字-Number"><a href="#2-属性值是数字-Number" class="headerlink" title="2. 属性值是数字 Number"></a>2. 属性值是数字 Number</h5><pre><code>&apos;name|+1&apos;: number
+
+属性值自动加 1，初始值为 number。
+
+&apos;name|min-max&apos;: number
+
+生成一个大于等于 min、小于等于 max 的整数，属性值 number 只是用来确定类型。
+
+&apos;name|min-max.dmin-dmax&apos;: number
+
+生成一个浮点数，整数部分大于等于 min、小于等于 max，小数部分保留 dmin 到 dmax 位。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Mock.mock(&#123;</div><div class="line">    &apos;number1|1-100.1-10&apos;: 1,</div><div class="line">    &apos;number2|123.1-10&apos;: 1,</div><div class="line">    &apos;number3|123.3&apos;: 1,</div><div class="line">    &apos;number4|123.10&apos;: 1.123</div><div class="line">&#125;)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;number1&quot;: 12.92,</div><div class="line">    &quot;number2&quot;: 123.51,</div><div class="line">    &quot;number3&quot;: 123.777,</div><div class="line">    &quot;number4&quot;: 123.1231091814</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-属性值是布尔型-Boolean"><a href="#3-属性值是布尔型-Boolean" class="headerlink" title="3. 属性值是布尔型 Boolean"></a>3. 属性值是布尔型 Boolean</h5><p>‘name|1’: boolean</p>
+<p>随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。</p>
+<p>‘name|min-max’: value</p>
+<p>随机生成一个布尔值，值为 value 的概率是 min / (min + max)，值为 !value 的概率是 max / (min + max)。</p>
+<h5 id="4-属性值是对象-Object"><a href="#4-属性值是对象-Object" class="headerlink" title="4. 属性值是对象 Object"></a>4. 属性值是对象 Object</h5><p>‘name|count’: object</p>
+<p>从属性值 object 中随机选取 count 个属性。</p>
+<p>‘name|min-max’: object</p>
+<p>从属性值 object 中随机选取 min 到 max 个属性。</p>
+<h5 id="5-属性值是数组-Array"><a href="#5-属性值是数组-Array" class="headerlink" title="5. 属性值是数组 Array"></a>5. 属性值是数组 Array</h5><p>‘name|1’: array</p>
+<p>从属性值 array 中随机选取 1 个元素，作为最终值。</p>
+<p>‘name|+1’: array</p>
+<p>从属性值 array 中顺序选取 1 个元素，作为最终值。</p>
+<p>‘name|min-max’: array</p>
+<p>通过重复属性值 array 生成一个新数组，重复次数大于等于 min，小于等于 max。</p>
+<p>‘name|count’: array</p>
+<p>通过重复属性值 array 生成一个新数组，重复次数为 count。</p>
+<h5 id="6-属性值是函数-Function"><a href="#6-属性值是函数-Function" class="headerlink" title="6. 属性值是函数 Function"></a>6. 属性值是函数 Function</h5><p>‘name’: function</p>
+<p>执行函数 function，取其返回值作为最终的属性值，函数的上下文为属性 ‘name’ 所在的对象。</p>
+<h5 id="7-属性值是正则表达式-RegExp"><a href="#7-属性值是正则表达式-RegExp" class="headerlink" title="7. 属性值是正则表达式 RegExp"></a>7. 属性值是正则表达式 RegExp</h5><p>‘name’: regexp</p>
+<p>根据正则表达式 regexp 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Mock.mock(&#123;</div><div class="line">    &apos;regexp1&apos;: /[a-z][A-Z][0-9]/,</div><div class="line">    &apos;regexp2&apos;: /\w\W\s\S\d\D/,</div><div class="line">    &apos;regexp3&apos;: /\d&#123;5,10&#125;/</div><div class="line">&#125;)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;regexp1&quot;: &quot;pJ7&quot;,</div><div class="line">    &quot;regexp2&quot;: &quot;F)\fp1G&quot;,</div><div class="line">    &quot;regexp3&quot;: &quot;561659409&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="数据占位符定义规范-DPD"><a href="#数据占位符定义规范-DPD" class="headerlink" title="数据占位符定义规范 DPD"></a>数据占位符定义规范 DPD</h3><p>占位符 只是在属性值字符串中占个位置，并不出现在最终的属性值中。</p>
+<p>占位符 的格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@占位符</div><div class="line">@占位符(参数 [, 参数])</div></pre></td></tr></table></figure></p>
+<h4 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h4><ol>
+<li>用 @ 来标识其后的字符串是 占位符。</li>
+<li>占位符 引用的是 Mock.Random 中的方法。</li>
+<li>通过 Mock.Random.extend() 来扩展自定义占位符。</li>
+<li>占位符 也可以引用 数据模板 中的属性。</li>
+<li>占位符 会优先引用 数据模板 中的属性。</li>
+<li>占位符 支持 相对路径 和 绝对路径。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Mock.mock(&#123;</div><div class="line">    name: &#123;</div><div class="line">        first: &apos;@FIRST&apos;,</div><div class="line">        middle: &apos;@FIRST&apos;,</div><div class="line">        last: &apos;@LAST&apos;,</div><div class="line">        full: &apos;@first @middle @last&apos;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &#123;</div><div class="line">        &quot;first&quot;: &quot;Charles&quot;,</div><div class="line">        &quot;middle&quot;: &quot;Brenda&quot;,</div><div class="line">        &quot;last&quot;: &quot;Lopez&quot;,</div><div class="line">        &quot;full&quot;: &quot;Charles Brenda Lopez&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Mock-mock"><a href="#Mock-mock" class="headerlink" title="Mock.mock()"></a>Mock.mock()</h2><h3 id="Mock-mock-rurl-rtype-template-function-options"><a href="#Mock-mock-rurl-rtype-template-function-options" class="headerlink" title="Mock.mock( rurl?, rtype?, template|function( options ) )"></a>Mock.mock( rurl?, rtype?, template|function( options ) )</h3><p>根据数据模板生成模拟数据。</p>
+<h4 id="Mock-mock-template"><a href="#Mock-mock-template" class="headerlink" title="Mock.mock( template )"></a>Mock.mock( template )</h4><p>根据数据模板生成模拟数据。</p>
+<h4 id="Mock-mock-rurl-template"><a href="#Mock-mock-rurl-template" class="headerlink" title="Mock.mock( rurl, template )"></a>Mock.mock( rurl, template )</h4><p>记录数据模板。当拦截到匹配 rurl 的 Ajax 请求时，将根据数据模板 template 生成模拟数据，并作为响应数据返回。</p>
+<h4 id="Mock-mock-rurl-function-options"><a href="#Mock-mock-rurl-function-options" class="headerlink" title="Mock.mock( rurl, function( options ) )"></a>Mock.mock( rurl, function( options ) )</h4><p>记录用于生成响应数据的函数。当拦截到匹配 rurl 的 Ajax 请求时，函数<code>function(options)</code> 将被执行，并把执行结果作为响应数据返回。</p>
+<h4 id="Mock-mock-rurl-rtype-template"><a href="#Mock-mock-rurl-rtype-template" class="headerlink" title="Mock.mock( rurl, rtype, template )"></a>Mock.mock( rurl, rtype, template )</h4><p>记录数据模板。当拦截到匹配 rurl 和 rtype 的 Ajax 请求时，将根据数据模板 template 生成模拟数据，并作为响应数据返回。</p>
+<h4 id="Mock-mock-rurl-rtype-function-options"><a href="#Mock-mock-rurl-rtype-function-options" class="headerlink" title="Mock.mock( rurl, rtype, function( options ) )"></a>Mock.mock( rurl, rtype, function( options ) )</h4><p>记录用于生成响应数据的函数。当拦截到匹配 rurl 和 rtype 的 Ajax 请求时，函数 function(options) 将被执行，并把执行结果作为响应数据返回。</p>
+<h4 id="rurl"><a href="#rurl" class="headerlink" title="rurl"></a>rurl</h4><p>可选。</p>
+<p>表示需要拦截的 URL，可以是 URL 字符串或 URL 正则。例如 <code>/\/domain\/list\.json/</code>、<code>&#39;/domian/list.json&#39;</code>。</p>
+<h4 id="rtype"><a href="#rtype" class="headerlink" title="rtype"></a>rtype</h4><p>可选。</p>
+<p>表示需要拦截的 Ajax 请求类型。例如 GET、POST、PUT、DELETE 等。</p>
+<h4 id="template"><a href="#template" class="headerlink" title="template"></a>template</h4><p>可选。</p>
+<p>表示数据模板，可以是对象或字符串。例如<code>{ &#39;data|1-10&#39;:[{}] }</code>、<code>&#39;@EMAIL&#39;</code>。</p>
+<h4 id="function-options"><a href="#function-options" class="headerlink" title="function(options)"></a>function(options)</h4><p>可选。</p>
+<p>表示用于生成响应数据的函数。</p>
+<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4><p>指向本次请求的 Ajax 选项集，含有 url、type 和 body 三个属性，参见 XMLHttpRequest 规范。</p>
+<blockquote>
+<p>从 1.0 开始，Mock.js 通过覆盖和模拟原生 XMLHttpRequest 的行为来拦截 Ajax 请求，不再依赖于第三方 Ajax 工具库（例如 jQuery、Zepto 等）。</p>
+</blockquote>
+<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><h3 id="Random-date-format"><a href="#Random-date-format" class="headerlink" title="Random.date( format? )"></a>Random.date( format? )</h3><p>. Random.date()<br>. Random.date(format)<br>返回一个随机的日期字符串。</p>
+<h4 id="format-可选"><a href="#format-可选" class="headerlink" title="format(可选)"></a>format(可选)</h4><p>指示生成的日期字符串的格式。默认值为 yyyy-MM-dd。</p>
+<p>可选的占位符参考自 <a href="http://docs.sencha.com/extjs/4.1.3/#!/api/Ext.Date" target="_blank" rel="external">Ext.Date</a>，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yyyy</td>
+<td>A full numeric representation of a year, 4 digits</td>
+<td>1999 or 2003</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>A two digit representation of a year</td>
+<td>99 or 03</td>
+</tr>
+<tr>
+<td>y</td>
+<td>A two digit representation of a year</td>
+<td>99 or 03</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>Numeric representation of a month, with leading zeros</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Numeric representation of a month, without leading zeros</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>Day of the month, 2 digits with leading zeros</td>
+<td>01 to 31</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Day of the month without leading zeros</td>
+<td>1 to 31</td>
+</tr>
+<tr>
+<td>HH</td>
+<td>24-hour format of an hour with leading zeros</td>
+<td>00 to 23</td>
+</tr>
+<tr>
+<td>H</td>
+<td>24-hour format of an hour without leading zeros</td>
+<td>0 to 23</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>12-hour format of an hour without leading zeros</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>h</td>
+<td>12-hour format of an hour with leading zeros</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>Minutes, with leading zeros</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Minutes, without leading zeros</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>Seconds, with leading zeros</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Seconds, without leading zeros</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>Milliseconds, with leading zeros</td>
+<td>000 to 999</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Milliseconds, without leading zeros</td>
+<td>0 to 999</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Uppercase Ante meridiem and Post meridiem</td>
+<td>AM or PM</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Lowercase Ante meridiem and Post meridiem</td>
+<td>am or pm</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Milliseconds, since 1970-1-1 00:00:00 UTC</td>
+<td>759883437303</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Random.date()</div><div class="line">// =&gt; &quot;2002-10-23&quot;</div><div class="line">Random.date(&apos;yyyy-MM-dd&apos;)</div><div class="line">// =&gt; &quot;1983-01-29&quot;</div><div class="line">Random.date(&apos;yy-MM-dd&apos;)</div><div class="line">// =&gt; &quot;79-02-14&quot;</div><div class="line">Random.date(&apos;y-MM-dd&apos;)</div><div class="line">// =&gt; &quot;81-05-17&quot;</div><div class="line">Random.date(&apos;y-M-d&apos;)</div><div class="line">// =&gt; &quot;84-6-5&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-time-format"><a href="#Random-time-format" class="headerlink" title="Random.time( format? )"></a>Random.time( format? )</h3><p>. Random.time()<br>. Random.time( format )</p>
+<p>返回一个随机的时间字符串。</p>
+<h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><p>指示生成的时间字符串的格式。默认值为 HH:mm:ss。</p>
+<p>可选的占位符参考自 <a href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date" target="_blank" rel="external">Ext.Date</a>，请参见 Random.date( format? )。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Random.time()</div><div class="line">// =&gt; &quot;00:14:47&quot;</div><div class="line">Random.time(&apos;A HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;PM 20:47:37&quot;</div><div class="line">Random.time(&apos;a HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;pm 17:40:00&quot;</div><div class="line">Random.time(&apos;HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;03:57:53&quot;</div><div class="line">Random.time(&apos;H:m:s&apos;)</div><div class="line">// =&gt; &quot;3:5:13&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-datetime-format"><a href="#Random-datetime-format" class="headerlink" title="Random.datetime( format? )"></a>Random.datetime( format? )</h3><p>. Random.datetime()<br>. Random.datetime( format )</p>
+<p>返回一个随机的日期和时间字符串。</p>
+<h4 id="format-1"><a href="#format-1" class="headerlink" title="format"></a>format</h4><p>指示生成的日期和时间字符串的格式。默认值为 <code>yyyy-MM-dd HH:mm:ss</code>。</p>
+<p>可选的占位符参考自 <a href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date" target="_blank" rel="external">Ext.Date</a>，请参见 Random.date( format? )。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Random.datetime()</div><div class="line">// =&gt; &quot;1977-11-17 03:50:15&quot;</div><div class="line">Random.datetime(&apos;yyyy-MM-dd A HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;1976-04-24 AM 03:48:25&quot;</div><div class="line">Random.datetime(&apos;yy-MM-dd a HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;73-01-18 pm 22:12:32&quot;</div><div class="line">Random.datetime(&apos;y-MM-dd HH:mm:ss&apos;)</div><div class="line">// =&gt; &quot;79-06-24 04:45:16&quot;</div><div class="line">Random.datetime(&apos;y-M-d H:m:s&apos;)</div><div class="line">// =&gt; &quot;02-4-23 2:49:40&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-now-unit-format"><a href="#Random-now-unit-format" class="headerlink" title="Random.now( unit?, format? )"></a>Random.now( unit?, format? )</h3><p>. Ranndom.now( unit, format )<br>. Ranndom.now()<br>. Ranndom.now( format )<br>. Ranndom.now( unit )</p>
+<p>返回当前的日期和时间字符串。</p>
+<h4 id="unit"><a href="#unit" class="headerlink" title="unit"></a>unit</h4><p>表示时间单位，用于对当前日期和时间进行格式化。可选值有：<code>year、</code>month<code>、</code>week<code>、</code>day<code>、</code>hour<code>、</code>minute<code>、</code>second<code>、</code>week`，默认不会格式化。</p>
+<h4 id="format-2"><a href="#format-2" class="headerlink" title="format"></a>format</h4><p>指示生成的日期和时间字符串的格式。默认值为 <code>yyyy-MM-dd HH:mm:ss</code>。</p>
+<p>Random.now() 的实现参考了 <a href="http://momentjs.cn/docs/#/manipulating/start-of/" target="_blank" rel="external">Moment.js</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Random.now()</div><div class="line">// =&gt; &quot;2014-04-29 20:08:38 &quot;</div><div class="line">Random.now(&apos;day&apos;, &apos;yyyy-MM-dd HH:mm:ss SS&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 00:00:00 000&quot;</div><div class="line">Random.now(&apos;day&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 00:00:00 &quot;</div><div class="line">Random.now(&apos;yyyy-MM-dd HH:mm:ss SS&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:08:38 157&quot;</div><div class="line"></div><div class="line">Random.now(&apos;year&apos;)</div><div class="line">// =&gt; &quot;2014-01-01 00:00:00&quot;</div><div class="line">Random.now(&apos;month&apos;)</div><div class="line">// =&gt; &quot;2014-04-01 00:00:00&quot;</div><div class="line">Random.now(&apos;week&apos;)</div><div class="line">// =&gt; &quot;2014-04-27 00:00:00&quot;</div><div class="line">Random.now(&apos;day&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 00:00:00&quot;</div><div class="line">Random.now(&apos;hour&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:00:00&quot;</div><div class="line">Random.now(&apos;minute&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:08:00&quot;</div><div class="line">Random.now(&apos;second&apos;)</div><div class="line">// =&gt; &quot;2014-04-29 20:08:38&quot;</div></pre></td></tr></table></figure>
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><h3 id="Random-image-size-background-foreground-format-text"><a href="#Random-image-size-background-foreground-format-text" class="headerlink" title="Random.image( size?, background?, foreground?, format?, text? )"></a>Random.image( size?, background?, foreground?, format?, text? )</h3><p>. Random.image()<br>. Random.image( size )<br>. Random.image( size, background )<br>. Random.image( size, background, text )<br>. Random.image( size, background, foreground, text )<br>. Random.image( size, background, foreground, format, text )</p>
+<p>生成一个随机的图片地址。</p>
+<p><code>Random.image()</code>用于生成高度自定义的图片地址，一般情况下，应该使用更简单的 <code>Random.dataImage()</code>。</p>
+<h4 id="size"><a href="#size" class="headerlink" title="size"></a>size</h4><p>指示图片的宽高，格式为 ‘宽x高’。默认从下面的数组中随机读取一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &apos;300x250&apos;, &apos;250x250&apos;, &apos;240x400&apos;, &apos;336x280&apos;, </div><div class="line">    &apos;180x150&apos;, &apos;720x300&apos;, &apos;468x60&apos;, &apos;234x60&apos;, </div><div class="line">    &apos;88x31&apos;, &apos;120x90&apos;, &apos;120x60&apos;, &apos;120x240&apos;, </div><div class="line">    &apos;125x125&apos;, &apos;728x90&apos;, &apos;160x600&apos;, &apos;120x600&apos;, </div><div class="line">    &apos;300x600&apos;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h4 id="background"><a href="#background" class="headerlink" title="background"></a>background</h4><p>指示图片的背景色。默认值为 ‘#000000’。</p>
+<h4 id="foreground"><a href="#foreground" class="headerlink" title="foreground"></a>foreground</h4><p>指示图片的前景色（文字）。默认值为 ‘#FFFFFF’。</p>
+<h4 id="format-3"><a href="#format-3" class="headerlink" title="format"></a>format</h4><p>指示图片的格式。默认值为 ‘png’，可选值包括：’png’、’gif’、’jpg’。</p>
+<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><p>指示图片上的文字。默认值为参数 size。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Random.image()</div><div class="line">// =&gt; &quot;http://dummyimage.com/125x125&quot;</div><div class="line">Random.image(&apos;200x100&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#fb0a2a&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/fb0a2a&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#02adea&apos;, &apos;Hello&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/02adea&amp;text=Hello&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#00405d&apos;, &apos;#FFF&apos;, &apos;Mock.js&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/00405d/FFF&amp;text=Mock.js&quot;</div><div class="line">Random.image(&apos;200x100&apos;, &apos;#ffcc33&apos;, &apos;#FFF&apos;, &apos;png&apos;, &apos;!&apos;)</div><div class="line">// =&gt; &quot;http://dummyimage.com/200x100/ffcc33/FFF.png&amp;text=!&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-dataImage-size-text"><a href="#Random-dataImage-size-text" class="headerlink" title="Random.dataImage( size?, text? )"></a>Random.dataImage( size?, text? )</h3><p>. Random.dataImage()<br>. Random.dataImage( size )<br>. Random.dataImage( size, text )</p>
+<p>生成一段随机的 Base64 图片编码。<br>如果需要生成高度自定义的图片，请使用<code>Random.image()</code>。</p>
+<h4 id="size-1"><a href="#size-1" class="headerlink" title="size"></a>size</h4><p>指示图片的宽高，格式为 ‘宽x高’。默认从下面的数组中随机读取一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &apos;300x250&apos;, &apos;250x250&apos;, &apos;240x400&apos;, &apos;336x280&apos;, </div><div class="line">    &apos;180x150&apos;, &apos;720x300&apos;, &apos;468x60&apos;, &apos;234x60&apos;, </div><div class="line">    &apos;88x31&apos;, &apos;120x90&apos;, &apos;120x60&apos;, &apos;120x240&apos;, </div><div class="line">    &apos;125x125&apos;, &apos;728x90&apos;, &apos;160x600&apos;, &apos;120x600&apos;, </div><div class="line">    &apos;300x600&apos;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h4 id="text-1"><a href="#text-1" class="headerlink" title="text"></a>text</h4><p>指示图片上的文字。默认值为参数 size。</p>
+<p>图片的背景色是随机的，取值范围参考自 <a href="http://brandcolors.net/。" target="_blank" rel="external">http://brandcolors.net/。</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Random.dataImage()</div><div class="line"></div><div class="line">// =&gt; &quot;data:image/png;base64,iVBORw0···&quot;</div><div class="line"></div><div class="line">Random.dataImage(&apos;200x100&apos;)</div><div class="line"></div><div class="line">// =&gt;  &quot;data:image/png;base64,iVBORw0···&quot;</div><div class="line"></div><div class="line">Random.dataImage(&apos;200x100&apos;, &apos;Hello Mock.js!&apos;)</div><div class="line"></div><div class="line">// =&gt;  &quot;data:image/png;base64,iVBORw0···&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Color"><a href="#Color" class="headerlink" title="Color"></a>Color</h2><h3 id="Random-color"><a href="#Random-color" class="headerlink" title="Random.color()"></a>Random.color()</h3><p>. Random.color()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;#RRGGBB&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.color()</div><div class="line">// =&gt; &quot;#3538B2&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-hex"><a href="#Random-hex" class="headerlink" title="Random.hex()"></a>Random.hex()</h3><p>Random.hex()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;#RRGGBB&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.hex()</div><div class="line">// =&gt; &quot;#3538B2&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-rgb"><a href="#Random-rgb" class="headerlink" title="Random.rgb()"></a>Random.rgb()</h3><p>. Random.rgb()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;rgb(r, g, b)&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.rgb()</div><div class="line">// =&gt; &quot;rgb(242, 198, 121)&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-rgba"><a href="#Random-rgba" class="headerlink" title="Random.rgba()"></a>Random.rgba()</h3><p>. Random.rgba()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;rgba(r, g, b, a)&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.rgba()</div><div class="line">// =&gt; &quot;rgba(242, 198, 121, 0.13)&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-hsl"><a href="#Random-hsl" class="headerlink" title="Random.hsl()"></a>Random.hsl()</h3><p>. Random.hsl()<br>随机生成一个有吸引力的颜色，格式为 <code>&#39;hsl(h, s, l)&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.hsl()</div><div class="line">// =&gt; &quot;hsl(345, 82, 71)&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h2><h3 id="Random-paragraph-min-max"><a href="#Random-paragraph-min-max" class="headerlink" title="Random.paragraph( min?, max? )"></a>Random.paragraph( min?, max? )</h3><p>. Random.paragraph()<br>. Random.paragraph( len )<br>. Random.paragraph( min, max )<br>随机生成一段文本。</p>
+<h4 id="len"><a href="#len" class="headerlink" title="len"></a>len</h4><p>指示文本中句子的个数。默认值为 3 到 7 之间的随机数。</p>
+<h4 id="min"><a href="#min" class="headerlink" title="min"></a>min</h4><p>指示文本中句子的最小个数。默认值为 3。</p>
+<h4 id="max"><a href="#max" class="headerlink" title="max"></a>max</h4><p>指示文本中句子的最大个数。默认值为 7。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Random.paragraph()</div><div class="line">// =&gt; &quot;Yohbjjz psxwibxd jijiccj kvemj eidnus disnrst rcconm bcjrof tpzhdo ncxc yjws jnmdmty. Dkmiwza ibudbufrnh ndmcpz tomdyh oqoonsn jhoy rueieihtt vsrjpudcm sotfqsfyv mjeat shnqmslfo oirnzu cru qmpt ggvgxwv jbu kjde. Kzegfq kigj dtzdd ngtytgm comwwoox fgtee ywdrnbam utu nyvlyiv tubouw lezpkmyq fkoa jlygdgf pgv gyerges wbykcxhwe bcpmt beqtkq. Mfxcqyh vhvpovktvl hrmsgfxnt jmnhyndk qohnlmgc sicmlnsq nwku dxtbmwrta omikpmajv qda qrn cwoyfaykxa xqnbv bwbnyov hbrskzt. Pdfqwzpb hypvtknt bovxx noramu xhzam kfb ympmebhqxw gbtaszonqo zmsdgcku mjkjc widrymjzj nytudruhfr uudsitbst cgmwewxpi bye. Eyseox wyef ikdnws weoyof dqecfwokkv svyjdyulk glusauosnu achmrakky kdcfp kujrqcq xojqbxrp mpfv vmw tahxtnw fhe lcitj.&quot;</div><div class="line">    </div><div class="line">Random.paragraph(2)</div><div class="line">// =&gt; &quot;Dlpec hnwvovvnq slfehkf zimy qpxqgy vwrbi mok wozddpol umkek nffjcmk gnqhhvm ztqkvjm kvukg dqubvqn xqbmoda. Vdkceijr fhhyemx hgkruvxuvr kuez wmkfv lusfksuj oewvvf cyw tfpo jswpseupm ypybap kwbofwg uuwn rvoxti ydpeeerf.&quot;</div><div class="line">    </div><div class="line">Random.paragraph(1, 3)</div><div class="line">// =&gt; &quot;Qdgfqm puhxle twi lbeqjqfi bcxeeecu pqeqr srsx tjlnew oqtqx zhxhkvq pnjns eblxhzzta hifj csvndh ylechtyu.&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cparagraph-min-max"><a href="#Random-cparagraph-min-max" class="headerlink" title="Random.cparagraph( min?, max? )"></a>Random.cparagraph( min?, max? )</h3><p>. Random.cparagraph()<br>. Random.cparagraph( len )<br>. Random.cparagraph( min, max )<br>随机生成一段中文文本。</p>
+<p>参数的含义和默认值同 <a href="#Random.paragraph( min?, max?">Random.paragraph( min?, max? )</a>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Random.cparagraph()</div><div class="line">// =&gt; &quot;给日数时化周作少情者美制论。到先争劳今已美变江以好较正新深。族国般建难出就金感基酸转。任部四那响成族利标铁导术一或已于。省元切世权往着路积会其区素白思断。加把他位间存定国工取除许热规先法方。&quot;</div><div class="line">    </div><div class="line">Random.cparagraph(2)</div><div class="line">// =&gt; &quot;去话起时为无子议气根复即传月广。题林里油步不约认山形两标命导社干。&quot;</div><div class="line">    </div><div class="line">Random.cparagraph(1, 3)</div><div class="line">// =&gt; &quot;候无部社心性有构员其深例矿取民为。须被亲需报每完认支这明复几下在铁需连。省备可离展五斗器就石正队除解动。&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-sentence-min-max"><a href="#Random-sentence-min-max" class="headerlink" title="Random.sentence( min?, max? )"></a>Random.sentence( min?, max? )</h3><p>. Random.sentence()<br>. Random.sentence( len )<br>. Random.sentence( min, max )<br>随机生成一个句子，第一个单词的首字母大写。</p>
+<h4 id="len-1"><a href="#len-1" class="headerlink" title="len"></a>len</h4><p>指示句子中单词的个数。默认值为 12 到 18 之间的随机数。</p>
+<h4 id="min-1"><a href="#min-1" class="headerlink" title="min"></a>min</h4><p>指示句子中单词的最小个数。默认值为 12。</p>
+<h4 id="max-1"><a href="#max-1" class="headerlink" title="max"></a>max</h4><p>指示句子中单词的最大个数。默认值为 18。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.sentence()</div><div class="line">// =&gt; &quot;Jovasojt qopupwh plciewh dryir zsqsvlkga yeam.&quot;</div><div class="line">Random.sentence(5)</div><div class="line">// =&gt; &quot;Fwlymyyw htccsrgdk rgemfpyt cffydvvpc ycgvno.&quot;</div><div class="line">Random.sentence(3, 5)</div><div class="line">// =&gt; &quot;Mgl qhrprwkhb etvwfbixm jbqmg.&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-csentence-min-max"><a href="#Random-csentence-min-max" class="headerlink" title="Random.csentence( min?, max? )"></a>Random.csentence( min?, max? )</h3><p>. Random.csentence()<br>. Random.csentence( len )<br>. Random.csentence( min, max )<br>随机生成一段中文文本。</p>
+<p>参数的含义和默认值同 <a href="#Random.sentence( min?, max?">Random.sentence( min?, max? )</a>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Random.csentence()</div><div class="line">// =&gt; &quot;第任人九同段形位第律认得。&quot;</div><div class="line">    </div><div class="line">Random.csentence(2)</div><div class="line">// =&gt; &quot;维总。&quot;</div><div class="line">    </div><div class="line">Random.csentence(1, 3)</div><div class="line">// =&gt; &quot;厂存。&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-word-min-max"><a href="#Random-word-min-max" class="headerlink" title="Random.word( min?, max? )"></a>Random.word( min?, max? )</h3><p>. Random.word()<br>. Random.word( len )<br>. Random.word( min, max )<br>随机生成一个单词。</p>
+<h4 id="len-2"><a href="#len-2" class="headerlink" title="len"></a>len</h4><p>指示单词中字符的个数。默认值为 3 到 10 之间的随机数。</p>
+<h4 id="min-2"><a href="#min-2" class="headerlink" title="min"></a>min</h4><p>指示单词中字符的最小个数。默认值为 3。</p>
+<h4 id="max-2"><a href="#max-2" class="headerlink" title="max"></a>max</h4><p>指示单词中字符的最大个数。默认值为 10。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Random.word()</div><div class="line">// =&gt; &quot;fxpocl&quot;</div><div class="line">Random.word(5)</div><div class="line">// =&gt; &quot;xfqjb&quot;</div><div class="line">Random.word(3, 5)</div><div class="line">// =&gt; &quot;kemh&quot;</div><div class="line">目前单词中的字符是随机的小写字母，未来会根据词法生成『可读』的单词。</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cword-pool-min-max"><a href="#Random-cword-pool-min-max" class="headerlink" title="Random.cword( pool?, min?, max? )"></a>Random.cword( pool?, min?, max? )</h3><p>. Random.cword()<br>. Random.cword( pool )<br>. Random.cword( length )<br>. Random.cword( pool, length )<br>. Random.cword( min, max )<br>. Random.cword( pool, min, max )<br>随机生成一个汉字。</p>
+<h4 id="pool"><a href="#pool" class="headerlink" title="pool"></a>pool</h4><p>汉字字符串。表示汉字字符池，将从中选择一个汉字字符返回。</p>
+<h4 id="min-3"><a href="#min-3" class="headerlink" title="min"></a>min</h4><p>随机汉字字符串的最小长度。默认值为 1。</p>
+<h4 id="max-3"><a href="#max-3" class="headerlink" title="max"></a>max</h4><p>随机汉字字符串的最大长度。默认值为 1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Random.cword()</div><div class="line">// =&gt; &quot;干&quot;</div><div class="line">Random.cword(&apos;零一二三四五六七八九十&apos;)</div><div class="line">// =&gt; &quot;六&quot;</div><div class="line">Random.cword(3)</div><div class="line">// =&gt; &quot;别金提&quot;</div><div class="line">Random.cword(&apos;零一二三四五六七八九十&apos;, 3)</div><div class="line">// =&gt; &quot;&quot;七七七&quot;&quot;</div><div class="line">Random.cword(5, 7)</div><div class="line">// =&gt; &quot;设过证全争听&quot;</div><div class="line">Random.cword(&apos;零一二三四五六七八九十&apos;, 5, 7)</div><div class="line">// =&gt; &quot;九七七零四&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-title-min-max"><a href="#Random-title-min-max" class="headerlink" title="Random.title( min?, max? )"></a>Random.title( min?, max? )</h3><p>. Random.title()<br>. Random.title( len )<br>. Random.title( min, max )<br>随机生成一句标题，其中每个单词的首字母大写。</p>
+<h4 id="len-3"><a href="#len-3" class="headerlink" title="len"></a>len</h4><p>指示单词中字符的个数。默认值为 3 到 7 之间的随机数。</p>
+<h4 id="min-4"><a href="#min-4" class="headerlink" title="min"></a>min</h4><p>指示单词中字符的最小个数。默认值为 3。</p>
+<h4 id="max-4"><a href="#max-4" class="headerlink" title="max"></a>max</h4><p>指示单词中字符的最大个数。默认值为 7。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.title()</div><div class="line">// =&gt; &quot;Rduqzr Muwlmmlg Siekwvo Ktn Nkl Orn&quot;</div><div class="line">Random.title(5)</div><div class="line">// =&gt; &quot;Ahknzf Btpehy Xmpc Gonehbnsm Mecfec&quot;</div><div class="line">Random.title(3, 5)</div><div class="line">// =&gt; &quot;Hvjexiondr Pyickubll Owlorjvzys Xfnfwbfk&quot;</div></pre></td></tr></table></figure></p>
+<h4 id="Random-ctitle-min-max"><a href="#Random-ctitle-min-max" class="headerlink" title="Random.ctitle( min?, max? )"></a>Random.ctitle( min?, max? )</h4><p>. Random.ctitle()<br>. Random.ctitle( len )<br>. Random.ctitle( min, max )<br>随机生成一句中文标题。</p>
+<p>参数的含义和默认值同 <a href="#Random.title( min?, max?">Random.title( min?, max? )</a>)</p>
+<h4 id="len-4"><a href="#len-4" class="headerlink" title="len"></a>len</h4><p>指示单词中字符的个数。默认值为 3 到 7 之间的随机数。</p>
+<h4 id="min-5"><a href="#min-5" class="headerlink" title="min"></a>min</h4><p>指示单词中字符的最小个数。默认值为 3。</p>
+<h4 id="max-5"><a href="#max-5" class="headerlink" title="max"></a>max</h4><p>指示单词中字符的最大个数。默认值为 7。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.ctitle()</div><div class="line">// =&gt; &quot;证构动必作&quot;</div><div class="line">Random.ctitle(5)</div><div class="line">// =&gt; &quot;应青次影育&quot;</div><div class="line">Random.ctitle(3, 5)</div><div class="line">// =&gt; &quot;出料阶相&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h2><h3 id="Random-first"><a href="#Random-first" class="headerlink" title="Random.first()"></a>Random.first()</h3><p>. Random.first()<br>随机生成一个常见的英文名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.first()</div><div class="line">// =&gt; &quot;Nancy&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-last"><a href="#Random-last" class="headerlink" title="Random.last()"></a>Random.last()</h3><p>. Random.last()<br>随机生成一个常见的英文姓。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.last()</div><div class="line">// =&gt; &quot;Martinez&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-name-middle"><a href="#Random-name-middle" class="headerlink" title="Random.name( middle? )"></a>Random.name( middle? )</h3><p>. Random.name()<br>. Random.name( middle )<br>随机生成一个常见的英文姓名。</p>
+<h4 id="middle"><a href="#middle" class="headerlink" title="middle"></a>middle</h4><p>布尔值。指示是否生成中间名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.name()</div><div class="line">// =&gt; &quot;Larry Wilson&quot;</div><div class="line">Random.name(true)</div><div class="line">// =&gt; &quot;Helen Carol Martinez&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cfirst"><a href="#Random-cfirst" class="headerlink" title="Random.cfirst()"></a>Random.cfirst()</h3><p>. Random.cfirst()<br>随机生成一个常见的中文名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.cfirst()</div><div class="line">// =&gt; &quot;曹&quot;</div></pre></td></tr></table></figure>
+<h3 id="Random-clast"><a href="#Random-clast" class="headerlink" title="Random.clast()"></a>Random.clast()</h3><p>. Random.clast()<br>随机生成一个常见的中文姓。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.clast()</div><div class="line">// =&gt; &quot;艳&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-cname"><a href="#Random-cname" class="headerlink" title="Random.cname()"></a>Random.cname()</h3><p>. Random.cname()<br>随机生成一个常见的中文姓名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.cname()</div><div class="line">// =&gt; &quot;袁军&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="Random-url-protocol-host"><a href="#Random-url-protocol-host" class="headerlink" title="Random.url( protocol?, host? )"></a>Random.url( protocol?, host? )</h3><p>. Random.url()<br>. Random.url( protocol, host )<br>随机生成一个 URL。</p>
+<h4 id="protocol"><a href="#protocol" class="headerlink" title="protocol"></a>protocol</h4><p>指定 URL 协议。例如 http。</p>
+<h4 id="host"><a href="#host" class="headerlink" title="host"></a>host</h4><p>指定 URL 域名和端口号。例如 nuysoft.com。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.url()</div><div class="line">// =&gt; &quot;mid://axmg.bg/bhyq&quot;</div><div class="line">Random.url(&apos;http&apos;)</div><div class="line">// =&gt; &quot;http://splap.yu/qxzkyoubp&quot;</div><div class="line">Random.url(&apos;http&apos;, &apos;nuysoft.com&apos;)</div><div class="line">// =&gt; &quot;http://nuysoft.com/ewacecjhe&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-protocol"><a href="#Random-protocol" class="headerlink" title="Random.protocol()"></a>Random.protocol()</h3><p>. Random.protocol()<br>随机生成一个 URL 协议。返回以下值之一：’http’、’ftp’、’gopher’、’mailto’、’mid’、’cid’、’news’、’nntp’、’prospero’、’telnet’、’rlogin’、’tn3270’、’wais’。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.protocol()</div><div class="line">// =&gt; &quot;ftp&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-domain"><a href="#Random-domain" class="headerlink" title="Random.domain()"></a>Random.domain()</h3><p>. Random.domain()<br>随机生成一个域名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.domain()</div><div class="line">// =&gt; &quot;kozfnb.org&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-tld"><a href="#Random-tld" class="headerlink" title="Random.tld()"></a>Random.tld()</h3><p>. Random.tld()<br>随机生成一个顶级域名（Top Level Domain）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.tld()</div><div class="line">// =&gt; &quot;net&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-email-domain"><a href="#Random-email-domain" class="headerlink" title="Random.email( domain? )"></a>Random.email( domain? )</h3><p>. Random.email()<br>. Random.email( domain )<br>随机生成一个邮件地址。</p>
+<h4 id="domain"><a href="#domain" class="headerlink" title="domain"></a>domain</h4><p>指定邮件地址的域名。例如 nuysoft.com。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.email()</div><div class="line">// =&gt; &quot;x.davis@jackson.edu&quot;</div><div class="line">Random.email(&apos;nuysoft.com&apos;)</div><div class="line">// =&gt; &quot;h.pqpneix@nuysoft.com&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-ip"><a href="#Random-ip" class="headerlink" title="Random.ip()"></a>Random.ip()</h3><p>. Random.ip()<br>随机生成一个 IP 地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.ip()</div><div class="line">// =&gt; &quot;34.206.109.169&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Address"><a href="#Address" class="headerlink" title="Address"></a>Address</h2><h3 id="Random-region"><a href="#Random-region" class="headerlink" title="Random.region()"></a>Random.region()</h3><p>. Random.region()<br>随机生成一个（中国）大区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.region()</div><div class="line">// =&gt; &quot;华北&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-province"><a href="#Random-province" class="headerlink" title="Random.province()"></a>Random.province()</h3><p>. Random.province()<br>随机生成一个（中国）省（或直辖市、自治区、特别行政区）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.province()</div><div class="line">// =&gt; &quot;黑龙江省&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-city-prefix"><a href="#Random-city-prefix" class="headerlink" title="Random.city( prefix? )"></a>Random.city( prefix? )</h3><p>. Random.city()<br>. Random.city( prefix )<br>随机生成一个（中国）市。</p>
+<h4 id="prefix"><a href="#prefix" class="headerlink" title="prefix"></a>prefix</h4><p>布尔值。指示是否生成所属的省。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.city()</div><div class="line">// =&gt; &quot;唐山市&quot;</div><div class="line">Random.city(true)</div><div class="line">// =&gt; &quot;福建省 漳州市&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-county-prefix"><a href="#Random-county-prefix" class="headerlink" title="Random.county( prefix? )"></a>Random.county( prefix? )</h3><p>. Random.county()<br>. Random.county( prefix )<br>随机生成一个（中国）县。</p>
+<h4 id="prefix-1"><a href="#prefix-1" class="headerlink" title="prefix"></a>prefix</h4><p>布尔值。指示是否生成所属的省、市。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Random.county()</div><div class="line">// =&gt; &quot;上杭县&quot;</div><div class="line">Random.county(true)</div><div class="line">// =&gt; &quot;甘肃省 白银市 会宁县&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-zip"><a href="#Random-zip" class="headerlink" title="Random.zip()"></a>Random.zip()</h3><p>. Random.zip()<br>随机生成一个邮政编码（六位数字）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.zip()</div><div class="line">// =&gt; &quot;908812&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="Helper"><a href="#Helper" class="headerlink" title="Helper"></a>Helper</h2><h3 id="Random-capitalize-word"><a href="#Random-capitalize-word" class="headerlink" title="Random.capitalize( word )"></a>Random.capitalize( word )</h3><p>. Random.capitalize(word)<br>把字符串的第一个字母转换为大写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.capitalize(&apos;hello&apos;)</div><div class="line">// =&gt; &quot;Hello&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-upper-str"><a href="#Random-upper-str" class="headerlink" title="Random.upper( str )"></a>Random.upper( str )</h3><p>. Random.upper( str )<br>把字符串转换为大写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.upper(&apos;hello&apos;)</div><div class="line">// =&gt; &quot;HELLO&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-lower-str"><a href="#Random-lower-str" class="headerlink" title="Random.lower( str )"></a>Random.lower( str )</h3><p>. Random.lower( str )<br>把字符串转换为小写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.lower(&apos;HELLO&apos;)</div><div class="line">// =&gt; &quot;hello&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-pick-arr"><a href="#Random-pick-arr" class="headerlink" title="Random.pick( arr )"></a>Random.pick( arr )</h3><p>. Random.pick( arr )<br>从数组中随机选取一个元素，并返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.pick([&apos;a&apos;, &apos;e&apos;, &apos;i&apos;, &apos;o&apos;, &apos;u&apos;])</div><div class="line">// =&gt; &quot;o&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-shuffle-arr"><a href="#Random-shuffle-arr" class="headerlink" title="Random.shuffle( arr )"></a>Random.shuffle( arr )</h3><p>. Random.shuffle( arr )<br>打乱数组中元素的顺序，并返回。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.shuffle([&apos;a&apos;, &apos;e&apos;, &apos;i&apos;, &apos;o&apos;, &apos;u&apos;])</div><div class="line">// =&gt; [&quot;o&quot;, &quot;u&quot;, &quot;e&quot;, &quot;i&quot;, &quot;a&quot;]</div></pre></td></tr></table></figure></p>
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="Random-guid"><a href="#Random-guid" class="headerlink" title="Random.guid()"></a>Random.guid()</h3><p>. Random.guid()<br>随机生成一个 GUID。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Random.guid()</div><div class="line">// =&gt; &quot;662C63B4-FD43-66F4-3328-C54E3FF0D56E&quot;</div><div class="line">Random.guid() 的实现参考了 UUID 规范。</div></pre></td></tr></table></figure></p>
+<h3 id="Random-id"><a href="#Random-id" class="headerlink" title="Random.id()"></a>Random.id()</h3><p>. Random.id()<br>随机生成一个 18 位身份证。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Random.id()</div><div class="line">// =&gt; &quot;420000200710091854&quot;</div></pre></td></tr></table></figure></p>
+<h3 id="Random-increment-step"><a href="#Random-increment-step" class="headerlink" title="Random.increment( step? )"></a>Random.increment( step? )</h3><p>. Random.increment()<br>. Random.increment( step )<br>生成一个全局的自增整数。</p>
+<h4 id="step"><a href="#step" class="headerlink" title="step"></a>step</h4><p>整数自增的步长。默认值为 1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Random.increment()</div><div class="line">// =&gt; 1</div><div class="line">Random.increment(100)</div><div class="line">// =&gt; 101</div><div class="line">Random.increment(1000)</div><div class="line">// =&gt; 1101</div></pre></td></tr></table></figure></p>
+<h2 id="Mock-valid"><a href="#Mock-valid" class="headerlink" title="Mock.valid()"></a>Mock.valid()</h2><h3 id="Mock-valid-template-data"><a href="#Mock-valid-template-data" class="headerlink" title="Mock.valid( template, data )"></a>Mock.valid( template, data )</h3><p>. Mock.valid( template, data )<br>校验真实数据 data 是否与数据模板 template 匹配。</p>
+<h4 id="template-1"><a href="#template-1" class="headerlink" title="template"></a>template</h4><p>表示数据模板，可以是对象或字符串。例如 { ‘list|1-10’:[{}] }、’@EMAIL’。</p>
+<h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><p>表示真实数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var template = &#123;</div><div class="line">    name: &apos;value1&apos;</div><div class="line">&#125;</div><div class="line">var data = &#123;</div><div class="line">    name: &apos;value2&apos;</div><div class="line">&#125;</div><div class="line">Mock.valid(template, data)</div><div class="line">// =&gt;</div><div class="line">[</div><div class="line">    &#123;</div><div class="line">        &quot;path&quot;: [</div><div class="line">            &quot;data&quot;,</div><div class="line">            &quot;name&quot;</div><div class="line">        ],</div><div class="line">        &quot;type&quot;: &quot;value&quot;,</div><div class="line">        &quot;actual&quot;: &quot;value2&quot;,</div><div class="line">        &quot;expected&quot;: &quot;value1&quot;,</div><div class="line">        &quot;action&quot;: &quot;equal to&quot;,</div><div class="line">        &quot;message&quot;: &quot;[VALUE] Expect ROOT.name&apos;value is equal to value1, but is value2&quot;</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h2 id="Mock-toJSONSchema"><a href="#Mock-toJSONSchema" class="headerlink" title="Mock.toJSONSchema()"></a>Mock.toJSONSchema()</h2><h3 id="Mock-toJSONSchema-template"><a href="#Mock-toJSONSchema-template" class="headerlink" title="Mock.toJSONSchema( template )"></a>Mock.toJSONSchema( template )</h3><p>. Mock.toJSONSchema( template )<br>把 Mock.js 风格的数据模板 template 转换成 JSON Schema。</p>
+<h4 id="template-2"><a href="#template-2" class="headerlink" title="template"></a>template</h4><p>表示数据模板，可以是对象或字符串。例如<code>` { &#39;list|1-10&#39;:[{}] }</code>、<code>&#39;@EMAIL&#39;</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">var template = &#123;</div><div class="line">    &apos;key|1-10&apos;: &apos;★&apos;</div><div class="line">&#125;</div><div class="line">Mock.toJSONSchema(template)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: undefined,</div><div class="line">    &quot;path&quot;: [</div><div class="line">        &quot;ROOT&quot;</div><div class="line">    ],</div><div class="line">    &quot;type&quot;: &quot;object&quot;,</div><div class="line">    &quot;template&quot;: &#123;</div><div class="line">        &quot;key|1-10&quot;: &quot;★&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;rule&quot;: &#123;&#125;,</div><div class="line">    &quot;properties&quot;: [&#123;</div><div class="line">        &quot;name&quot;: &quot;key&quot;,</div><div class="line">        &quot;path&quot;: [</div><div class="line">            &quot;ROOT&quot;,</div><div class="line">            &quot;key&quot;</div><div class="line">        ],</div><div class="line">        &quot;type&quot;: &quot;string&quot;,</div><div class="line">        &quot;template&quot;: &quot;★&quot;,</div><div class="line">        &quot;rule&quot;: &#123;</div><div class="line">            &quot;parameters&quot;: [&quot;key|1-10&quot;, &quot;key&quot;, null, &quot;1-10&quot;, null],</div><div class="line">            &quot;range&quot;: [&quot;1-10&quot;, &quot;1&quot;, &quot;10&quot;],</div><div class="line">            &quot;min&quot;: 1,</div><div class="line">            &quot;max&quot;: 10,</div><div class="line">            &quot;count&quot;: 3,</div><div class="line">            &quot;decimal&quot;: undefined,</div><div class="line">            &quot;dmin&quot;: undefined,</div><div class="line">            &quot;dmax&quot;: undefined,</div><div class="line">            &quot;dcount&quot;: undefined</div><div class="line">        &#125;</div><div class="line">    &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">var template = &#123;</div><div class="line">    &apos;list|1-10&apos;: [&#123;&#125;]</div><div class="line">&#125;</div><div class="line">Mock.toJSONSchema(template)</div><div class="line">// =&gt;</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: undefined,</div><div class="line">    &quot;path&quot;: [&quot;ROOT&quot;],</div><div class="line">    &quot;type&quot;: &quot;object&quot;,</div><div class="line">    &quot;template&quot;: &#123;</div><div class="line">        &quot;list|1-10&quot;: [&#123;&#125;]</div><div class="line">    &#125;,</div><div class="line">    &quot;rule&quot;: &#123;&#125;,</div><div class="line">    &quot;properties&quot;: [&#123;</div><div class="line">        &quot;name&quot;: &quot;list&quot;,</div><div class="line">        &quot;path&quot;: [&quot;ROOT&quot;, &quot;list&quot;],</div><div class="line">        &quot;type&quot;: &quot;array&quot;,</div><div class="line">        &quot;template&quot;: [&#123;&#125;],</div><div class="line">        &quot;rule&quot;: &#123;</div><div class="line">            &quot;parameters&quot;: [&quot;list|1-10&quot;, &quot;list&quot;, null, &quot;1-10&quot;, null],</div><div class="line">            &quot;range&quot;: [&quot;1-10&quot;, &quot;1&quot;, &quot;10&quot;],</div><div class="line">            &quot;min&quot;: 1,</div><div class="line">            &quot;max&quot;: 10,</div><div class="line">            &quot;count&quot;: 6,</div><div class="line">            &quot;decimal&quot;: undefined,</div><div class="line">            &quot;dmin&quot;: undefined,</div><div class="line">            &quot;dmax&quot;: undefined,</div><div class="line">            &quot;dcount&quot;: undefined</div><div class="line">        &#125;,</div><div class="line">        &quot;items&quot;: [&#123;</div><div class="line">            &quot;name&quot;: 0,</div><div class="line">            &quot;path&quot;: [&quot;data&quot;, &quot;list&quot;, 0],</div><div class="line">            &quot;type&quot;: &quot;object&quot;,</div><div class="line">            &quot;template&quot;: &#123;&#125;,</div><div class="line">            &quot;rule&quot;: &#123;&#125;,</div><div class="line">            &quot;properties&quot;: []</div><div class="line">        &#125;]</div><div class="line">    &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/07/21/mockjs入门级教程-模拟数据或随机数据生成/" data-id="cj5dh7n2t000llovuw9w2pbmu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模拟数据/">模拟数据'</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/21/Cmd-Markdown-简明语法手册/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Cmd Markdown 简明语法手册
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/30/JavaScript的装饰器-它们是什么及如何使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript的装饰器(它们是什么及如何使用)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/21/Cmd-Markdown-简明语法手册/">Cmd Markdown 简明语法手册</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/mockjs入门级教程-模拟数据或随机数据生成/">mockjs入门级教程(模拟数据或随机数据生成)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/30/JavaScript的装饰器-它们是什么及如何使用/">JavaScript的装饰器(它们是什么及如何使用)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/30/vuex所有核心概念完整解析State-Getters-Mutations-Actions/">vuex所有核心概念完整解析State_Getters_Mutations_Actions</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/16/umd兼容写法/">兼容umd的写法(amd、jquery、Commonjs、Node、global等)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/ajax/" style="font-size: 12.5px;">ajax</a> <a href="/tags/amd/" style="font-size: 10px;">amd</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 12.5px;">markdown</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12.5px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/umd/" style="font-size: 10px;">umd</a> <a href="/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据'</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/语法规范/" style="font-size: 17.5px;">语法规范</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
