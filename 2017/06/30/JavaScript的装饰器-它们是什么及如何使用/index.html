@@ -108,6 +108,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+      <!-- 目录生成 -->
+          
+          <!-- 目录生成 end-->
         <p>装饰器的流行应该感谢在Angular 2+中使用，在Angular中，装饰器因TypeScript能使用。但是在JavaScript中，还处于提议阶段。本文将介绍装饰器是什么，及装饰器如何让代码更加简洁和容易理解。</p>
 <a id="more"></a>
 <h3 id="什么是装饰器"><a href="#什么是装饰器" class="headerlink" title="什么是装饰器"></a>什么是装饰器</h3><p>装饰器是用一个代码包装另一个代码的简单方式。</p>
@@ -162,7 +165,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyReactComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(MyReactComponent);</div></pre></td></tr></table></figure>
 <p>然而，可以使用装饰器代替：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@connect(mapStateToProps, mapDispatchToProps)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReactComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.sitepoint.com/javascript-decorators-what-they-are/" target="_blank" rel="external">JavaScript Decorators: What They Are and When to Use Them<br>阮老师ES6入门-修饰器</a></p>
-       
+
 <!--PC和WAP自适应版-->
 <div id="SOHUCS" ></div> 
 <script type="text/javascript"> 
@@ -236,7 +239,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jsgu.net/2017/06/30/JavaScript的装饰器-它们是什么及如何使用/" data-id="cj5dhci4t000ff8vuxvntuhe1" class="article-share-link">Share</a>
+      <a data-url="http://jsgu.net/2017/06/30/JavaScript的装饰器-它们是什么及如何使用/" data-id="cj5dhml6s00095gvuv6vwnpbb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/">typescript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/装饰器/">装饰器</a></li></ul>

@@ -110,6 +110,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+      <!-- 目录生成 -->
+          
+          <!-- 目录生成 end-->
         <p>Webpack是一款前端自动化打包工具，类似gulp,grunt<br><a id="more"></a></p>
 <h2 id="Webpack是什么"><a href="#Webpack是什么" class="headerlink" title="Webpack是什么"></a>Webpack是什么</h2><p>首先可以看下<a href="http://webpack.github.io/" target="_blank" rel="external">官方文档</a>, <a href="https://github.com/petehunt/webpack-howto" target="_blank" rel="external">这里</a>。Webpack是由Tobias Koppers开发的一个开源前端模块构建工具。它的基本功能是将以模块格式书写的多个JavaScript文件打包成一个文件，同时支持CommonJS和AMD格式。但让它与众不同的是，它提供了强大的loader API来定义对不同文件格式的预处理逻辑，从而让我们可以将CSS、模板，甚至是自定义的文件格式当做JavaScript模块来使用。Webpack 基于loader还可以实现大量高级功能，比如自动分块打包并按需加载、对图片资源引用的自动定位、根据图片大小决定是否用base64内联、开发时的模块热替换等等，可以说是目前前端构建领域最有竞争力的解决方案之一。<br><img src="/2017/06/14/webpack入门级教程/p1.png" alt="作用"></p>
 <h2 id="为什么使用Webpack"><a href="#为什么使用Webpack" class="headerlink" title="为什么使用Webpack"></a>为什么使用Webpack</h2><ul>
@@ -156,7 +159,7 @@
 <p>如上，引用<code>webpack</code>和<code>webpack-dev-server</code>模块，通过WebpackDevServer启动服务，通过<code>HotModuleReplacementPlugin</code>插件启动代码自动编译页面自动刷新。这样，当你修改了html、js或者样式文件，页面会自动编译刷新。</p>
 <h2 id="html页面使用"><a href="#html页面使用" class="headerlink" title="html页面使用"></a>html页面使用</h2><p>直接在页面引入 webpack 最终生成的页面脚本和样式文件即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;webpack test&lt;/title&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/dist/style.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;script src=&quot;/dist/common.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;/dist/build.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>基于 webpack 的入门教程就到这里，希望本文能对你有所帮助，你也可以参考下面的项目进行参考。<br><a href="https://github.com/shinygang/Vue-cnodejs" target="_blank" rel="external">Vue-cnodejs</a>,基于Vue.js重写的cnodejs的webapp,其中采用的webpack进行打包处理。</p>
-       
+
 <!--PC和WAP自适应版-->
 <div id="SOHUCS" ></div> 
 <script type="text/javascript"> 
@@ -222,7 +225,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jsgu.net/2017/06/14/webpack入门级教程/" data-id="cj5dhci5e0012f8vuuvrssu98" class="article-share-link">Share</a>
+      <a data-url="http://jsgu.net/2017/06/14/webpack入门级教程/" data-id="cj5dhml7o00165gvuv1e0s1lo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/img/">img</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
