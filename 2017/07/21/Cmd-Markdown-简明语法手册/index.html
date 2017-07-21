@@ -6,14 +6,14 @@
   <title>Cmd Markdown 简明语法手册 | 道心博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Cmd Markdown 简明语法手册">
-<meta name="keywords" content="markdown,html,语法规范,cmd">
+<meta name="keywords" content="语法规范,markdown,html,cmd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cmd Markdown 简明语法手册">
 <meta property="og:url" content="http://jsgu.net/2017/07/21/Cmd-Markdown-简明语法手册/index.html">
 <meta property="og:site_name" content="道心博客">
 <meta property="og:description" content="Cmd Markdown 简明语法手册">
 <meta property="og:image" content="https://www.zybuluo.com/static/img/my_head.jpg">
-<meta property="og:updated_time" content="2017-07-21T03:16:12.825Z">
+<meta property="og:updated_time" content="2017-07-21T06:46:50.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cmd Markdown 简明语法手册">
 <meta name="twitter:description" content="Cmd Markdown 简明语法手册">
@@ -112,6 +112,11 @@
       
       <!-- 目录生成 -->
           
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-斜体和粗体"><span class="toc-number">1.</span> <span class="toc-text">1. 斜体和粗体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分级标题"><span class="toc-number">2.</span> <span class="toc-text">2. 分级标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-外链接"><span class="toc-number">3.</span> <span class="toc-text">3. 外链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-无序列表"><span class="toc-number">4.</span> <span class="toc-text">4. 无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-有序列表"><span class="toc-number">5.</span> <span class="toc-text">5. 有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-文字引用"><span class="toc-number">6.</span> <span class="toc-text">6. 文字引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-行内代码块"><span class="toc-number">7.</span> <span class="toc-text">7. 行内代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-代码块"><span class="toc-number">8.</span> <span class="toc-text">8.  代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-插入图像"><span class="toc-number">9.</span> <span class="toc-text">9.  插入图像</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cmd-Markdown-高阶语法手册"><span class="toc-number"></span> <span class="toc-text">Cmd Markdown 高阶语法手册</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-内容目录"><span class="toc-number">1.</span> <span class="toc-text">1. 内容目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-标签分类"><span class="toc-number">2.</span> <span class="toc-text">2. 标签分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-删除线"><span class="toc-number">3.</span> <span class="toc-text">3. 删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-注脚"><span class="toc-number">4.</span> <span class="toc-text">4. 注脚</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-LaTeX-公式"><span class="toc-number">5.</span> <span class="toc-text">5. LaTeX 公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-加强的代码块"><span class="toc-number">6.</span> <span class="toc-text">6. 加强的代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-流程图"><span class="toc-number">7.</span> <span class="toc-text">7. 流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#示例"><span class="toc-number">7.1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更多语法参考：流程图语法参考"><span class="toc-number">7.2.</span> <span class="toc-text">更多语法参考：流程图语法参考</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-序列图"><span class="toc-number">8.</span> <span class="toc-text">8. 序列图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-1"><span class="toc-number">8.1.</span> <span class="toc-text">示例 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例-2"><span class="toc-number">8.2.</span> <span class="toc-text">示例 2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更多语法参考：序列图语法参考"><span class="toc-number">8.3.</span> <span class="toc-text">更多语法参考：序列图语法参考</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-甘特图"><span class="toc-number">9.</span> <span class="toc-text">9. 甘特图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#更多语法参考：甘特图语法参考"><span class="toc-number">9.1.</span> <span class="toc-text">更多语法参考：甘特图语法参考</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Mermaid-流程图"><span class="toc-number">10.</span> <span class="toc-text">10. Mermaid 流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#更多语法参考：Mermaid-流程图语法参考"><span class="toc-number">10.1.</span> <span class="toc-text">更多语法参考：Mermaid 流程图语法参考</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Mermaid-序列图"><span class="toc-number">11.</span> <span class="toc-text">11. Mermaid 序列图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#更多语法参考：Mermaid-序列图语法参考"><span class="toc-number">11.1.</span> <span class="toc-text">更多语法参考：Mermaid 序列图语法参考</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-表格支持"><span class="toc-number">12.</span> <span class="toc-text">12. 表格支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-定义型列表"><span class="toc-number">13.</span> <span class="toc-text">13. 定义型列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-Html-标签"><span class="toc-number">14.</span> <span class="toc-text">14. Html 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-内嵌图标"><span class="toc-number">15.</span> <span class="toc-text">15. 内嵌图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-待办事宜-Todo-列表"><span class="toc-number">16.</span> <span class="toc-text">16. 待办事宜 Todo 列表</span></a></li></ol>
+          </div>
+          
           <!-- 目录生成 end-->
         <p> Cmd Markdown 简明语法手册</p>
 <a id="more"></a>
@@ -149,9 +154,8 @@
 <p>示例：</p>
 <p>让我们聊聊 <code>html</code>。</p>
 <h3 id="8-代码块"><a href="#8-代码块" class="headerlink" title="8.  代码块"></a>8.  代码块</h3><p>使用 四个缩进空格 表示代码块。</p>
-<p>示例：</p>
-<pre><code>这是一个代码块，此行左侧有四个不可见的空格。
-</code></pre><h3 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9.  插入图像"></a>9.  插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这是一个代码块，此行左侧有四个不可见的空格。</div></pre></td></tr></table></figure></p>
+<h3 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9.  插入图像"></a>9.  插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
 <p>示例：</p>
 <p><img src="https://www.zybuluo.com/static/img/my_head.jpg" alt="我的头像"></p>
 <h1 id="Cmd-Markdown-高阶语法手册"><a href="#Cmd-Markdown-高阶语法手册" class="headerlink" title="Cmd Markdown 高阶语法手册"></a>Cmd Markdown 高阶语法手册</h1><h3 id="1-内容目录"><a href="#1-内容目录" class="headerlink" title="1. 内容目录"></a>1. 内容目录</h3><p>在段落中填写 <code>[TOC]</code> 以显示全文内容的目录结构。</p>
@@ -214,8 +218,8 @@
 </table>
 <h3 id="13-定义型列表"><a href="#13-定义型列表" class="headerlink" title="13. 定义型列表"></a>13. 定义型列表</h3><p>名词 1<br>:   定义 1（左侧有一个可见的冒号和四个不可见的空格）</p>
 <p>代码块 2<br>:   这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</p>
-<pre><code>代码块（左侧有八个不可见的空格）
-</code></pre><h3 id="14-Html-标签"><a href="#14-Html-标签" class="headerlink" title="14. Html 标签"></a>14. Html 标签</h3><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">代码块（左侧有八个不可见的空格）</div></pre></td></tr></table></figure>
+<h3 id="14-Html-标签"><a href="#14-Html-标签" class="headerlink" title="14. Html 标签"></a>14. Html 标签</h3><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
 <pre><code>&lt;table&gt;
     &lt;tr&gt;
         &lt;th rowspan=&quot;2&quot;&gt;值班人员&lt;/th&gt;
@@ -232,46 +236,16 @@
 </code></pre><table><br>    <tr><br>        <th rowspan="2">值班人员</th><br>        <th>星期一</th><br>        <th>星期二</th><br>        <th>星期三</th><br>    </tr><br>    <tr><br>        <td>李强</td><br>        <td>张明</td><br>        <td>王平</td><br>    </tr><br></table>
 
 <h3 id="15-内嵌图标"><a href="#15-内嵌图标" class="headerlink" title="15. 内嵌图标"></a>15. 内嵌图标</h3><p>本站的图标系统对外开放，在文档中输入</p>
-<pre><code>&lt;i class=&quot;icon-weibo&quot;&gt;&lt;/i&gt;
-</code></pre><p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i class=&quot;icon-weibo&quot;&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
+<p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
 <p>替换 上述 <code>i 标签</code> 内的 <code>icon-weibo</code> 以显示不同的图标，例如：</p>
-<pre><code>&lt;i class=&quot;icon-renren&quot;&gt;&lt;/i&gt;
-</code></pre><p>即显示人人的图标： <i class="icon-renren icon-2x"></i></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i class=&quot;icon-renren&quot;&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
+<p>即显示人人的图标： <i class="icon-renren icon-2x"></i></p>
 <p>更多的图标和玩法可以参看 <a href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/" target="_blank" rel="external">font-awesome</a> 官方网站。</p>
 <h3 id="16-待办事宜-Todo-列表"><a href="#16-待办事宜-Todo-列表" class="headerlink" title="16. 待办事宜 Todo 列表"></a>16. 待办事宜 Todo 列表</h3><p>使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：</p>
-<pre><code>- [ ] **Cmd Markdown 开发**
-    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-    - [ ] 支持以 PDF 格式导出文稿
-    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
-    - [x] 改进 LaTex 功能
-        - [x] 修复 LaTex 公式渲染问题
-        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
-- [ ] **七月旅行准备**
-    - [ ] 准备邮轮上需要携带的物品
-    - [ ] 浏览日本免税店的物品
-    - [x] 购买蓝宝石公主号七月一日的船票
-</code></pre><p>对应显示如下待办事宜 Todo 列表：</p>
-<ul>
-<li>[ ] <strong>Cmd Markdown 开发</strong><ul>
-<li>[ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
-<li>[ ] 支持以 PDF 格式导出文稿</li>
-<li>[x] 新增Todo列表功能 <a href="https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments" target="_blank" rel="external">语法参考</a></li>
-<li>[x] 改进 LaTex 功能<ul>
-<li>[x] 修复 LaTex 公式渲染问题</li>
-<li>[x] 新增 LaTex 公式编号功能 <a href="http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers" target="_blank" rel="external">语法参考</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>[ ] <strong>七月旅行准备</strong><ul>
-<li>[ ] 准备邮轮上需要携带的物品</li>
-<li>[ ] 浏览日本免税店的物品</li>
-<li>[x] 购买蓝宝石公主号七月一日的船票</li>
-</ul>
-</li>
-</ul>
-<p>[^footnote]: 这是一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
-<p>[^footnote2]: 这是另一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- [ ] **Cmd Markdown 开发**</div><div class="line">    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</div><div class="line">    - [ ] 支持以 PDF 格式导出文稿</div><div class="line">    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)</div><div class="line">    - [x] 改进 LaTex 功能</div><div class="line">        - [x] 修复 LaTex 公式渲染问题</div><div class="line">        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)</div><div class="line">- [ ] **七月旅行准备**</div><div class="line">    - [ ] 准备邮轮上需要携带的物品</div><div class="line">    - [ ] 浏览日本免税店的物品</div><div class="line">    - [x] 购买蓝宝石公主号七月一日的船票</div></pre></td></tr></table></figure>
+<p>对应显示如下待办事宜 Todo 列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- [ ] **Cmd Markdown 开发**</div><div class="line">    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</div><div class="line">    - [ ] 支持以 PDF 格式导出文稿</div><div class="line">    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)</div><div class="line">    - [x] 改进 LaTex 功能</div><div class="line">        - [x] 修复 LaTex 公式渲染问题</div><div class="line">        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)</div><div class="line">- [ ] **七月旅行准备**</div><div class="line">    - [ ] 准备邮轮上需要携带的物品</div><div class="line">    - [ ] 浏览日本免税店的物品</div><div class="line">    - [x] 购买蓝宝石公主号七月一日的船票</div><div class="line">        </div><div class="line">        </div><div class="line">[^footnote]: 这是一个 *注脚* 的 **文本**。</div><div class="line"></div><div class="line">[^footnote2]: 这是另一个 *注脚* 的 **文本**。</div></pre></td></tr></table></figure>
 
 <!--PC和WAP自适应版-->
 <div id="SOHUCS" ></div> 
@@ -322,9 +296,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 <p>示例：</p>
 <p>让我们聊聊 <code>html</code>。</p>
 <h3 id="8-代码块"><a href="#8-代码块" class="headerlink" title="8.  代码块"></a>8.  代码块</h3><p>使用 四个缩进空格 表示代码块。</p>
-<p>示例：</p>
-<pre><code>这是一个代码块，此行左侧有四个不可见的空格。
-</code></pre><h3 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9.  插入图像"></a>9.  插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这是一个代码块，此行左侧有四个不可见的空格。</div></pre></td></tr></table></figure></p>
+<h3 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9.  插入图像"></a>9.  插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
 <p>示例：</p>
 <p><img src="https://www.zybuluo.com/static/img/my_head.jpg" alt="我的头像"></p>
 <h1 id="Cmd-Markdown-高阶语法手册"><a href="#Cmd-Markdown-高阶语法手册" class="headerlink" title="Cmd Markdown 高阶语法手册"></a>Cmd Markdown 高阶语法手册</h1><h3 id="1-内容目录"><a href="#1-内容目录" class="headerlink" title="1. 内容目录"></a>1. 内容目录</h3><p>在段落中填写 <code>[TOC]</code> 以显示全文内容的目录结构。</p>
@@ -387,8 +360,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 </table>
 <h3 id="13-定义型列表"><a href="#13-定义型列表" class="headerlink" title="13. 定义型列表"></a>13. 定义型列表</h3><p>名词 1<br>:   定义 1（左侧有一个可见的冒号和四个不可见的空格）</p>
 <p>代码块 2<br>:   这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</p>
-<pre><code>代码块（左侧有八个不可见的空格）
-</code></pre><h3 id="14-Html-标签"><a href="#14-Html-标签" class="headerlink" title="14. Html 标签"></a>14. Html 标签</h3><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">代码块（左侧有八个不可见的空格）</div></pre></td></tr></table></figure>
+<h3 id="14-Html-标签"><a href="#14-Html-标签" class="headerlink" title="14. Html 标签"></a>14. Html 标签</h3><p>本站支持在 Markdown 语法中嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
 <pre><code>&lt;table&gt;
     &lt;tr&gt;
         &lt;th rowspan=&quot;2&quot;&gt;值班人员&lt;/th&gt;
@@ -405,53 +378,23 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 </code></pre><table><br>    <tr><br>        <th rowspan="2">值班人员</th><br>        <th>星期一</th><br>        <th>星期二</th><br>        <th>星期三</th><br>    </tr><br>    <tr><br>        <td>李强</td><br>        <td>张明</td><br>        <td>王平</td><br>    </tr><br></table>
 
 <h3 id="15-内嵌图标"><a href="#15-内嵌图标" class="headerlink" title="15. 内嵌图标"></a>15. 内嵌图标</h3><p>本站的图标系统对外开放，在文档中输入</p>
-<pre><code>&lt;i class=&quot;icon-weibo&quot;&gt;&lt;/i&gt;
-</code></pre><p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i class=&quot;icon-weibo&quot;&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
+<p>即显示微博的图标： <i class="icon-weibo icon-2x"></i></p>
 <p>替换 上述 <code>i 标签</code> 内的 <code>icon-weibo</code> 以显示不同的图标，例如：</p>
-<pre><code>&lt;i class=&quot;icon-renren&quot;&gt;&lt;/i&gt;
-</code></pre><p>即显示人人的图标： <i class="icon-renren icon-2x"></i></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i class=&quot;icon-renren&quot;&gt;&lt;/i&gt;</div></pre></td></tr></table></figure>
+<p>即显示人人的图标： <i class="icon-renren icon-2x"></i></p>
 <p>更多的图标和玩法可以参看 <a href="http://fortawesome.github.io/Font-Awesome/3.2.1/icons/" target="_blank" rel="external">font-awesome</a> 官方网站。</p>
 <h3 id="16-待办事宜-Todo-列表"><a href="#16-待办事宜-Todo-列表" class="headerlink" title="16. 待办事宜 Todo 列表"></a>16. 待办事宜 Todo 列表</h3><p>使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：</p>
-<pre><code>- [ ] **Cmd Markdown 开发**
-    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-    - [ ] 支持以 PDF 格式导出文稿
-    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
-    - [x] 改进 LaTex 功能
-        - [x] 修复 LaTex 公式渲染问题
-        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
-- [ ] **七月旅行准备**
-    - [ ] 准备邮轮上需要携带的物品
-    - [ ] 浏览日本免税店的物品
-    - [x] 购买蓝宝石公主号七月一日的船票
-</code></pre><p>对应显示如下待办事宜 Todo 列表：</p>
-<ul>
-<li>[ ] <strong>Cmd Markdown 开发</strong><ul>
-<li>[ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
-<li>[ ] 支持以 PDF 格式导出文稿</li>
-<li>[x] 新增Todo列表功能 <a href="https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments" target="_blank" rel="external">语法参考</a></li>
-<li>[x] 改进 LaTex 功能<ul>
-<li>[x] 修复 LaTex 公式渲染问题</li>
-<li>[x] 新增 LaTex 公式编号功能 <a href="http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers" target="_blank" rel="external">语法参考</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>[ ] <strong>七月旅行准备</strong><ul>
-<li>[ ] 准备邮轮上需要携带的物品</li>
-<li>[ ] 浏览日本免税店的物品</li>
-<li>[x] 购买蓝宝石公主号七月一日的船票</li>
-</ul>
-</li>
-</ul>
-<p>[^footnote]: 这是一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
-<p>[^footnote2]: 这是另一个 <em>注脚</em> 的 <strong>文本</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- [ ] **Cmd Markdown 开发**</div><div class="line">    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</div><div class="line">    - [ ] 支持以 PDF 格式导出文稿</div><div class="line">    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)</div><div class="line">    - [x] 改进 LaTex 功能</div><div class="line">        - [x] 修复 LaTex 公式渲染问题</div><div class="line">        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)</div><div class="line">- [ ] **七月旅行准备**</div><div class="line">    - [ ] 准备邮轮上需要携带的物品</div><div class="line">    - [ ] 浏览日本免税店的物品</div><div class="line">    - [x] 购买蓝宝石公主号七月一日的船票</div></pre></td></tr></table></figure>
+<p>对应显示如下待办事宜 Todo 列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- [ ] **Cmd Markdown 开发**</div><div class="line">    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</div><div class="line">    - [ ] 支持以 PDF 格式导出文稿</div><div class="line">    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)</div><div class="line">    - [x] 改进 LaTex 功能</div><div class="line">        - [x] 修复 LaTex 公式渲染问题</div><div class="line">        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)</div><div class="line">- [ ] **七月旅行准备**</div><div class="line">    - [ ] 准备邮轮上需要携带的物品</div><div class="line">    - [ ] 浏览日本免税店的物品</div><div class="line">    - [x] 购买蓝宝石公主号七月一日的船票</div><div class="line">        </div><div class="line">        </div><div class="line">[^footnote]: 这是一个 *注脚* 的 **文本**。</div><div class="line"></div><div class="line">[^footnote2]: 这是另一个 *注脚* 的 **文本**。</div></pre></td></tr></table></figure>
 
            -->
           <!-- 修改 end-->
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jsgu.net/2017/07/21/Cmd-Markdown-简明语法手册/" data-id="cj5dhvmpq0000v4vu0jqu5a4j" class="article-share-link">Share</a>
+      <a data-url="http://jsgu.net/2017/07/21/Cmd-Markdown-简明语法手册/" data-id="cj5di6aqd0001vgvuatf1q1s2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语法规范/">语法规范</a></li></ul>
