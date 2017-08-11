@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emmet使用指南 | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Emmet是一款编辑器插件，支持多种编辑器支持。在前端开发中，Emmet 使用缩写语法快速编写 HTML、CSS 以及实现其他的功能，极大的提高前端开发效率。">
+<meta name="keywords" content="emmet,语法提示,语法规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emmet使用指南">
+<meta property="og:url" content="http://jsgu.net/2017/08/11/Emmet使用指南/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="Emmet是一款编辑器插件，支持多种编辑器支持。在前端开发中，Emmet 使用缩写语法快速编写 HTML、CSS 以及实现其他的功能，极大的提高前端开发效率。">
+<meta property="og:updated_time" content="2017-08-11T03:47:14.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emmet使用指南">
+<meta name="twitter:description" content="Emmet是一款编辑器插件，支持多种编辑器支持。在前端开发中，Emmet 使用缩写语法快速编写 HTML、CSS 以及实现其他的功能，极大的提高前端开发效率。">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Emmet使用指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/11/Emmet使用指南/" class="article-date">
+  <time datetime="2017-08-11T03:45:06.000Z" itemprop="datePublished">2017-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/教程指导/">教程指导</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Emmet使用指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <!-- 目录生成 -->
+          
+          <!-- 目录生成 end-->
+        <p>Emmet是一款编辑器插件，支持多种编辑器支持。在前端开发中，Emmet 使用<strong>缩写语法</strong>快速编写 HTML、CSS 以及实现其他的功能，极大的提高前端开发效率。<br><a id="more"></a></p>
+<p>下载地址<a href="http://emmet.io/download/" target="_blank" rel="external">http://emmet.io/download/</a></p>
+<p>##<strong>缩写</strong></p>
+<p>Emmet使用特殊的表达式<strong>Abbreviations</strong>，也就是缩写：这种特殊的表达式会被Emmet解析并转义成结构化的代码块。Emmet使用类似CSS选择器的语法来描述元素在DOM树节点的位置和属性。</p>
+<p>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#page&gt;div.logo+ul#navigation&gt;li*5&gt;a&#123;Item $&#125;</div></pre></td></tr></table></figure></p>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;page&quot;&gt;</div><div class="line">    &lt;div class=&quot;logo&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;ul id=&quot;navigation&quot;&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 5&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>##<strong>HTML元素</strong><br>在Emmet中可以使用元素名例如 <strong>div</strong> 或 <strong>p</strong> 生成HTML标签。Emmet没有预设任何标签名，所以可以使用任何可用名称来生成HTML标签：<strong>div → <div></div></strong> 或 <strong>foo → <foo></foo></strong></p>
+<p>##<strong>嵌套操作符</strong></p>
+<p>嵌套操作用来生成元素的DOM树中的兄弟节点或子节点</p>
+<p>####<strong>child：&gt;</strong></p>
+<blockquote>
+<p>使用 <strong>&gt;</strong> 生成元素子节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div&gt;ul&gt;li</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Sibling: +</strong></p>
+<blockquote>
+<p>使用 <strong> + </strong> 生成元素兄弟节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+p+bq</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;blockquote&gt;&lt;/blockquote&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Climb-up: ^</strong></p>
+<blockquote>
+<p>使用<strong> ^ </strong>在元素父节点生成新的元素节点</p>
+</blockquote>
+<p>操作符<strong> ^ </strong>的作用和<strong> &gt; </strong>刚好相反</p>
+<p>用<strong> &gt; </strong>可以在子级生成新的节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+div&gt;p&gt;span+em</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>用<strong> ^ </strong>可以在父级生成新的节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+div&gt;p&gt;span+em^bq</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;</div><div class="line">    &lt;blockquote&gt;&lt;/blockquote&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>用n个<strong> ^ </strong>，就可以在第n父级生成新的节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+div&gt;p&gt;span+em^^^bq</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;blockquote&gt;&lt;/blockquote&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Multiplication: * </strong></p>
+<blockquote>
+<p>使用<strong> * </strong>生成多个相同元素</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li*5</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Grouping: ()</strong></p>
+<blockquote>
+<p>圆括号<strong> () </strong>是Emmet的高级用法，用来实现比较复杂的DOM结构</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;header&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/header&gt;</div><div class="line">    &lt;footer&gt;</div><div class="line">        &lt;p&gt;&lt;/p&gt;</div><div class="line">    &lt;/footer&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>还可以嵌套使用圆括号<strong> () </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;dl&gt;</div><div class="line">        &lt;dt&gt;&lt;/dt&gt;</div><div class="line">        &lt;dd&gt;&lt;/dd&gt;</div><div class="line">        &lt;dt&gt;&lt;/dt&gt;</div><div class="line">        &lt;dd&gt;&lt;/dd&gt;</div><div class="line">        &lt;dt&gt;&lt;/dt&gt;</div><div class="line">        &lt;dd&gt;&lt;/dd&gt;</div><div class="line">    &lt;/dl&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;footer&gt;</div><div class="line">    &lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/footer&gt;</div></pre></td></tr></table></figure>
+<p>##<strong>属性操作符</strong><br>属性操作符用来修改元素的属性</p>
+<p>####<strong>ID 和 CLASS</strong></p>
+<blockquote>
+<p>Emmet给元素添加ID和CLASS的方法和CSS的语法类似</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div#header+div.page+div#footer.class1.class2.class3</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;page&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;footer&quot; class=&quot;class1 class2 class3&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>自定义属性</strong></p>
+<blockquote>
+<p>使用<strong>[attr]</strong>标记来添加自定义属性</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">td[title=&quot;Hello world!&quot; colspan=3]</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;td title=&quot;Hello world!&quot; colspan=&quot;3&quot;&gt;&lt;/td&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>元素编号</strong></p>
+<blockquote>
+<p>使用<strong> $ </strong>操作符可以对重复元素进行有序编号</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>还可以用多个<strong> $ </strong>定义编号的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$$$*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item001&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item002&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item003&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item004&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item005&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>更灵活的编号方式</strong></p>
+<blockquote>
+<p>使用<strong> @ </strong>修饰符可以改变编号的格式</p>
+</blockquote>
+<p>例如：</p>
+<p>在<strong> $ </strong>后面添加<strong> @- </strong>可以改变编号顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$@-*5</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>在<strong> $ </strong>后面添加<strong> @N </strong>可以改变编号基数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$@3*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item6&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item7&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>还可以组合使用上面的修饰符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$@-3*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item7&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item6&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>##<strong>文本操作符</strong><br>Emmet使用<strong> Text:{} </strong>给元素添加文本内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a&#123;Click me&#125;</div></pre></td></tr></table></figure>
+<p>会被转义为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;&quot;&gt;Click me&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong> {text} 在Emmet中是被当成单独的元素来解析的，但当和其他元素结合使用时会有特殊的含义</p>
+<p>例如：<br><strong> a{click} </strong> 和<strong> a&gt;{click </strong><br>会输出相同的结果，但<br><strong> a{click}+b{here} </strong>和<strong> a&gt;{click}+b{here} </strong><br>输出的结果则不一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- a&#123;click&#125;+b&#123;here&#125; --&gt;</div><div class="line">&lt;a href=&quot;&quot;&gt;click&lt;/a&gt;&lt;b&gt;here&lt;/b&gt;</div><div class="line"></div><div class="line">&lt;!-- a&gt;&#123;click&#125;+b&#123;here&#125; --&gt;</div><div class="line">&lt;a href=&quot;&quot;&gt;click&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>在<strong> a&gt;{click}+b{here} </strong>中，<strong> \<b> </b></strong>元素是<strong>\<a></a></strong>元素的子节点。这个就是区别：当<strong> {text} </strong>直接写在元素后面时，并不会改变父元素的上下文。</p>
+<p>下面是一个更复杂的案例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p&gt;&#123;Click &#125;+a&#123;here&#125;+&#123; to continue&#125;</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Click &lt;a href=&quot;&quot;&gt;here&lt;/a&gt; to continue&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>而</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p&#123;Click &#125;+a&#123;here&#125;+&#123; to continue&#125;</div></pre></td></tr></table></figure>
+<p>则会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Click &lt;/p&gt;</div><div class="line">&lt;a href=&quot;&quot;&gt;here&lt;/a&gt; to continue</div></pre></td></tr></table></figure>
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>Emmet是一款编辑器插件，支持多种编辑器支持。在前端开发中，Emmet 使用<strong>缩写语法</strong>快速编写 HTML、CSS 以及实现其他的功能，极大的提高前端开发效率。<br><a id="more"></a></p>
+<p>下载地址<a href="http://emmet.io/download/" target="_blank" rel="external">http://emmet.io/download/</a></p>
+<p>##<strong>缩写</strong></p>
+<p>Emmet使用特殊的表达式<strong>Abbreviations</strong>，也就是缩写：这种特殊的表达式会被Emmet解析并转义成结构化的代码块。Emmet使用类似CSS选择器的语法来描述元素在DOM树节点的位置和属性。</p>
+<p>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#page&gt;div.logo+ul#navigation&gt;li*5&gt;a&#123;Item $&#125;</div></pre></td></tr></table></figure></p>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;page&quot;&gt;</div><div class="line">    &lt;div class=&quot;logo&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;ul id=&quot;navigation&quot;&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 4&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;&quot;&gt;Item 5&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>##<strong>HTML元素</strong><br>在Emmet中可以使用元素名例如 <strong>div</strong> 或 <strong>p</strong> 生成HTML标签。Emmet没有预设任何标签名，所以可以使用任何可用名称来生成HTML标签：<strong>div → <div></div></strong> 或 <strong>foo → <foo></foo></strong></p>
+<p>##<strong>嵌套操作符</strong></p>
+<p>嵌套操作用来生成元素的DOM树中的兄弟节点或子节点</p>
+<p>####<strong>child：&gt;</strong></p>
+<blockquote>
+<p>使用 <strong>&gt;</strong> 生成元素子节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div&gt;ul&gt;li</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Sibling: +</strong></p>
+<blockquote>
+<p>使用 <strong> + </strong> 生成元素兄弟节点</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+p+bq</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;blockquote&gt;&lt;/blockquote&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Climb-up: ^</strong></p>
+<blockquote>
+<p>使用<strong> ^ </strong>在元素父节点生成新的元素节点</p>
+</blockquote>
+<p>操作符<strong> ^ </strong>的作用和<strong> &gt; </strong>刚好相反</p>
+<p>用<strong> &gt; </strong>可以在子级生成新的节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+div&gt;p&gt;span+em</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>用<strong> ^ </strong>可以在父级生成新的节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+div&gt;p&gt;span+em^bq</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;</div><div class="line">    &lt;blockquote&gt;&lt;/blockquote&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>用n个<strong> ^ </strong>，就可以在第n父级生成新的节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div+div&gt;p&gt;span+em^^^bq</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&lt;/div&gt;</div><div class="line">&lt;div&gt;</div><div class="line">    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;em&gt;&lt;/em&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;blockquote&gt;&lt;/blockquote&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Multiplication: * </strong></p>
+<blockquote>
+<p>使用<strong> * </strong>生成多个相同元素</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li*5</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>Grouping: ()</strong></p>
+<blockquote>
+<p>圆括号<strong> () </strong>是Emmet的高级用法，用来实现比较复杂的DOM结构</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;header&gt;</div><div class="line">        &lt;ul&gt;</div><div class="line">            &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/header&gt;</div><div class="line">    &lt;footer&gt;</div><div class="line">        &lt;p&gt;&lt;/p&gt;</div><div class="line">    &lt;/footer&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>还可以嵌套使用圆括号<strong> () </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &lt;dl&gt;</div><div class="line">        &lt;dt&gt;&lt;/dt&gt;</div><div class="line">        &lt;dd&gt;&lt;/dd&gt;</div><div class="line">        &lt;dt&gt;&lt;/dt&gt;</div><div class="line">        &lt;dd&gt;&lt;/dd&gt;</div><div class="line">        &lt;dt&gt;&lt;/dt&gt;</div><div class="line">        &lt;dd&gt;&lt;/dd&gt;</div><div class="line">    &lt;/dl&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;footer&gt;</div><div class="line">    &lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/footer&gt;</div></pre></td></tr></table></figure>
+<p>##<strong>属性操作符</strong><br>属性操作符用来修改元素的属性</p>
+<p>####<strong>ID 和 CLASS</strong></p>
+<blockquote>
+<p>Emmet给元素添加ID和CLASS的方法和CSS的语法类似</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div#header+div.page+div#footer.class1.class2.class3</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div class=&quot;page&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div id=&quot;footer&quot; class=&quot;class1 class2 class3&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>自定义属性</strong></p>
+<blockquote>
+<p>使用<strong>[attr]</strong>标记来添加自定义属性</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">td[title=&quot;Hello world!&quot; colspan=3]</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;td title=&quot;Hello world!&quot; colspan=&quot;3&quot;&gt;&lt;/td&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>元素编号</strong></p>
+<blockquote>
+<p>使用<strong> $ </strong>操作符可以对重复元素进行有序编号</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>还可以用多个<strong> $ </strong>定义编号的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$$$*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item001&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item002&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item003&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item004&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item005&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>####<strong>更灵活的编号方式</strong></p>
+<blockquote>
+<p>使用<strong> @ </strong>修饰符可以改变编号的格式</p>
+</blockquote>
+<p>例如：</p>
+<p>在<strong> $ </strong>后面添加<strong> @- </strong>可以改变编号顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$@-*5</div></pre></td></tr></table></figure>
+<p>会被转义成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>在<strong> $ </strong>后面添加<strong> @N </strong>可以改变编号基数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$@3*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item6&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item7&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>还可以组合使用上面的修饰符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ul&gt;li.item$@-3*5</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;item7&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item6&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>##<strong>文本操作符</strong><br>Emmet使用<strong> Text:{} </strong>给元素添加文本内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a&#123;Click me&#125;</div></pre></td></tr></table></figure>
+<p>会被转义为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;&quot;&gt;Click me&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong> {text} 在Emmet中是被当成单独的元素来解析的，但当和其他元素结合使用时会有特殊的含义</p>
+<p>例如：<br><strong> a{click} </strong> 和<strong> a&gt;{click </strong><br>会输出相同的结果，但<br><strong> a{click}+b{here} </strong>和<strong> a&gt;{click}+b{here} </strong><br>输出的结果则不一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- a&#123;click&#125;+b&#123;here&#125; --&gt;</div><div class="line">&lt;a href=&quot;&quot;&gt;click&lt;/a&gt;&lt;b&gt;here&lt;/b&gt;</div><div class="line"></div><div class="line">&lt;!-- a&gt;&#123;click&#125;+b&#123;here&#125; --&gt;</div><div class="line">&lt;a href=&quot;&quot;&gt;click&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p>在<strong> a&gt;{click}+b{here} </strong>中，<strong> \<b> </b></strong>元素是<strong>\<a></a></strong>元素的子节点。这个就是区别：当<strong> {text} </strong>直接写在元素后面时，并不会改变父元素的上下文。</p>
+<p>下面是一个更复杂的案例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p&gt;&#123;Click &#125;+a&#123;here&#125;+&#123; to continue&#125;</div></pre></td></tr></table></figure>
+<p>会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Click &lt;a href=&quot;&quot;&gt;here&lt;/a&gt; to continue&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>而</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p&#123;Click &#125;+a&#123;here&#125;+&#123; to continue&#125;</div></pre></td></tr></table></figure>
+<p>则会被转义为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Click &lt;/p&gt;</div><div class="line">&lt;a href=&quot;&quot;&gt;here&lt;/a&gt; to continue</div></pre></td></tr></table></figure>
+
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/08/11/Emmet使用指南/" data-id="cj67c0whb0000swvu4zylc7nq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emmet/">emmet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语法提示/">语法提示</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语法规范/">语法规范</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/21/Cmd-Markdown-简明语法手册/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Cmd Markdown 简明语法手册</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/11/Emmet使用指南/">Emmet使用指南</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/Cmd-Markdown-简明语法手册/">Cmd Markdown 简明语法手册</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/mockjs入门级教程-模拟数据或随机数据生成/">mockjs入门级教程(模拟数据或随机数据生成)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/30/JavaScript的装饰器-它们是什么及如何使用/">JavaScript的装饰器(它们是什么及如何使用)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/30/vuex所有核心概念完整解析State-Getters-Mutations-Actions/">vuex所有核心概念完整解析State_Getters_Mutations_Actions</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/ajax/" style="font-size: 12.5px;">ajax</a> <a href="/tags/amd/" style="font-size: 10px;">amd</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 12.5px;">markdown</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12.5px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12.5px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/umd/" style="font-size: 10px;">umd</a> <a href="/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据'</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/语法提示/" style="font-size: 10px;">语法提示</a> <a href="/tags/语法规范/" style="font-size: 17.5px;">语法规范</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
