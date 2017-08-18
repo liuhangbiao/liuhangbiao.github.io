@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://jsgu.net/2017/08/18/CSS制作水平垂直居中对齐/index.html">
 <meta property="og:site_name" content="道心博客">
 <meta property="og:description" content="作为前端攻城师，在制作Web页面时都有碰到CSS制作水平垂直居中，我想大家都有研究过或者写过，特别的其中的垂直居中，更是让人烦恼。这段时间，我收集了几种不同的方式制作垂直居中方法，但每种方法各有千秋呀，要正确的选择也是一件不容易的事情。我会将这几种方法一一介绍给大家，以供大家参考。或许对于我这样的初学者有一定的帮助。 用CSS来实现元素的垂直居中效果是件苦差事，虽然说实现方法有多种，但有很多方式在">
-<meta property="og:updated_time" content="2017-08-18T03:28:45.157Z">
+<meta property="og:updated_time" content="2017-08-18T03:45:58.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS制作水平垂直居中对齐">
 <meta name="twitter:description" content="作为前端攻城师，在制作Web页面时都有碰到CSS制作水平垂直居中，我想大家都有研究过或者写过，特别的其中的垂直居中，更是让人烦恼。这段时间，我收集了几种不同的方式制作垂直居中方法，但每种方法各有千秋呀，要正确的选择也是一件不容易的事情。我会将这几种方法一一介绍给大家，以供大家参考。或许对于我这样的初学者有一定的帮助。 用CSS来实现元素的垂直居中效果是件苦差事，虽然说实现方法有多种，但有很多方式在">
@@ -173,6 +173,96 @@
 <p>这种方法有几点需要注意：其一要有一个固定宽度，其二对要居中的元素进行绝对定位，并且“left: 50%”；其三对此元素设置一个负的“margin-left”并且值等于宽度的一半，另外如果元素不是相对于浏览器的话，还需要在其父元素上设置一个相对定位“position: relative”。</p>
 <h3 id="方法三：-1"><a href="#方法三：-1" class="headerlink" title="方法三："></a>方法三：</h3><p>这种方法主要是针对单行文本居中或者前面介绍的table格式居，主要运用的是text-align:center让元素水平居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.testH&#123;text-align:center;&#125;</div></pre></td></tr></table></figure></p>
 <p>上面主要是和大家一起探讨和学习了多种方法让元素实现垂直居中，大家可以在这几种方法上稍做改变就能实现其水平居中，这样就达到了元素水平垂直居中的效果。实现方法很多，而且他们也各有千秋，可以说他们各有各的好，各有各的坏，具体怎么让他们更适合你的实际应用，你可以仔细对比一下，我比较喜欢方法四，简单，兼容性强，只是需要增加一个额外的标签。说了这么多，希望能给需要的朋友有所帮助。</p>
+<h2 id="水平居中和垂直居中另类解决方案"><a href="#水平居中和垂直居中另类解决方案" class="headerlink" title="水平居中和垂直居中另类解决方案"></a>水平居中和垂直居中另类解决方案</h2><p>熟悉水平居中和垂直居中的方法, 不为别的, 就为用的时候能够信手拈来. 下面直接步入正题.</p>
+<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><p>1) 若是行内元素, 给其父元素设置 text-align:center,即可实现行内元素水平居中.<br>2) 若是块级元素, 该元素设置 margin:0 auto即可.<br>3) 若子元素包含 float:left 属性, 为了让子元素水平居中, 则可让父元素宽度设置为fit-content,并且配合margin, 作如下设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">	width: -moz-fit-content;</div><div class="line">	width: -webkit-fit-content;</div><div class="line">	width:fit-content;</div><div class="line">	margin:0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>fit-content是CSS3中给width属性新加的一个属性值,它配合margin可以轻松实现水平居中, 目前只支持Chrome 和 Firefox浏览器.</p>
+<p>4) 使用flex布局, 可以轻松的实现水平居中, 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  .son&#123;</div><div class="line">display: flex;</div><div class="line">justify-content: center;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>5) 使用css3 盒模型, 父元素display: box;box-pack: center;如下设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">.parent &#123;</div><div class="line">	display: -webkit-box;</div><div class="line">	-webkit-box-orient: horizontal;</div><div class="line">	-webkit-box-pack: center;</div><div class="line">	display: -moz-box;</div><div class="line">	-moz-box-orient: horizontal;</div><div class="line">	-moz-box-pack: center;</div><div class="line">	display: -o-box;</div><div class="line">	-o-box-orient: horizontal;</div><div class="line">	-o-box-pack: center;</div><div class="line">	display: -ms-box;</div><div class="line">	-ms-box-orient: horizontal;</div><div class="line">	-ms-box-pack: center;</div><div class="line">	display: box;</div><div class="line">	box-orient: horizontal;</div><div class="line">	box-pack: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6) 使用CSS3中新增的transform属性, 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	left:50%;</div><div class="line">	transform:translate(-50%,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>7) 使用绝对定位方式, 以及负值的margin-left, 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	width:固定;</div><div class="line">    left:50%;</div><div class="line">    margin-left:-0.5宽度;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>8) 使用绝对定位方式, 以及left:0;right:0;margin:0 auto; 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	width:固定;</div><div class="line">	left:0;</div><div class="line">	right:0;</div><div class="line">	margin:0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><h4 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h4><p>1) 若元素是单行文本, 则可设置 line-height 等于父元素高度</p>
+<h4 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h4><p>2) 若元素是行内块级元素, 基本思想是使用display: inline-block, vertical-align: middle和一个伪元素让内容块处于容器中央.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.parent::after, .son&#123;</div><div class="line">	display:inline-block;</div><div class="line">	vertical-align:middle;</div><div class="line">&#125;</div><div class="line">.parent::after&#123;</div><div class="line">	content:&apos;&apos;;</div><div class="line">	height:100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这是一种很流行的方法, 也适应IE7.</p>
+<h4 id="元素高度不定"><a href="#元素高度不定" class="headerlink" title="元素高度不定"></a>元素高度不定</h4><p>3) 可用<code>vertical-align</code> 属性, 而<code>vertical-align</code>只有在父层为 <code>td</code> 或者 <code>th</code> 时, 才会生效, 对于其他块级元素, 例如 <code>div</code>、<code>p</code> 等, 默认情况是不支持的. 为了使用<code>vertical-align</code>, 我们需要设置父元素<code>display:table</code>, 子元素 <code>display:table-cell;vertical-align:middle</code>;</p>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><p>元素高度可以动态改变, 不需再CSS中定义, 如果父元素没有足够空间时, 该元素内容也不会被截断.</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>IE6~7, 甚至IE8 beta中无效.</p>
+<p>4) 可用 Flex, 这是CSS布局未来的趋势. Flexbox是CSS3新增属性, 设计初衷是为了解决像垂直居中这样的常见布局问题. 相关的文章如<a href="http://coding.smashingmagazine.com/2013/05/22/centering-elements-with-flexbox/" target="_blank" rel="external">《Centering Elements with Flexbox》</a></p>
+<p>父元素做如下设置即可保证子元素垂直居中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.parent &#123;</div><div class="line">  display: flex;</div><div class="line">  align-items: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>内容块的宽高任意, 优雅的溢出.</li>
+<li>可用于更复杂高级的布局技术中.</li>
+</ul>
+<h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>IE8/IE9不支持</li>
+<li>需要浏览器厂商前缀</li>
+<li>渲染上可能会有一些问题</li>
+</ul>
+<p>5) 使用CSS3盒模型</p>
+<pre><code>.parent {
+      display: box;
+      box-orient: vertical;
+      box-pack: center;
+}    
+</code></pre><h5 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>实现简单, 扩展性强</li>
+</ul>
+<h5 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>兼容性差, 不支持IE</li>
+</ul>
+<p>6) 可用 transform , 设置父元素相对定位(position:relative), 子元素如下css样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	top:50%;</div><div class="line">	-webkit-transform: translate(-50%,-50%);  </div><div class="line">	-ms-transform: translate(-50%,-50%);</div><div class="line">	transform: translate(-50%,-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>代码量少</li>
+</ul>
+<h5 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>IE8不支持, 属性需要追加浏览器厂商前缀, 可能干扰其他 transform 效果, 某些情形下会出现文本或元素边界渲染模糊的现象.<br>元素高度固定</li>
+</ul>
+<h4 id="元素高度固定"><a href="#元素高度固定" class="headerlink" title="元素高度固定"></a>元素高度固定</h4><p>7) 设置父元素相对定位(position:relative), 子元素如下css样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	top:50%;</div><div class="line">	height:固定;</div><div class="line">	margin-top:-0.5高度;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>适用于所有浏览器.</li>
+</ul>
+<h5 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>父元素空间不够时, 子元素可能不可见(当浏览器窗口缩小时,滚动条不出现时).如果子元素设置了overflow:auto, 则高度不够时, 会出现滚动条.</li>
+</ul>
+<p>8) 设置父元素相对定位(position:relative), 子元素如下css样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	height:固定;</div><div class="line">	top:0;</div><div class="line">	bottom:0;</div><div class="line">	margin:auto 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>简单</li>
+</ul>
+<h5 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>没有足够空间时, 子元素会被截断, 但不会有滚动条.</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>水平居中较为简单, 共提供了8种方法, 一般情况下 text-align:center,marin:0 auto; 足矣</p>
+<ul>
+<li>① text-align:center;</li>
+<li>② margin:0 auto;</li>
+<li>③ width:fit-content;</li>
+<li>④ flex</li>
+<li>⑤ 盒模型</li>
+<li>⑥ transform　</li>
+<li>⑦ ⑧两种不同的绝对定位方法</li>
+</ul>
+<h4 id="垂直居中-共提供了8种方法"><a href="#垂直居中-共提供了8种方法" class="headerlink" title="垂直居中, 共提供了8种方法."></a>垂直居中, 共提供了8种方法.</h4><ul>
+<li>① 单行文本, line-height</li>
+<li>② 行内块级元素, 使用 display: inline-block, vertical-align: middle; 加上伪元素辅助实现</li>
+<li>③ vertical-align</li>
+<li>④ flex</li>
+<li>⑤ 盒模型</li>
+<li>⑥ transform</li>
+<li>⑦ ⑧ 两种不同的绝对定位方法</li>
+</ul>
+<p>我们发现, flex, 盒模型, transform, 绝对定位, 这几种方法同时适用于水平居中和垂直居中.
+　　</p>
 
 <!--PC和WAP自适应版-->
 <div id="SOHUCS" ></div> 
@@ -249,13 +339,103 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 <p>这种方法有几点需要注意：其一要有一个固定宽度，其二对要居中的元素进行绝对定位，并且“left: 50%”；其三对此元素设置一个负的“margin-left”并且值等于宽度的一半，另外如果元素不是相对于浏览器的话，还需要在其父元素上设置一个相对定位“position: relative”。</p>
 <h3 id="方法三：-1"><a href="#方法三：-1" class="headerlink" title="方法三："></a>方法三：</h3><p>这种方法主要是针对单行文本居中或者前面介绍的table格式居，主要运用的是text-align:center让元素水平居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.testH&#123;text-align:center;&#125;</div></pre></td></tr></table></figure></p>
 <p>上面主要是和大家一起探讨和学习了多种方法让元素实现垂直居中，大家可以在这几种方法上稍做改变就能实现其水平居中，这样就达到了元素水平垂直居中的效果。实现方法很多，而且他们也各有千秋，可以说他们各有各的好，各有各的坏，具体怎么让他们更适合你的实际应用，你可以仔细对比一下，我比较喜欢方法四，简单，兼容性强，只是需要增加一个额外的标签。说了这么多，希望能给需要的朋友有所帮助。</p>
+<h2 id="水平居中和垂直居中另类解决方案"><a href="#水平居中和垂直居中另类解决方案" class="headerlink" title="水平居中和垂直居中另类解决方案"></a>水平居中和垂直居中另类解决方案</h2><p>熟悉水平居中和垂直居中的方法, 不为别的, 就为用的时候能够信手拈来. 下面直接步入正题.</p>
+<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><p>1) 若是行内元素, 给其父元素设置 text-align:center,即可实现行内元素水平居中.<br>2) 若是块级元素, 该元素设置 margin:0 auto即可.<br>3) 若子元素包含 float:left 属性, 为了让子元素水平居中, 则可让父元素宽度设置为fit-content,并且配合margin, 作如下设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">	width: -moz-fit-content;</div><div class="line">	width: -webkit-fit-content;</div><div class="line">	width:fit-content;</div><div class="line">	margin:0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>fit-content是CSS3中给width属性新加的一个属性值,它配合margin可以轻松实现水平居中, 目前只支持Chrome 和 Firefox浏览器.</p>
+<p>4) 使用flex布局, 可以轻松的实现水平居中, 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  .son&#123;</div><div class="line">display: flex;</div><div class="line">justify-content: center;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>5) 使用css3 盒模型, 父元素display: box;box-pack: center;如下设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">.parent &#123;</div><div class="line">	display: -webkit-box;</div><div class="line">	-webkit-box-orient: horizontal;</div><div class="line">	-webkit-box-pack: center;</div><div class="line">	display: -moz-box;</div><div class="line">	-moz-box-orient: horizontal;</div><div class="line">	-moz-box-pack: center;</div><div class="line">	display: -o-box;</div><div class="line">	-o-box-orient: horizontal;</div><div class="line">	-o-box-pack: center;</div><div class="line">	display: -ms-box;</div><div class="line">	-ms-box-orient: horizontal;</div><div class="line">	-ms-box-pack: center;</div><div class="line">	display: box;</div><div class="line">	box-orient: horizontal;</div><div class="line">	box-pack: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6) 使用CSS3中新增的transform属性, 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	left:50%;</div><div class="line">	transform:translate(-50%,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>7) 使用绝对定位方式, 以及负值的margin-left, 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	width:固定;</div><div class="line">    left:50%;</div><div class="line">    margin-left:-0.5宽度;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>8) 使用绝对定位方式, 以及left:0;right:0;margin:0 auto; 子元素设置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	width:固定;</div><div class="line">	left:0;</div><div class="line">	right:0;</div><div class="line">	margin:0 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><h4 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h4><p>1) 若元素是单行文本, 则可设置 line-height 等于父元素高度</p>
+<h4 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h4><p>2) 若元素是行内块级元素, 基本思想是使用display: inline-block, vertical-align: middle和一个伪元素让内容块处于容器中央.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.parent::after, .son&#123;</div><div class="line">	display:inline-block;</div><div class="line">	vertical-align:middle;</div><div class="line">&#125;</div><div class="line">.parent::after&#123;</div><div class="line">	content:&apos;&apos;;</div><div class="line">	height:100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这是一种很流行的方法, 也适应IE7.</p>
+<h4 id="元素高度不定"><a href="#元素高度不定" class="headerlink" title="元素高度不定"></a>元素高度不定</h4><p>3) 可用<code>vertical-align</code> 属性, 而<code>vertical-align</code>只有在父层为 <code>td</code> 或者 <code>th</code> 时, 才会生效, 对于其他块级元素, 例如 <code>div</code>、<code>p</code> 等, 默认情况是不支持的. 为了使用<code>vertical-align</code>, 我们需要设置父元素<code>display:table</code>, 子元素 <code>display:table-cell;vertical-align:middle</code>;</p>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><p>元素高度可以动态改变, 不需再CSS中定义, 如果父元素没有足够空间时, 该元素内容也不会被截断.</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><p>IE6~7, 甚至IE8 beta中无效.</p>
+<p>4) 可用 Flex, 这是CSS布局未来的趋势. Flexbox是CSS3新增属性, 设计初衷是为了解决像垂直居中这样的常见布局问题. 相关的文章如<a href="http://coding.smashingmagazine.com/2013/05/22/centering-elements-with-flexbox/" target="_blank" rel="external">《Centering Elements with Flexbox》</a></p>
+<p>父元素做如下设置即可保证子元素垂直居中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.parent &#123;</div><div class="line">  display: flex;</div><div class="line">  align-items: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>内容块的宽高任意, 优雅的溢出.</li>
+<li>可用于更复杂高级的布局技术中.</li>
+</ul>
+<h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>IE8/IE9不支持</li>
+<li>需要浏览器厂商前缀</li>
+<li>渲染上可能会有一些问题</li>
+</ul>
+<p>5) 使用CSS3盒模型</p>
+<pre><code>.parent {
+      display: box;
+      box-orient: vertical;
+      box-pack: center;
+}    
+</code></pre><h5 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>实现简单, 扩展性强</li>
+</ul>
+<h5 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>兼容性差, 不支持IE</li>
+</ul>
+<p>6) 可用 transform , 设置父元素相对定位(position:relative), 子元素如下css样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	top:50%;</div><div class="line">	-webkit-transform: translate(-50%,-50%);  </div><div class="line">	-ms-transform: translate(-50%,-50%);</div><div class="line">	transform: translate(-50%,-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>代码量少</li>
+</ul>
+<h5 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>IE8不支持, 属性需要追加浏览器厂商前缀, 可能干扰其他 transform 效果, 某些情形下会出现文本或元素边界渲染模糊的现象.<br>元素高度固定</li>
+</ul>
+<h4 id="元素高度固定"><a href="#元素高度固定" class="headerlink" title="元素高度固定"></a>元素高度固定</h4><p>7) 设置父元素相对定位(position:relative), 子元素如下css样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	top:50%;</div><div class="line">	height:固定;</div><div class="line">	margin-top:-0.5高度;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>适用于所有浏览器.</li>
+</ul>
+<h5 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>父元素空间不够时, 子元素可能不可见(当浏览器窗口缩小时,滚动条不出现时).如果子元素设置了overflow:auto, 则高度不够时, 会出现滚动条.</li>
+</ul>
+<p>8) 设置父元素相对定位(position:relative), 子元素如下css样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.son&#123;</div><div class="line">	position:absolute;</div><div class="line">	height:固定;</div><div class="line">	top:0;</div><div class="line">	bottom:0;</div><div class="line">	margin:auto 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>简单</li>
+</ul>
+<h5 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>没有足够空间时, 子元素会被截断, 但不会有滚动条.</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>水平居中较为简单, 共提供了8种方法, 一般情况下 text-align:center,marin:0 auto; 足矣</p>
+<ul>
+<li>① text-align:center;</li>
+<li>② margin:0 auto;</li>
+<li>③ width:fit-content;</li>
+<li>④ flex</li>
+<li>⑤ 盒模型</li>
+<li>⑥ transform　</li>
+<li>⑦ ⑧两种不同的绝对定位方法</li>
+</ul>
+<h4 id="垂直居中-共提供了8种方法"><a href="#垂直居中-共提供了8种方法" class="headerlink" title="垂直居中, 共提供了8种方法."></a>垂直居中, 共提供了8种方法.</h4><ul>
+<li>① 单行文本, line-height</li>
+<li>② 行内块级元素, 使用 display: inline-block, vertical-align: middle; 加上伪元素辅助实现</li>
+<li>③ vertical-align</li>
+<li>④ flex</li>
+<li>⑤ 盒模型</li>
+<li>⑥ transform</li>
+<li>⑦ ⑧ 两种不同的绝对定位方法</li>
+</ul>
+<p>我们发现, flex, 盒模型, transform, 绝对定位, 这几种方法同时适用于水平居中和垂直居中.
+　　</p>
 
            -->
           <!-- 修改 end-->
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jsgu.net/2017/08/18/CSS制作水平垂直居中对齐/" data-id="cj6hbfe7f0004vgvup5ewsvsj" class="article-share-link">Share</a>
+      <a data-url="http://jsgu.net/2017/08/18/CSS制作水平垂直居中对齐/" data-id="cj6hc1jb60004qcvuqra5liae" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器兼容/">浏览器兼容</a></li></ul>
