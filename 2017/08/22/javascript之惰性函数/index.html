@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript之惰性函数 | 道心博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。">
+<meta name="keywords" content="js,闭包,函数,方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript之惰性函数">
+<meta property="og:url" content="http://jsgu.net/2017/08/22/javascript之惰性函数/index.html">
+<meta property="og:site_name" content="道心博客">
+<meta property="og:description" content="当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。">
+<meta property="og:updated_time" content="2017-08-22T08:12:08.699Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript之惰性函数">
+<meta name="twitter:description" content="当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。">
+  
+    <link rel="alternate" href="/atom.xml" title="道心博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">道心博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">观世间百态，聆俗世妙音</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories/css/">css</a>
+        
+          <a class="main-nav-link" href="/categories/html/">html</a>
+        
+          <a class="main-nav-link" href="/categories/javascript/">Javascript</a>
+        
+          <a class="main-nav-link" href="/categories/趣味代码/">趣味代码</a>
+        
+          <a class="main-nav-link" href="/categories/web自动化/">web自动化</a>
+        
+          <a class="main-nav-link" href="/categories/教程指导/">教程指导</a>
+        
+          <a class="main-nav-link" href="/categories/操作系统/">操作系统</a>
+        
+          <a class="main-nav-link" href="/categories/数据库/">数据库</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form id="form" name="f" target="_blank" action="//baidu.com/s" class="fm"><input type="hidden" name="ie" value="utf-8"><input type="hidden" name="f" value="8"><input type="hidden" name="rsv_bp" value="0"><input type="hidden" name="rsv_idx" value="1"><input type="hidden" name="ch" value=""><input type="hidden" name="tn" value="baidu"><input type="hidden" name="bar" value=""><span class="bg s_ipt_wr quickdelete-wrap"><span class="soutu-btn"></span><input id="kw" name="wd" class="s_ipt" value="Search site:liuhangbiao.com" maxlength="255" autocomplete="off"><a href="javascript:;" id="quickdelete" title="清空" class="quickdelete" style="top: 0px; right: 0px; display: none;"></a></span><span class="bg s_btn_wr"><input type="submit" id="su" value="" class="bg s_btn" style="display:none"></span><input type="hidden" name="rn" value=""><input type="hidden" name="oq" value=""><input type="hidden" name="rsv_pq" value="de6947dd00012a89"><input type="hidden" name="rsv_t" value="253fZHR9UXmkWFXEevzAlbBp/K8pF2LnRTw/fdFtTI/zk806EgGkvWXCgwE"><input type="hidden" name="rqlang" value="cn"><input type="hidden" name="rsv_enter" value="1"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript之惰性函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/22/javascript之惰性函数/" class="article-date">
+  <time datetime="2017-08-22T08:07:51.000Z" itemprop="datePublished">2017-08-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javascript之惰性函数
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <!-- 目录生成 -->
+          
+          <!-- 目录生成 end-->
+        <p>当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。</p>
+<a id="more"></a>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>我们现在需要写一个 foo 函数，这个函数返回首次调用时的 Date 对象，注意是首次。</p>
+<h3 id="解决一：普通方法"><a href="#解决一：普通方法" class="headerlink" title="解决一：普通方法"></a>解决一：普通方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> t;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (t) <span class="keyword">return</span> t;</div><div class="line">    t = <span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>问题有两个，一是污染了全局变量，二是每次调用 foo 的时候都需要进行一次判断。</p>
+<h3 id="解决二：闭包"><a href="#解决二：闭包" class="headerlink" title="解决二：闭包"></a>解决二：闭包</h3><p>我们很容易想到用闭包避免污染全局变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> t;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (t) <span class="keyword">return</span> t;</div><div class="line">        t = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">        <span class="keyword">return</span> t;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>然而还是没有解决调用时都必须进行一次判断的问题。</p>
+<h3 id="解决三：函数对象"><a href="#解决三：函数对象" class="headerlink" title="解决三：函数对象"></a>解决三：函数对象</h3><p>函数也是一种对象，利用这个特性，我们也可以解决这个问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (foo.t) <span class="keyword">return</span> foo.t;</div><div class="line">    foo.t = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">return</span> foo.t;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>依旧没有解决调用时都必须进行一次判断的问题。</p>
+<h3 id="解决四：惰性函数"><a href="#解决四：惰性函数" class="headerlink" title="解决四：惰性函数"></a>解决四：惰性函数</h3><p>不错，惰性函数就是解决每次都要进行判断的这个问题，解决原理很简单，重写函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> t = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> t;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> foo();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="更多应用"><a href="#更多应用" class="headerlink" title="更多应用"></a>更多应用</h3><p>DOM 事件添加中，为了兼容现代浏览器和 IE 浏览器，我们需要对浏览器环境进行一次判断：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 简化写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        el.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        el.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>问题在于我们每当使用一次 addEvent 时都会进行一次判断。</p>
+<p>利用惰性函数，我们可以这样做：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然我们也可以使用闭包的形式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> addEvent = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。</p>
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt3Q0URu'; 
+var conf = 'prod_791e9a8a0ae4a95b065f14864e25030f'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+<!--PC和WAP自适应版-->
+          <!-- 修改 -->
+         <!--  
+          
+            <p>当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。</p>
+<a id="more"></a>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>我们现在需要写一个 foo 函数，这个函数返回首次调用时的 Date 对象，注意是首次。</p>
+<h3 id="解决一：普通方法"><a href="#解决一：普通方法" class="headerlink" title="解决一：普通方法"></a>解决一：普通方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> t;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (t) <span class="keyword">return</span> t;</div><div class="line">    t = <span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>问题有两个，一是污染了全局变量，二是每次调用 foo 的时候都需要进行一次判断。</p>
+<h3 id="解决二：闭包"><a href="#解决二：闭包" class="headerlink" title="解决二：闭包"></a>解决二：闭包</h3><p>我们很容易想到用闭包避免污染全局变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> t;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (t) <span class="keyword">return</span> t;</div><div class="line">        t = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">        <span class="keyword">return</span> t;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>然而还是没有解决调用时都必须进行一次判断的问题。</p>
+<h3 id="解决三：函数对象"><a href="#解决三：函数对象" class="headerlink" title="解决三：函数对象"></a>解决三：函数对象</h3><p>函数也是一种对象，利用这个特性，我们也可以解决这个问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (foo.t) <span class="keyword">return</span> foo.t;</div><div class="line">    foo.t = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">return</span> foo.t;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>依旧没有解决调用时都必须进行一次判断的问题。</p>
+<h3 id="解决四：惰性函数"><a href="#解决四：惰性函数" class="headerlink" title="解决四：惰性函数"></a>解决四：惰性函数</h3><p>不错，惰性函数就是解决每次都要进行判断的这个问题，解决原理很简单，重写函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> t = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> t;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> foo();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="更多应用"><a href="#更多应用" class="headerlink" title="更多应用"></a>更多应用</h3><p>DOM 事件添加中，为了兼容现代浏览器和 IE 浏览器，我们需要对浏览器环境进行一次判断：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 简化写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        el.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        el.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>问题在于我们每当使用一次 addEvent 时都会进行一次判断。</p>
+<p>利用惰性函数，我们可以这样做：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        addEvent = <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然我们也可以使用闭包的形式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> addEvent = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">type, el, fn</span>) </span>&#123;</div><div class="line">            el.attachEvent(<span class="string">'on'</span> + type, fn);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。</p>
+
+           -->
+          <!-- 修改 end-->
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://jsgu.net/2017/08/22/javascript之惰性函数/" data-id="cj6nbcaqf001d90vuktyn3bgl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数/">函数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法/">方法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/18/CSS制作水平垂直居中对齐/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CSS制作水平垂直居中对齐</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">站内搜索</h3>
+    <form target="_blank"  class="widget">
+    	<input type="text" name="" id="bdcsMain">
+    </form>
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=7438562465354291317' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/22/javascript之惰性函数/">javascript之惰性函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/18/CSS制作水平垂直居中对齐/">CSS制作水平垂直居中对齐</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/14/前端网站及资料整理/">前端网站及资料整理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/11/Emmet使用指南/">Emmet使用指南</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/21/Cmd-Markdown-简明语法手册/">Cmd Markdown 简明语法手册</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Sublime-Text/" style="font-size: 10px;">Sublime Text</a> <a href="/tags/ajax/" style="font-size: 12px;">ajax</a> <a href="/tags/amd/" style="font-size: 10px;">amd</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/css/" style="font-size: 16px;">css</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/es5/" style="font-size: 10px;">es5</a> <a href="/tags/html/" style="font-size: 14px;">html</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/jquery/" style="font-size: 12px;">jquery</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/markdown/" style="font-size: 12px;">markdown</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12px;">npm</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/umd/" style="font-size: 10px;">umd</a> <a href="/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/web前端/" style="font-size: 10px;">web前端</a> <a href="/tags/函数/" style="font-size: 10px;">函数</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/帮助文档/" style="font-size: 10px;">帮助文档</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/文件读写/" style="font-size: 10px;">文件读写</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据'</a> <a href="/tags/浏览器兼容/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/网址收藏/" style="font-size: 10px;">网址收藏</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/装饰器/" style="font-size: 10px;">装饰器</a> <a href="/tags/语法提示/" style="font-size: 10px;">语法提示</a> <a href="/tags/语法规范/" style="font-size: 18px;">语法规范</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web自动化/">web自动化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/教程指导/">教程指导</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/综合整理/">综合整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/趣味代码/">趣味代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+    	<ul class="entry">
+        
+          <li class='link'><a href='http://www.taoeer.top/' target='_blank'>taoeer</a></li>
+        
+          <li class='link'><a href='http://ifxc.me/' target='_blank'>枫星辰</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 道心<br>
+      homepage <a href="https://github.com/liuhangbiao/liuhangbiao.github.io" target="_blank">Guthub</a>
+    </div>
+  </div>
+
+
+</footer>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"left","bdTop":"250.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/categories/css/" class="mobile-nav-link">css</a>
+  
+    <a href="/categories/html/" class="mobile-nav-link">html</a>
+  
+    <a href="/categories/javascript/" class="mobile-nav-link">Javascript</a>
+  
+    <a href="/categories/趣味代码/" class="mobile-nav-link">趣味代码</a>
+  
+    <a href="/categories/web自动化/" class="mobile-nav-link">web自动化</a>
+  
+    <a href="/categories/教程指导/" class="mobile-nav-link">教程指导</a>
+  
+    <a href="/categories/操作系统/" class="mobile-nav-link">操作系统</a>
+  
+    <a href="/categories/数据库/" class="mobile-nav-link">数据库</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
